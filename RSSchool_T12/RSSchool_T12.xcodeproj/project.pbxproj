@@ -15,6 +15,9 @@
 		4F1301142787BC010003E6B2 /* RSSchool_T12Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1301132787BC010003E6B2 /* RSSchool_T12Tests.swift */; };
 		4F13011E2787BC010003E6B2 /* RSSchool_T12UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13011D2787BC010003E6B2 /* RSSchool_T12UITests.swift */; };
 		4F1301202787BC010003E6B2 /* RSSchool_T12UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13011F2787BC010003E6B2 /* RSSchool_T12UITestsLaunchTests.swift */; };
+		4F13013D2787BDBF0003E6B2 /* UIColor + Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13013A2787BDBF0003E6B2 /* UIColor + Assets.swift */; };
+		4F13013E2787BDBF0003E6B2 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13013B2787BDBF0003E6B2 /* UIFont.swift */; };
+		4F13013F2787BDBF0003E6B2 /* UIImage + Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13013C2787BDBF0003E6B2 /* UIImage + Assets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,12 @@
 		4F1301192787BC010003E6B2 /* RSSchool_T12UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RSSchool_T12UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F13011D2787BC010003E6B2 /* RSSchool_T12UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSchool_T12UITests.swift; sourceTree = "<group>"; };
 		4F13011F2787BC010003E6B2 /* RSSchool_T12UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSchool_T12UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4F13013A2787BDBF0003E6B2 /* UIColor + Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor + Assets.swift"; sourceTree = "<group>"; };
+		4F13013B2787BDBF0003E6B2 /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		4F13013C2787BDBF0003E6B2 /* UIImage + Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage + Assets.swift"; sourceTree = "<group>"; };
+		4F1301442787BEA40003E6B2 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		4F1301462787BEA40003E6B2 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		4F1301472787BEBC0003E6B2 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +106,10 @@
 		4F1300F82787BBFF0003E6B2 /* RSSchool_T12 */ = {
 			isa = PBXGroup;
 			children = (
+				4F1301382787BDBF0003E6B2 /* Library */,
+				4F1301402787BDCE0003E6B2 /* Resources */,
 				4F1300F92787BBFF0003E6B2 /* AppDelegate.swift */,
 				4F1300FB2787BBFF0003E6B2 /* SceneDelegate.swift */,
-				4F1301052787BC010003E6B2 /* Assets.xcassets */,
 				4F1301072787BC010003E6B2 /* LaunchScreen.storyboard */,
 				4F13010A2787BC010003E6B2 /* Info.plist */,
 				4F1301022787BBFF0003E6B2 /* RSSchool_T12.xcdatamodeld */,
@@ -122,6 +132,43 @@
 				4F13011F2787BC010003E6B2 /* RSSchool_T12UITestsLaunchTests.swift */,
 			);
 			path = RSSchool_T12UITests;
+			sourceTree = "<group>";
+		};
+		4F1301382787BDBF0003E6B2 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				4F1301392787BDBF0003E6B2 /* Extensions */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		4F1301392787BDBF0003E6B2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4F13013A2787BDBF0003E6B2 /* UIColor + Assets.swift */,
+				4F13013B2787BDBF0003E6B2 /* UIFont.swift */,
+				4F13013C2787BDBF0003E6B2 /* UIImage + Assets.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4F1301402787BDCE0003E6B2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4F1301422787BDCE0003E6B2 /* Fonts */,
+				4F1301052787BC010003E6B2 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4F1301422787BDCE0003E6B2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4F1301462787BEA40003E6B2 /* Montserrat-Medium.ttf */,
+				4F1301472787BEBC0003E6B2 /* Montserrat-Regular.ttf */,
+				4F1301442787BEA40003E6B2 /* Montserrat-SemiBold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,8 +301,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F13013F2787BDBF0003E6B2 /* UIImage + Assets.swift in Sources */,
+				4F13013D2787BDBF0003E6B2 /* UIColor + Assets.swift in Sources */,
 				4F1301042787BBFF0003E6B2 /* RSSchool_T12.xcdatamodeld in Sources */,
 				4F1300FA2787BBFF0003E6B2 /* AppDelegate.swift in Sources */,
+				4F13013E2787BDBF0003E6B2 /* UIFont.swift in Sources */,
 				4F1300FC2787BBFF0003E6B2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
