@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F027C1A278F3FBD008A4B39 /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F027C15278F3FBD008A4B39 /* Transaction+CoreDataProperties.swift */; };
+		4F027C1B278F3FBD008A4B39 /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F027C16278F3FBD008A4B39 /* Transaction+CoreDataClass.swift */; };
+		4F027C1C278F3FBD008A4B39 /* Wallet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F027C18278F3FBD008A4B39 /* Wallet+CoreDataProperties.swift */; };
+		4F027C1D278F3FBD008A4B39 /* Wallet+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F027C19278F3FBD008A4B39 /* Wallet+CoreDataClass.swift */; };
 		4F1300FA2787BBFF0003E6B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1300F92787BBFF0003E6B2 /* AppDelegate.swift */; };
 		4F1300FC2787BBFF0003E6B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1300FB2787BBFF0003E6B2 /* SceneDelegate.swift */; };
 		4F1301042787BBFF0003E6B2 /* RSSchool_T12.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F1301022787BBFF0003E6B2 /* RSSchool_T12.xcdatamodeld */; };
@@ -52,6 +56,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F027C15278F3FBD008A4B39 /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4F027C16278F3FBD008A4B39 /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4F027C18278F3FBD008A4B39 /* Wallet+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Wallet+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4F027C19278F3FBD008A4B39 /* Wallet+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Wallet+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4F1300F62787BBFF0003E6B2 /* RSSchool_T12.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSchool_T12.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F1300F92787BBFF0003E6B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F1300FB2787BBFF0003E6B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +119,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F027C13278F3FBD008A4B39 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4F027C1E278F3FC3008A4B39 /* CoreData */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4F027C14278F3FBD008A4B39 /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				4F027C15278F3FBD008A4B39 /* Transaction+CoreDataProperties.swift */,
+				4F027C16278F3FBD008A4B39 /* Transaction+CoreDataClass.swift */,
+			);
+			path = Transaction;
+			sourceTree = "<group>";
+		};
+		4F027C17278F3FBD008A4B39 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				4F027C18278F3FBD008A4B39 /* Wallet+CoreDataProperties.swift */,
+				4F027C19278F3FBD008A4B39 /* Wallet+CoreDataClass.swift */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		4F027C1E278F3FC3008A4B39 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				4F027C14278F3FBD008A4B39 /* Transaction */,
+				4F027C17278F3FBD008A4B39 /* Wallet */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		4F1300ED2787BBFF0003E6B2 = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +177,7 @@
 		4F1300F82787BBFF0003E6B2 /* RSSchool_T12 */ = {
 			isa = PBXGroup;
 			children = (
+				4F027C13278F3FBD008A4B39 /* Models */,
 				4F68F34B278CB4A8002E7859 /* Modules */,
 				4F1301382787BDBF0003E6B2 /* Library */,
 				4F1301402787BDCE0003E6B2 /* Resources */,
@@ -441,12 +485,14 @@
 			files = (
 				4F68F33F278CAF0A002E7859 /* ModulesFactory.swift in Sources */,
 				4F13013F2787BDBF0003E6B2 /* UIImage + Assets.swift in Sources */,
+				4F027C1B278F3FBD008A4B39 /* Transaction+CoreDataClass.swift in Sources */,
 				4F68F344278CB2E7002E7859 /* CoordinatorFactoryProtocol.swift in Sources */,
 				4F13013D2787BDBF0003E6B2 /* UIColor + Assets.swift in Sources */,
 				4F1301042787BBFF0003E6B2 /* RSSchool_T12.xcdatamodeld in Sources */,
 				4F1300FA2787BBFF0003E6B2 /* AppDelegate.swift in Sources */,
 				4F68F352278CC914002E7859 /* Router.swift in Sources */,
 				4F68F339278CAD9C002E7859 /* Routable.swift in Sources */,
+				4F027C1A278F3FBD008A4B39 /* Transaction+CoreDataProperties.swift in Sources */,
 				4F68F354278DA698002E7859 /* UIApplication.swift in Sources */,
 				4F68F33B278CADC6002E7859 /* Presentable.swift in Sources */,
 				4F68F34E278CB4DB002E7859 /* MainCoordinatorOutput.swift in Sources */,
@@ -455,10 +501,12 @@
 				4FCF2624278CA907002C3E04 /* Coordinatable.swift in Sources */,
 				4F68F335278CABF0002E7859 /* AppCoordinator.swift in Sources */,
 				4F13013E2787BDBF0003E6B2 /* UIFont.swift in Sources */,
+				4F027C1D278F3FBD008A4B39 /* Wallet+CoreDataClass.swift in Sources */,
 				4F1300FC2787BBFF0003E6B2 /* SceneDelegate.swift in Sources */,
 				4F68F341278CB049002E7859 /* MainCoordinator.swift in Sources */,
 				4F68F337278CACD4002E7859 /* CoordinatorFactory.swift in Sources */,
 				4F68F349278CB345002E7859 /* MainFactoryProtocol.swift in Sources */,
+				4F027C1C278F3FBD008A4B39 /* Wallet+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
