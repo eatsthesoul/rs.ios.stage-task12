@@ -11,6 +11,7 @@
 		4F027C1B278F3FBD008A4B39 /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F027C16278F3FBD008A4B39 /* Transaction+CoreDataClass.swift */; };
 		4F027C1C278F3FBD008A4B39 /* Wallet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F027C18278F3FBD008A4B39 /* Wallet+CoreDataProperties.swift */; };
 		4F027C1D278F3FBD008A4B39 /* Wallet+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F027C19278F3FBD008A4B39 /* Wallet+CoreDataClass.swift */; };
+		4F0D486127959FD9008FF92D /* UIView + glassBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D486027959FD9008FF92D /* UIView + glassBackground.swift */; };
 		4F1300FA2787BBFF0003E6B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1300F92787BBFF0003E6B2 /* AppDelegate.swift */; };
 		4F1300FC2787BBFF0003E6B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1300FB2787BBFF0003E6B2 /* SceneDelegate.swift */; };
 		4F1301042787BBFF0003E6B2 /* RSSchool_T12.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F1301022787BBFF0003E6B2 /* RSSchool_T12.xcdatamodeld */; };
@@ -22,6 +23,13 @@
 		4F13013D2787BDBF0003E6B2 /* UIColor + Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13013A2787BDBF0003E6B2 /* UIColor + Assets.swift */; };
 		4F13013E2787BDBF0003E6B2 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13013B2787BDBF0003E6B2 /* UIFont.swift */; };
 		4F13013F2787BDBF0003E6B2 /* UIImage + Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13013C2787BDBF0003E6B2 /* UIImage + Assets.swift */; };
+		4F4665FB278F84D400228418 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4665FA278F84D400228418 /* NavigationBar.swift */; };
+		4F4665FD278F84DF00228418 /* NavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F4665FC278F84DF00228418 /* NavigationBar.xib */; };
+		4F466601279058E900228418 /* BarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F466600279058E900228418 /* BarButton.swift */; };
+		4F4666072791F9AB00228418 /* GlassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4666062791F9AB00228418 /* GlassView.swift */; };
+		4F46660F279218EF00228418 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1301462787BEA40003E6B2 /* Montserrat-Medium.ttf */; };
+		4F466610279218F100228418 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1301472787BEBC0003E6B2 /* Montserrat-Regular.ttf */; };
+		4F466611279218F300228418 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1301442787BEA40003E6B2 /* Montserrat-SemiBold.ttf */; };
 		4F68F335278CABF0002E7859 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F68F334278CABF0002E7859 /* AppCoordinator.swift */; };
 		4F68F337278CACD4002E7859 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F68F336278CACD4002E7859 /* CoordinatorFactory.swift */; };
 		4F68F339278CAD9C002E7859 /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F68F338278CAD9C002E7859 /* Routable.swift */; };
@@ -60,13 +68,14 @@
 		4F027C16278F3FBD008A4B39 /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4F027C18278F3FBD008A4B39 /* Wallet+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Wallet+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4F027C19278F3FBD008A4B39 /* Wallet+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Wallet+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4F0D485E27921A5B008FF92D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F0D486027959FD9008FF92D /* UIView + glassBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + glassBackground.swift"; sourceTree = "<group>"; };
 		4F1300F62787BBFF0003E6B2 /* RSSchool_T12.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSchool_T12.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F1300F92787BBFF0003E6B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F1300FB2787BBFF0003E6B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4F1301032787BBFF0003E6B2 /* RSSchool_T12.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RSSchool_T12.xcdatamodel; sourceTree = "<group>"; };
 		4F1301052787BC010003E6B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F1301082787BC010003E6B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		4F13010A2787BC010003E6B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F13010F2787BC010003E6B2 /* RSSchool_T12Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RSSchool_T12Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F1301132787BC010003E6B2 /* RSSchool_T12Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSchool_T12Tests.swift; sourceTree = "<group>"; };
 		4F1301192787BC010003E6B2 /* RSSchool_T12UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RSSchool_T12UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +87,10 @@
 		4F1301442787BEA40003E6B2 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		4F1301462787BEA40003E6B2 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		4F1301472787BEBC0003E6B2 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		4F4665FA278F84D400228418 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		4F4665FC278F84DF00228418 /* NavigationBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationBar.xib; sourceTree = "<group>"; };
+		4F466600279058E900228418 /* BarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButton.swift; sourceTree = "<group>"; };
+		4F4666062791F9AB00228418 /* GlassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassView.swift; sourceTree = "<group>"; };
 		4F68F334278CABF0002E7859 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		4F68F336278CACD4002E7859 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
 		4F68F338278CAD9C002E7859 /* Routable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routable.swift; sourceTree = "<group>"; };
@@ -207,6 +220,7 @@
 		4F1301382787BDBF0003E6B2 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				4F4665F8278F849F00228418 /* Views */,
 				4F68F356278DDCC0002E7859 /* Base */,
 				4F68F342278CB2CA002E7859 /* Factories */,
 				4F68F350278CC909002E7859 /* Helpers */,
@@ -223,6 +237,7 @@
 				4F13013B2787BDBF0003E6B2 /* UIFont.swift */,
 				4F13013C2787BDBF0003E6B2 /* UIImage + Assets.swift */,
 				4F68F353278DA698002E7859 /* UIApplication.swift */,
+				4F0D486027959FD9008FF92D /* UIView + glassBackground.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -245,6 +260,25 @@
 				4F1301442787BEA40003E6B2 /* Montserrat-SemiBold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		4F4665F8278F849F00228418 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4F4665F9278F84AA00228418 /* NavigationBar */,
+				4F466600279058E900228418 /* BarButton.swift */,
+				4F4666062791F9AB00228418 /* GlassView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4F4665F9278F84AA00228418 /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				4F4665FA278F84D400228418 /* NavigationBar.swift */,
+				4F4665FC278F84DF00228418 /* NavigationBar.xib */,
+			);
+			path = NavigationBar;
 			sourceTree = "<group>";
 		};
 		4F68F342278CB2CA002E7859 /* Factories */ = {
@@ -347,8 +381,8 @@
 				4F1300F92787BBFF0003E6B2 /* AppDelegate.swift */,
 				4F1300FB2787BBFF0003E6B2 /* SceneDelegate.swift */,
 				4F68F334278CABF0002E7859 /* AppCoordinator.swift */,
+				4F0D485E27921A5B008FF92D /* Info.plist */,
 				4F1301072787BC010003E6B2 /* LaunchScreen.storyboard */,
-				4F13010A2787BC010003E6B2 /* Info.plist */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -457,6 +491,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F466610279218F100228418 /* Montserrat-Regular.ttf in Resources */,
+				4F46660F279218EF00228418 /* Montserrat-Medium.ttf in Resources */,
+				4F466611279218F300228418 /* Montserrat-SemiBold.ttf in Resources */,
+				4F4665FD278F84DF00228418 /* NavigationBar.xib in Resources */,
 				4F1301092787BC010003E6B2 /* LaunchScreen.storyboard in Resources */,
 				4F1301062787BC010003E6B2 /* Assets.xcassets in Resources */,
 			);
@@ -488,6 +526,7 @@
 				4F027C1B278F3FBD008A4B39 /* Transaction+CoreDataClass.swift in Sources */,
 				4F68F344278CB2E7002E7859 /* CoordinatorFactoryProtocol.swift in Sources */,
 				4F13013D2787BDBF0003E6B2 /* UIColor + Assets.swift in Sources */,
+				4F4665FB278F84D400228418 /* NavigationBar.swift in Sources */,
 				4F1301042787BBFF0003E6B2 /* RSSchool_T12.xcdatamodeld in Sources */,
 				4F1300FA2787BBFF0003E6B2 /* AppDelegate.swift in Sources */,
 				4F68F352278CC914002E7859 /* Router.swift in Sources */,
@@ -501,9 +540,12 @@
 				4FCF2624278CA907002C3E04 /* Coordinatable.swift in Sources */,
 				4F68F335278CABF0002E7859 /* AppCoordinator.swift in Sources */,
 				4F13013E2787BDBF0003E6B2 /* UIFont.swift in Sources */,
+				4F4666072791F9AB00228418 /* GlassView.swift in Sources */,
 				4F027C1D278F3FBD008A4B39 /* Wallet+CoreDataClass.swift in Sources */,
 				4F1300FC2787BBFF0003E6B2 /* SceneDelegate.swift in Sources */,
+				4F466601279058E900228418 /* BarButton.swift in Sources */,
 				4F68F341278CB049002E7859 /* MainCoordinator.swift in Sources */,
+				4F0D486127959FD9008FF92D /* UIView + glassBackground.swift in Sources */,
 				4F68F337278CACD4002E7859 /* CoordinatorFactory.swift in Sources */,
 				4F68F349278CB345002E7859 /* MainFactoryProtocol.swift in Sources */,
 				4F027C1C278F3FBD008A4B39 /* Wallet+CoreDataProperties.swift in Sources */,

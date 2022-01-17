@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-SemiBold.ttf">
+            <string>Montserrat-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavigationBar" customModule="RSSchool_T12" customModuleProvider="target">
+            <connections>
+                <outlet property="leadingTitleConstraint" destination="ASv-2e-tZQ" id="AM8-51-kl6"/>
+                <outlet property="leftButton" destination="6Z4-Mh-M9v" id="v63-5T-wDI"/>
+                <outlet property="rightButton" destination="gkB-EL-j9k" id="wFS-u3-hK2"/>
+                <outlet property="titleLabel" destination="zpZ-RH-C1l" id="EbR-hQ-Bn0"/>
+                <outlet property="trailingTitleConstraint" destination="L6h-Ow-Ny6" id="sZc-dK-ndB"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view opaque="NO" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="380" height="75"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Z4-Mh-M9v" customClass="BarButton" customModule="RSSchool_T12" customModuleProvider="target">
+                    <rect key="frame" x="30" y="17.5" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="VcN-E5-fhG"/>
+                        <constraint firstAttribute="height" constant="40" id="j06-FB-IrF"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title=""/>
+                    <connections>
+                        <action selector="leftButtonAction:" destination="-1" eventType="touchUpInside" id="i7n-hZ-Pvk"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpZ-RH-C1l">
+                    <rect key="frame" x="90" y="22.5" width="200" height="30"/>
+                    <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkB-EL-j9k" customClass="BarButton" customModule="RSSchool_T12" customModuleProvider="target">
+                    <rect key="frame" x="310" y="17.5" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="1XS-KJ-ntT"/>
+                        <constraint firstAttribute="height" constant="40" id="N1t-Ge-mA6"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title=""/>
+                    <connections>
+                        <action selector="rightButtonAction:" destination="-1" eventType="touchUpInside" id="pTe-LI-BCx"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="6Z4-Mh-M9v" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="39g-0F-8p6"/>
+                <constraint firstItem="zpZ-RH-C1l" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="90" id="ASv-2e-tZQ"/>
+                <constraint firstItem="zpZ-RH-C1l" firstAttribute="leading" secondItem="6Z4-Mh-M9v" secondAttribute="trailing" constant="20" id="Cnt-3Z-Ckw"/>
+                <constraint firstItem="zpZ-RH-C1l" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="FNV-vv-9AX"/>
+                <constraint firstItem="6Z4-Mh-M9v" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="HPh-Zv-8Wq"/>
+                <constraint firstAttribute="trailing" secondItem="zpZ-RH-C1l" secondAttribute="trailing" constant="90" id="L6h-Ow-Ny6"/>
+                <constraint firstItem="gkB-EL-j9k" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="LYZ-9k-U0P"/>
+                <constraint firstItem="gkB-EL-j9k" firstAttribute="leading" secondItem="zpZ-RH-C1l" secondAttribute="trailing" constant="20" id="MzT-OD-YS2"/>
+                <constraint firstAttribute="trailing" secondItem="gkB-EL-j9k" secondAttribute="trailing" constant="30" id="WA7-MT-JKl"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="224.63768115942031" y="-97.433035714285708"/>
+        </view>
+    </objects>
+</document>
