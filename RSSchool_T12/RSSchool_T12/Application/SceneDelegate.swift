@@ -12,6 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     fileprivate lazy var coordinator: Coordinatable = makeCoordinator()
+    fileprivate let themeManager: ColorThemeManagerProtocol = ColorThemeManager()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
@@ -20,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = UINavigationController()
         window?.makeKeyAndVisible()
         coordinator.start()
+        setupAppearance()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -60,5 +62,9 @@ private extension SceneDelegate {
     
     func makeCoordinator() -> Coordinatable {
         return AppCoordinator(router: Router(), factory: CoordinatorFactory())
+    }
+    
+    func setupAppearance() {
+        themeManager.setTheme()
     }
 }
