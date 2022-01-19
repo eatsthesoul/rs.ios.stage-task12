@@ -43,10 +43,8 @@
 		4F68F339278CAD9C002E7859 /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F68F338278CAD9C002E7859 /* Routable.swift */; };
 		4F68F33B278CADC6002E7859 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F68F33A278CADC6002E7859 /* Presentable.swift */; };
 		4F68F33D278CAE40002E7859 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F68F33C278CAE40002E7859 /* Constants.swift */; };
-		4F68F33F278CAF0A002E7859 /* ModulesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F68F33E278CAF0A002E7859 /* ModulesFactory.swift */; };
 		4F68F341278CB049002E7859 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F68F340278CB049002E7859 /* MainCoordinator.swift */; };
 		4F68F344278CB2E7002E7859 /* CoordinatorFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F68F343278CB2E7002E7859 /* CoordinatorFactoryProtocol.swift */; };
-		4F68F349278CB345002E7859 /* MainFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F68F348278CB345002E7859 /* MainFactoryProtocol.swift */; };
 		4F68F34E278CB4DB002E7859 /* MainCoordinatorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F68F34D278CB4DB002E7859 /* MainCoordinatorOutput.swift */; };
 		4F68F352278CC914002E7859 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F68F351278CC914002E7859 /* Router.swift */; };
 		4F68F354278DA698002E7859 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F68F353278DA698002E7859 /* UIApplication.swift */; };
@@ -117,10 +115,8 @@
 		4F68F338278CAD9C002E7859 /* Routable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routable.swift; sourceTree = "<group>"; };
 		4F68F33A278CADC6002E7859 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		4F68F33C278CAE40002E7859 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		4F68F33E278CAF0A002E7859 /* ModulesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModulesFactory.swift; sourceTree = "<group>"; };
 		4F68F340278CB049002E7859 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		4F68F343278CB2E7002E7859 /* CoordinatorFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactoryProtocol.swift; sourceTree = "<group>"; };
-		4F68F348278CB345002E7859 /* MainFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFactoryProtocol.swift; sourceTree = "<group>"; };
 		4F68F34D278CB4DB002E7859 /* MainCoordinatorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorOutput.swift; sourceTree = "<group>"; };
 		4F68F351278CC914002E7859 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		4F68F353278DA698002E7859 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
@@ -339,7 +335,6 @@
 			isa = PBXGroup;
 			children = (
 				4F68F345278CB302002E7859 /* Coordinator */,
-				4F68F346278CB315002E7859 /* Modules */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -351,23 +346,6 @@
 				4F68F336278CACD4002E7859 /* CoordinatorFactory.swift */,
 			);
 			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		4F68F346278CB315002E7859 /* Modules */ = {
-			isa = PBXGroup;
-			children = (
-				4F68F33E278CAF0A002E7859 /* ModulesFactory.swift */,
-				4F68F347278CB334002E7859 /* Main */,
-			);
-			path = Modules;
-			sourceTree = "<group>";
-		};
-		4F68F347278CB334002E7859 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				4F68F348278CB345002E7859 /* MainFactoryProtocol.swift */,
-			);
-			path = Main;
 			sourceTree = "<group>";
 		};
 		4F68F34A278CB398002E7859 /* Protocols */ = {
@@ -618,7 +596,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F0D48A62796F8AE008FF92D /* ColorThemeManager.swift in Sources */,
-				4F68F33F278CAF0A002E7859 /* ModulesFactory.swift in Sources */,
 				4F13013F2787BDBF0003E6B2 /* UIImage + Assets.swift in Sources */,
 				4F027C1B278F3FBD008A4B39 /* Transaction+CoreDataClass.swift in Sources */,
 				4F68F344278CB2E7002E7859 /* CoordinatorFactoryProtocol.swift in Sources */,
@@ -648,7 +625,6 @@
 				4F0D48AA27983FFB008FF92D /* BackgroundPresentable.swift in Sources */,
 				4F0D486127959FD9008FF92D /* UIView.swift in Sources */,
 				4F68F337278CACD4002E7859 /* CoordinatorFactory.swift in Sources */,
-				4F68F349278CB345002E7859 /* MainFactoryProtocol.swift in Sources */,
 				4F027C1C278F3FBD008A4B39 /* Wallet+CoreDataProperties.swift in Sources */,
 				53E2862CB967D2D15281F9B9 /* WalletSettingsViewInput.swift in Sources */,
 				9FB7892A597DA8F8FA11A295 /* WalletSettingsViewOutput.swift in Sources */,

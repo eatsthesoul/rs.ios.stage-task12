@@ -14,6 +14,6 @@ final class CoordinatorFactory {
 // MARK: - CoordinatorFactoryProtocol
 extension CoordinatorFactory: CoordinatorFactoryProtocol {
     func makeMainCoordinator(router: Routable) -> Coordinatable & MainCoordinatorOutput {
-        return MainCoordinator(with: modulesFactory, router: router)
+        return MainCoordinator(router: router)
     }
 }

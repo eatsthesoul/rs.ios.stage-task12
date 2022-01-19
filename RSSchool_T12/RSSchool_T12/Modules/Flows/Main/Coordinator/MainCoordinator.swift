@@ -12,11 +12,9 @@ final class MainCoordinator: BaseCoordinator, MainCoordinatorOutput {
     
     var finishFlow: CompletionBlock?
     
-    fileprivate let factory: MainFactoryProtocol
     fileprivate let router: Routable
     
-    init(with factory: MainFactoryProtocol, router: Routable) {
-        self.factory = factory
+    init(router: Routable) {
         self.router  = router
     }
 }
