@@ -12,12 +12,14 @@
 		4F027C1B278F3FBD008A4B39 /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F027C16278F3FBD008A4B39 /* Transaction+CoreDataClass.swift */; };
 		4F027C1C278F3FBD008A4B39 /* Wallet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F027C18278F3FBD008A4B39 /* Wallet+CoreDataProperties.swift */; };
 		4F027C1D278F3FBD008A4B39 /* Wallet+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F027C19278F3FBD008A4B39 /* Wallet+CoreDataClass.swift */; };
-		4F0D486127959FD9008FF92D /* UIView + glassBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D486027959FD9008FF92D /* UIView + glassBackground.swift */; };
+		4F0D486127959FD9008FF92D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D486027959FD9008FF92D /* UIView.swift */; };
 		4F0D489F2796E983008FF92D /* WalletSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D489D2796E983008FF92D /* WalletSettingsViewController.swift */; };
 		4F0D48A02796E983008FF92D /* WalletSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F0D489E2796E983008FF92D /* WalletSettingsViewController.xib */; };
 		4F0D48A32796F306008FF92D /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D48A22796F306008FF92D /* ColorTheme.swift */; };
 		4F0D48A62796F8AE008FF92D /* ColorThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D48A52796F8AE008FF92D /* ColorThemeManager.swift */; };
-		4F0D48A827971652008FF92D /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D48A727971652008FF92D /* BackgroundView.swift */; };
+		4F0D48A827971652008FF92D /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D48A727971652008FF92D /* ThemeView.swift */; };
+		4F0D48AA27983FFB008FF92D /* BackgroundPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D48A927983FFB008FF92D /* BackgroundPresentable.swift */; };
+		4F0D48AC279842BF008FF92D /* BackgroundViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D48AB279842BF008FF92D /* BackgroundViewType.swift */; };
 		4F1300FA2787BBFF0003E6B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1300F92787BBFF0003E6B2 /* AppDelegate.swift */; };
 		4F1300FC2787BBFF0003E6B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1300FB2787BBFF0003E6B2 /* SceneDelegate.swift */; };
 		4F1301042787BBFF0003E6B2 /* RSSchool_T12.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F1301022787BBFF0003E6B2 /* RSSchool_T12.xcdatamodeld */; };
@@ -81,12 +83,14 @@
 		4F027C18278F3FBD008A4B39 /* Wallet+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Wallet+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4F027C19278F3FBD008A4B39 /* Wallet+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Wallet+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4F0D485E27921A5B008FF92D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4F0D486027959FD9008FF92D /* UIView + glassBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + glassBackground.swift"; sourceTree = "<group>"; };
+		4F0D486027959FD9008FF92D /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		4F0D489D2796E983008FF92D /* WalletSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletSettingsViewController.swift; sourceTree = "<group>"; };
 		4F0D489E2796E983008FF92D /* WalletSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletSettingsViewController.xib; sourceTree = "<group>"; };
 		4F0D48A22796F306008FF92D /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		4F0D48A52796F8AE008FF92D /* ColorThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeManager.swift; sourceTree = "<group>"; };
-		4F0D48A727971652008FF92D /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		4F0D48A727971652008FF92D /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
+		4F0D48A927983FFB008FF92D /* BackgroundPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundPresentable.swift; sourceTree = "<group>"; };
+		4F0D48AB279842BF008FF92D /* BackgroundViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundViewType.swift; sourceTree = "<group>"; };
 		4F1300F62787BBFF0003E6B2 /* RSSchool_T12.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSchool_T12.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F1300F92787BBFF0003E6B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F1300FB2787BBFF0003E6B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -206,6 +210,15 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		4F0D48AD279846F0008FF92D /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				4F0D48AB279842BF008FF92D /* BackgroundViewType.swift */,
+				4F0D48A927983FFB008FF92D /* BackgroundPresentable.swift */,
+			);
+			path = Background;
+			sourceTree = "<group>";
+		};
 		4F1300ED2787BBFF0003E6B2 = {
 			isa = PBXGroup;
 			children = (
@@ -277,7 +290,7 @@
 				4F13013B2787BDBF0003E6B2 /* UIFont.swift */,
 				4F13013C2787BDBF0003E6B2 /* UIImage + Assets.swift */,
 				4F68F353278DA698002E7859 /* UIApplication.swift */,
-				4F0D486027959FD9008FF92D /* UIView + glassBackground.swift */,
+				4F0D486027959FD9008FF92D /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -308,7 +321,7 @@
 				4F4665F9278F84AA00228418 /* NavigationBar */,
 				4F466600279058E900228418 /* BarButton.swift */,
 				4F4666062791F9AB00228418 /* GlassView.swift */,
-				4F0D48A727971652008FF92D /* BackgroundView.swift */,
+				4F0D48A727971652008FF92D /* ThemeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -363,6 +376,7 @@
 				4FCF2623278CA907002C3E04 /* Coordinatable.swift */,
 				4F68F338278CAD9C002E7859 /* Routable.swift */,
 				4F68F33A278CADC6002E7859 /* Presentable.swift */,
+				4F0D48AD279846F0008FF92D /* Background */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -613,6 +627,7 @@
 				4F1301042787BBFF0003E6B2 /* RSSchool_T12.xcdatamodeld in Sources */,
 				4F1300FA2787BBFF0003E6B2 /* AppDelegate.swift in Sources */,
 				4F68F352278CC914002E7859 /* Router.swift in Sources */,
+				4F0D48AC279842BF008FF92D /* BackgroundViewType.swift in Sources */,
 				4F0D48A32796F306008FF92D /* ColorTheme.swift in Sources */,
 				4F68F339278CAD9C002E7859 /* Routable.swift in Sources */,
 				4F027C1A278F3FBD008A4B39 /* Transaction+CoreDataProperties.swift in Sources */,
@@ -630,7 +645,8 @@
 				4F1300FC2787BBFF0003E6B2 /* SceneDelegate.swift in Sources */,
 				4F466601279058E900228418 /* BarButton.swift in Sources */,
 				4F68F341278CB049002E7859 /* MainCoordinator.swift in Sources */,
-				4F0D486127959FD9008FF92D /* UIView + glassBackground.swift in Sources */,
+				4F0D48AA27983FFB008FF92D /* BackgroundPresentable.swift in Sources */,
+				4F0D486127959FD9008FF92D /* UIView.swift in Sources */,
 				4F68F337278CACD4002E7859 /* CoordinatorFactory.swift in Sources */,
 				4F68F349278CB345002E7859 /* MainFactoryProtocol.swift in Sources */,
 				4F027C1C278F3FBD008A4B39 /* Wallet+CoreDataProperties.swift in Sources */,
@@ -639,7 +655,7 @@
 				84EF12AF53D36C4A9D9ED12E /* WalletSettingsModuleConfigurator.swift in Sources */,
 				F22B1F1FE9313CF3A197F185 /* AddWalletPresenter.swift in Sources */,
 				8F1635240987BB10C27FC103 /* AddWalletModuleInput.swift in Sources */,
-				4F0D48A827971652008FF92D /* BackgroundView.swift in Sources */,
+				4F0D48A827971652008FF92D /* ThemeView.swift in Sources */,
 				3CAB5E9AA8111FF270C189B3 /* AddWalletModuleOutput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BackgroundView: UIImageView {
+class ThemeView: UIImageView, BackgroundViewType {
     
     init() {
         super.init(frame: .zero)

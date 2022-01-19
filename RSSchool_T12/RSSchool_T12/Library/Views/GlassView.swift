@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class GlassView: UIView {
+final class GlassView: UIView, BackgroundViewType {
     
     var cornerRadius: CGFloat {
         didSet {

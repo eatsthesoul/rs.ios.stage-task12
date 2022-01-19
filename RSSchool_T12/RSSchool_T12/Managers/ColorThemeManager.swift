@@ -18,7 +18,7 @@ class ColorThemeManager: ColorThemeManagerProtocol {
     
     private static var colorTheme: ColorTheme? {
         didSet {
-            BackgroundView.appearance().image = colorTheme?.image
+            ThemeView.appearance().image = colorTheme?.image
         }
     }
     
