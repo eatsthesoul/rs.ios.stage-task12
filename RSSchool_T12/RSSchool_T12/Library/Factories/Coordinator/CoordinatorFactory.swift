@@ -8,7 +8,7 @@
 import UIKit
 
 final class CoordinatorFactory {
-    fileprivate let modulesFactory = ModulesFactory()
+    
 }
 
 // MARK: - CoordinatorFactoryProtocol

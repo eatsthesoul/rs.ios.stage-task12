@@ -20,7 +20,7 @@ class NavigationBar: UIView {
     @IBOutlet weak var trailingTitleConstraint: NSLayoutConstraint!
     
     var leftButtonHandler: CompletionBlock?
-    var rightButtonHandler: ( () -> Void )?
+    var rightButtonHandler: CompletionBlock?
     
     @IBInspectable var leftButtonStyle: Int {
         get { leftButton.style.rawValue }
@@ -33,19 +33,19 @@ class NavigationBar: UIView {
     }
 
     @IBInspectable var leftButtonImage: UIImage? {
-        willSet {
-            leftButton.setImage(newValue, for: .normal)
-            leftButton.isHidden = newValue == nil
-            leftButton.setImage(newValue?.withTintColor(.deepSaffron), for: .highlighted)
+        didSet {
+            leftButton.setImage(leftButtonImage, for: .normal)
+            leftButton.isHidden = leftButtonImage == nil
+            leftButton.setImage(leftButtonImage?.withTintColor(.deepSaffron), for: .highlighted)
             setupButtons()
         }
     }
 
     @IBInspectable var rightButtonImage: UIImage? {
-        willSet {
-            rightButton.setImage(newValue, for: .normal)
-            rightButton.isHidden = (newValue == nil)
-            rightButton.setImage(newValue?.withTintColor(.deepSaffron), for: .highlighted)
+        didSet {
+            rightButton.setImage(rightButtonImage, for: .normal)
+            rightButton.isHidden = (rightButtonImage == nil)
+            rightButton.setImage(rightButtonImage?.withTintColor(.deepSaffron), for: .highlighted)
             setupButtons()
         }
     }
@@ -63,14 +63,12 @@ class NavigationBar: UIView {
         xibSetup()
         makeGlassBackground(with: 20)
         setupButtons()
-        view.backgroundColor = .clear
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         xibSetup()
         makeGlassBackground(with: 20)
-        view.backgroundColor = .clear
     }
     
     override func awakeFromNib() {
