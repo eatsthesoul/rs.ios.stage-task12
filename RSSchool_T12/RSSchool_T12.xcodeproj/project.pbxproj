@@ -20,6 +20,8 @@
 		4F0D48A827971652008FF92D /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D48A727971652008FF92D /* ThemeView.swift */; };
 		4F0D48AA27983FFB008FF92D /* BackgroundPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D48A927983FFB008FF92D /* BackgroundPresentable.swift */; };
 		4F0D48AC279842BF008FF92D /* BackgroundViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D48AB279842BF008FF92D /* BackgroundViewType.swift */; };
+		4F0D48AF27996BF6008FF92D /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D48AE27996BF6008FF92D /* TextField.swift */; };
+		4F0D48B12799BFDD008FF92D /* WalletSettingsPreseneterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D48B02799BFDD008FF92D /* WalletSettingsPreseneterType.swift */; };
 		4F1300FA2787BBFF0003E6B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1300F92787BBFF0003E6B2 /* AppDelegate.swift */; };
 		4F1300FC2787BBFF0003E6B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1300FB2787BBFF0003E6B2 /* SceneDelegate.swift */; };
 		4F1301042787BBFF0003E6B2 /* RSSchool_T12.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F1301022787BBFF0003E6B2 /* RSSchool_T12.xcdatamodeld */; };
@@ -89,6 +91,8 @@
 		4F0D48A727971652008FF92D /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
 		4F0D48A927983FFB008FF92D /* BackgroundPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundPresentable.swift; sourceTree = "<group>"; };
 		4F0D48AB279842BF008FF92D /* BackgroundViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundViewType.swift; sourceTree = "<group>"; };
+		4F0D48AE27996BF6008FF92D /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		4F0D48B02799BFDD008FF92D /* WalletSettingsPreseneterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletSettingsPreseneterType.swift; sourceTree = "<group>"; };
 		4F1300F62787BBFF0003E6B2 /* RSSchool_T12.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSchool_T12.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F1300F92787BBFF0003E6B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F1300FB2787BBFF0003E6B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -318,6 +322,7 @@
 				4F466600279058E900228418 /* BarButton.swift */,
 				4F4666062791F9AB00228418 /* GlassView.swift */,
 				4F0D48A727971652008FF92D /* ThemeView.swift */,
+				4F0D48AE27996BF6008FF92D /* TextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -613,6 +618,7 @@
 				4F68F34E278CB4DB002E7859 /* MainCoordinatorOutput.swift in Sources */,
 				4F0D489F2796E983008FF92D /* WalletSettingsViewController.swift in Sources */,
 				4FCF2622278CA8CD002C3E04 /* BaseCoordinator.swift in Sources */,
+				4F0D48AF27996BF6008FF92D /* TextField.swift in Sources */,
 				4F68F33D278CAE40002E7859 /* Constants.swift in Sources */,
 				4FCF2624278CA907002C3E04 /* Coordinatable.swift in Sources */,
 				4F68F335278CABF0002E7859 /* AppCoordinator.swift in Sources */,
