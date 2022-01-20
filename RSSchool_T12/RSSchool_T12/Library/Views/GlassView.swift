@@ -9,8 +9,10 @@ import UIKit
 
 final class GlassView: UIView, BackgroundViewType {
     
-    var cornerRadius: CGFloat {
-        didSet {
+    @IBInspectable var cornerRadius: CGFloat {
+        get { layer.cornerRadius }
+        set {
+            layer.cornerRadius = newValue
             updateCornerRadius()
         }
     }
@@ -22,15 +24,6 @@ final class GlassView: UIView, BackgroundViewType {
         layer.startPoint = CGPoint(x: 0, y: 0)
         layer.endPoint = CGPoint(x: 1, y: 0.5)
         layer.cornerRadius = cornerRadius
-        return layer
-    }()
-    
-    private lazy var shadowLayer: CALayer = {
-        let layer = CALayer()
-        layer.shadowColor = UIColor.black.withAlphaComponent(0.05).cgColor
-        layer.shadowRadius = 100
-        layer.shadowOffset = CGSize(width: 5, height: 5)
-        layer.shadowOpacity = 1
         return layer
     }()
     
@@ -52,19 +45,17 @@ final class GlassView: UIView, BackgroundViewType {
     }()
     
     init(with cornerRadius: CGFloat) {
-        self.cornerRadius = cornerRadius
         super.init(frame: .zero)
+        self.cornerRadius = cornerRadius
         setupAppearance()
     }
     
     override init(frame: CGRect) {
-        cornerRadius = 0
         super.init(frame: frame)
         setupAppearance()
     }
     
     required init?(coder: NSCoder) {
-        cornerRadius = 0
         super.init(coder: coder)
         setupAppearance()
     }
@@ -76,13 +67,10 @@ final class GlassView: UIView, BackgroundViewType {
     override func layoutSubviews() {
         super.layoutSubviews()
         borderLayer.frame = layer.bounds
-        shadowLayer.frame = layer.bounds
         gradientLayer.frame = layer.bounds
         
         borderShapeLayerMask.path = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath
         borderLayer.mask = borderShapeLayerMask
-        
-        shadowLayer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath
     }
 }
 
@@ -91,8 +79,7 @@ final class GlassView: UIView, BackgroundViewType {
 private extension GlassView {
     
     func setupAppearance() {
-        layer.insertSublayer(shadowLayer, at: 0)
-        layer.insertSublayer(gradientLayer, at: 1)
+        layer.insertSublayer(gradientLayer, at: 0)
         layer.addSublayer(borderLayer)
         
         backgroundColor = .clear
