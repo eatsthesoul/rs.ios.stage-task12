@@ -22,13 +22,15 @@ final class MainCoordinator: BaseCoordinator, MainCoordinatorOutput {
 // MARK: - Coordinatable
 extension MainCoordinator: Coordinatable {
     func start() {
-        performFlow()
+        showCreateWallet()
     }
 }
 
 // MARK: - Private methods
 private extension MainCoordinator {
-    func performFlow() {
-        
+    func showCreateWallet() {
+        let walletSettingsConfigurator = WalletSettingsModuleConfigurator()
+        let (view, output) = walletSettingsConfigurator.configure()
+        router.setNavigationControllerRootModule(view, hideBar: true)
     }
 }

@@ -7,6 +7,9 @@
 //
 
 protocol WalletSettingsViewOutput {
-    /// Notify presenter that view is ready
     func viewLoaded()
+    func leftNavigationBarButtonTapped()
+    func rightNavigationBarButtonTapped()
+    func didTapOnColorThemePanel()
+    func didTapOnCurrencyPanel()
 }

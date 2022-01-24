@@ -7,6 +7,5 @@
 //
 
 protocol WalletSettingsViewInput: AnyObject {
-    /// Method for setup initial state of view
-    func setupInitialState()
+    func setupInitialState(for presenterType: WalletSettingsPreseneterType)
 }
