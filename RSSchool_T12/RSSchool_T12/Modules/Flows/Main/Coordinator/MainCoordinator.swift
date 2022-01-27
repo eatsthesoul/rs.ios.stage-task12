@@ -31,6 +31,18 @@ private extension MainCoordinator {
     func showCreateWallet() {
         let walletSettingsConfigurator = WalletSettingsModuleConfigurator()
         let (view, output) = walletSettingsConfigurator.configure()
+        output.showColorThemeList = { [weak self] in
+            self?.showColorThemeList()
+        }
         router.setNavigationControllerRootModule(view, hideBar: true)
+    }
+    
+    func showColorThemeList() {
+        let colorThemeCongifurator = ColorThemesModuleConfigurator()
+        let (view, output) = colorThemeCongifurator.configure()
+        output.didDismiss = { [weak self] in
+            self?.router.popModule(animated: true)
+        }
+        router.push(view, animated: true)
     }
 }
