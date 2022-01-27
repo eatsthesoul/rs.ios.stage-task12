@@ -274,6 +274,7 @@
 		4F1301382787BDBF0003E6B2 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				4FAF282B27A05742006F03EC /* ListAdapter */,
 				4F4665F8278F849F00228418 /* Views */,
 				4F68F356278DDCC0002E7859 /* Base */,
 				4F68F342278CB2CA002E7859 /* Factories */,
@@ -357,6 +358,7 @@
 		4F68F34A278CB398002E7859 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				4FAF282F27A1AE7E006F03EC /* ConfigurableCell.swift */,
 				4FCF2623278CA907002C3E04 /* Coordinatable.swift */,
 				4F68F338278CAD9C002E7859 /* Routable.swift */,
 				4F68F33A278CADC6002E7859 /* Presentable.swift */,
@@ -619,6 +621,8 @@
 				4F68F34E278CB4DB002E7859 /* MainCoordinatorOutput.swift in Sources */,
 				4F0D489F2796E983008FF92D /* WalletSettingsViewController.swift in Sources */,
 				4FCF2622278CA8CD002C3E04 /* BaseCoordinator.swift in Sources */,
+				4FAF282D27A05836006F03EC /* ListAdapter.swift in Sources */,
+				4FAF283027A1AE7E006F03EC /* ConfigurableCell.swift in Sources */,
 				4F0D48AF27996BF6008FF92D /* TextField.swift in Sources */,
 				4F68F33D278CAE40002E7859 /* Constants.swift in Sources */,
 				4FCF2624278CA907002C3E04 /* Coordinatable.swift in Sources */,
