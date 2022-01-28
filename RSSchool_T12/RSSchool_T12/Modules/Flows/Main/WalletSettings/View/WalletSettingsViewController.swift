@@ -19,6 +19,8 @@ final class WalletSettingsViewController: UIViewController, WalletSettingsViewIn
     @IBOutlet weak var currencyPanel: GlassView!
     @IBOutlet weak var titleTextField: TextField!
     
+    @IBOutlet weak var currencyLabel: UILabel!
+    
     // MARK: - Properties
 
     var output: WalletSettingsViewOutput?
@@ -42,22 +44,15 @@ final class WalletSettingsViewController: UIViewController, WalletSettingsViewIn
     }
 
     // MARK: - WalletSettingsViewInput
-
-    func setupInitialState(for presenterType: WalletSettingsPreseneterType) {
-        switch presenterType {
-        case .create:
-            setupCreateWalletInitial()
-        }
+    
+    func setupNewWalletInitialState(with barTitle: String, currency: String?) {
+        navigationBar.title = barTitle
+        currencyLabel.text = currency
     }
-
 }
 
 // MARK: - Private methods
 private extension WalletSettingsViewController {
-    
-    func setupCreateWalletInitial() {
-        
-    }
     
     func setupAppearance() {
         view.makeThemeBackground()

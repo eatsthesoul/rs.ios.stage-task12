@@ -18,6 +18,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WalletSettingsViewController" customModule="RSSchool_T12" customModuleProvider="target">
             <connections>
                 <outlet property="colorThemePanel" destination="55t-TA-wMN" id="alt-Vp-cdS"/>
+                <outlet property="currencyLabel" destination="Z1n-sx-MCl" id="cGO-kv-1Wz"/>
                 <outlet property="currencyPanel" destination="1sr-uX-N5N" id="Co1-Tl-6ed"/>
                 <outlet property="navigationBar" destination="yQf-O7-PJC" id="Btq-Rj-3Sx"/>
                 <outlet property="scrollView" destination="RvU-Ci-h7X" id="9Bc-aS-st6"/>

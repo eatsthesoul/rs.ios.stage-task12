@@ -16,6 +16,10 @@ final class CreateWalletPresenter: WalletSettingsViewOutput, CreateWalletModuleI
     // MARK: - Properties
 
     weak var view: WalletSettingsViewInput?
+    
+    // MARK: - Private properties
+    
+    private let currentCurrency = Currency.localCode()
 
     // MARK: - CreateWalletModuleInput
 
@@ -25,7 +29,7 @@ final class CreateWalletPresenter: WalletSettingsViewOutput, CreateWalletModuleI
 extension CreateWalletPresenter {
 
     func viewLoaded() {
-        view?.setupInitialState(for: .create)
+        view?.setupNewWalletInitialState(with: "Add new wallet", currency: currentCurrency)
     }
     
     func leftNavigationBarButtonTapped() {
