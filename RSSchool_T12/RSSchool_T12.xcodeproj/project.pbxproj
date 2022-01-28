@@ -24,7 +24,6 @@
 		4F0D48AA27983FFB008FF92D /* BackgroundPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D48A927983FFB008FF92D /* BackgroundPresentable.swift */; };
 		4F0D48AC279842BF008FF92D /* BackgroundViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D48AB279842BF008FF92D /* BackgroundViewType.swift */; };
 		4F0D48AF27996BF6008FF92D /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D48AE27996BF6008FF92D /* TextField.swift */; };
-		4F0D48B12799BFDD008FF92D /* WalletSettingsPreseneterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D48B02799BFDD008FF92D /* WalletSettingsPreseneterType.swift */; };
 		4F1300FA2787BBFF0003E6B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1300F92787BBFF0003E6B2 /* AppDelegate.swift */; };
 		4F1300FC2787BBFF0003E6B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1300FB2787BBFF0003E6B2 /* SceneDelegate.swift */; };
 		4F1301042787BBFF0003E6B2 /* RSSchool_T12.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F1301022787BBFF0003E6B2 /* RSSchool_T12.xcdatamodeld */; };
@@ -57,6 +56,7 @@
 		4FAF282A279F003D006F03EC /* ColorThemesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FAF2828279F003D006F03EC /* ColorThemesCollectionViewCell.xib */; };
 		4FAF282D27A05836006F03EC /* ListAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF282C27A05836006F03EC /* ListAdapter.swift */; };
 		4FAF283027A1AE7E006F03EC /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF282F27A1AE7E006F03EC /* ConfigurableCell.swift */; };
+		4FAF283627A42F67006F03EC /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF283527A42F67006F03EC /* Currency.swift */; };
 		4FCF2622278CA8CD002C3E04 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF2621278CA8CD002C3E04 /* BaseCoordinator.swift */; };
 		4FCF2624278CA907002C3E04 /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF2623278CA907002C3E04 /* Coordinatable.swift */; };
 		53D495EB2173F11EA9C64AB8 /* CurrencyListModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16EE0E2D4AC7C1F17C9E72D /* CurrencyListModuleOutput.swift */; };
@@ -115,7 +115,6 @@
 		4F0D48A927983FFB008FF92D /* BackgroundPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundPresentable.swift; sourceTree = "<group>"; };
 		4F0D48AB279842BF008FF92D /* BackgroundViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundViewType.swift; sourceTree = "<group>"; };
 		4F0D48AE27996BF6008FF92D /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
-		4F0D48B02799BFDD008FF92D /* WalletSettingsPreseneterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletSettingsPreseneterType.swift; sourceTree = "<group>"; };
 		4F1300F62787BBFF0003E6B2 /* RSSchool_T12.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSchool_T12.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F1300F92787BBFF0003E6B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F1300FB2787BBFF0003E6B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +150,7 @@
 		4FAF2828279F003D006F03EC /* ColorThemesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorThemesCollectionViewCell.xib; sourceTree = "<group>"; };
 		4FAF282C27A05836006F03EC /* ListAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAdapter.swift; sourceTree = "<group>"; };
 		4FAF282F27A1AE7E006F03EC /* ConfigurableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
+		4FAF283527A42F67006F03EC /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		4FCF2621278CA8CD002C3E04 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		4FCF2623278CA907002C3E04 /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
 		6B37950D3E21AA4D47DA0CA6 /* CurrencyListModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CurrencyListModuleInput.swift; sourceTree = "<group>"; };
@@ -225,7 +225,6 @@
 		2FF3BB7C9B16AE2F93F4D3C9 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				4F0D48B02799BFDD008FF92D /* WalletSettingsPreseneterType.swift */,
 				662C5BEB960377BDFEC126E3 /* CreateWallet */,
 			);
 			path = Presenter;
@@ -473,6 +472,7 @@
 			isa = PBXGroup;
 			children = (
 				4F68F351278CC914002E7859 /* Router.swift */,
+				4FAF283527A42F67006F03EC /* Currency.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -769,7 +769,6 @@
 				4F68F341278CB049002E7859 /* MainCoordinator.swift in Sources */,
 				4F0D48AA27983FFB008FF92D /* BackgroundPresentable.swift in Sources */,
 				4F0D486127959FD9008FF92D /* UIView.swift in Sources */,
-				4F0D48B12799BFDD008FF92D /* WalletSettingsPreseneterType.swift in Sources */,
 				4F68F337278CACD4002E7859 /* CoordinatorFactory.swift in Sources */,
 				4F027C1C278F3FBD008A4B39 /* Wallet+CoreDataProperties.swift in Sources */,
 				53E2862CB967D2D15281F9B9 /* WalletSettingsViewInput.swift in Sources */,
@@ -785,6 +784,7 @@
 				E6C41A86AE64BB1D5328C2A7 /* ColorThemesModuleOutput.swift in Sources */,
 				1F44ECEC82D59F617BFEDA25 /* ColorThemesViewController.swift in Sources */,
 				A94AE06218D3CDD8CD3B3800 /* ColorThemesViewInput.swift in Sources */,
+				4FAF283627A42F67006F03EC /* Currency.swift in Sources */,
 				9CE9B6890C53A7C4103851B5 /* ColorThemesViewOutput.swift in Sources */,
 				D2CB3EB084BAB89B23709557 /* CurrencyListModuleConfigurator.swift in Sources */,
 				2FA84CE8D7B1AE618EDB33FF /* CurrencyListPresenter.swift in Sources */,
