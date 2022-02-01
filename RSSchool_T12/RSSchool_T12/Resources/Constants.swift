@@ -10,3 +10,4 @@ import Foundation
 
 // MARK: - Typealiases
 typealias CompletionBlock = () -> ()
+typealias Closure<T> = (T) -> ()

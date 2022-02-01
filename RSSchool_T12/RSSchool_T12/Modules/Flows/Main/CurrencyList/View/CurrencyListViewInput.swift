@@ -7,6 +7,7 @@
 //
 
 protocol CurrencyListViewInput: AnyObject {
-    // Method for setup initial state of view
-    func setupInitialState()
+    
+    func setupInitialState(with title: String) // Method for setup initial state of view
+    func setup(items: [CurrencyCellViewModel], with selectedIndex: Int?)
 }

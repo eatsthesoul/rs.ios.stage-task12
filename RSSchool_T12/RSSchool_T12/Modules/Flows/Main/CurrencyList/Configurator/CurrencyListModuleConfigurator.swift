@@ -12,9 +12,9 @@ final class CurrencyListModuleConfigurator {
 
     // MARK: - Internal methods
 
-    func configure() -> (CurrencyListViewController, CurrencyListModuleOutput) {
+    func configure(with selectedCurrency: String) -> (CurrencyListViewController, CurrencyListModuleOutput) {
         let view = CurrencyListViewController()
-        let presenter = CurrencyListPresenter()
+        let presenter = CurrencyListPresenter(with: selectedCurrency)
 
         presenter.view = view
         view.output = presenter

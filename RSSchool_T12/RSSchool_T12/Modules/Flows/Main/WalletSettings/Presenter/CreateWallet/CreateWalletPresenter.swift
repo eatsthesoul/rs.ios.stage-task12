@@ -7,11 +7,11 @@
 //
 
 final class CreateWalletPresenter: WalletSettingsViewOutput, CreateWalletModuleInput, CreateWalletModuleOutput {
-
+    
     // MARK: - CreateWalletModuleOutput
     
     var showColorThemeList: CompletionBlock?
-    var showCurrencyList: CompletionBlock?
+    var showCurrencyList: Closure<String>?
 
     // MARK: - Properties
 
@@ -45,6 +45,6 @@ extension CreateWalletPresenter {
     }
     
     func didTapOnCurrencyPanel() {
-        showCurrencyList?()
+        showCurrencyList?(currentCurrency)
     }
 }

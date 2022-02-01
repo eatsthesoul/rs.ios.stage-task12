@@ -7,6 +7,6 @@
 //
 
 protocol CurrencyListViewOutput {
-    // Notify presenter that view is ready
-    func viewLoaded()
+    func viewLoaded() // Notify presenter that view is ready
+    func leftNavigationBarButtonTapped()
 }

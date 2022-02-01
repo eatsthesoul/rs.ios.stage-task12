@@ -8,5 +8,5 @@
 
 protocol CreateWalletModuleOutput: AnyObject {
     var showColorThemeList: CompletionBlock? { get set }
-    var showCurrencyList: CompletionBlock? { get set }
+    var showCurrencyList: Closure<String>? { get set }
 }

@@ -22,7 +22,7 @@ enum Currency {
     }
     
     static func allCodes() -> [String] {
-        Locale.isoCurrencyCodes
+        Locale.commonISOCurrencyCodes
     }
     
     static func name(for currencyCode: String) -> String {

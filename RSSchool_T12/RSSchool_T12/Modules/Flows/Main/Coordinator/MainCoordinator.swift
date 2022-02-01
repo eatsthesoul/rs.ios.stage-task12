@@ -34,8 +34,8 @@ private extension MainCoordinator {
         output.showColorThemeList = { [weak self] in
             self?.showColorThemeList()
         }
-        output.showCurrencyList = { [weak self] in
-            self?.showCurrencyList()
+        output.showCurrencyList = { [weak self] selectedCurrency in
+            self?.showCurrencyList(with: selectedCurrency)
         }
         router.setNavigationControllerRootModule(view, hideBar: true)
     }
@@ -49,10 +49,12 @@ private extension MainCoordinator {
         router.push(view, animated: true)
     }
     
-    func showCurrencyList() {
+    func showCurrencyList(with selectedCurrency: String) {
         let currencyListConfigurator = CurrencyListModuleConfigurator()
-        let (view, output) = currencyListConfigurator.configure()
-        
+        let (view, output) = currencyListConfigurator.configure(with: selectedCurrency)
+        output.didDismiss = { [weak self] in
+            self?.router.popModule(animated: true)
+        }
         router.push(view, animated: true)
     }
 }
