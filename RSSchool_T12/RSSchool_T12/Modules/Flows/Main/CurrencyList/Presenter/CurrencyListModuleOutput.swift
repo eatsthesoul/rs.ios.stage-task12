@@ -7,5 +7,5 @@
 //
 
 protocol CurrencyListModuleOutput: AnyObject {
-    var didDismiss: CompletionBlock? { get set }
+    var didDismissWithCurrency: Closure<String>? { get set }
 }

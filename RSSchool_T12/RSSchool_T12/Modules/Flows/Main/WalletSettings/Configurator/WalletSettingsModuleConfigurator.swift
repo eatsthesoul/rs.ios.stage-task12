@@ -12,14 +12,14 @@ final class WalletSettingsModuleConfigurator {
 
     // MARK: - Internal methods
 
-    func configure() -> (WalletSettingsViewController, CreateWalletModuleOutput) {
+    func configure() -> (WalletSettingsViewController, WalletSettingsModuleInput,  WalletSettingsModuleOutput) {
         let view = WalletSettingsViewController(nibName: "WalletSettingsViewController", bundle: nil)
         let presenter = CreateWalletPresenter()
 
         presenter.view = view
         view.output = presenter
 
-        return (view, presenter)
+        return (view, presenter, presenter)
     }
 
 }

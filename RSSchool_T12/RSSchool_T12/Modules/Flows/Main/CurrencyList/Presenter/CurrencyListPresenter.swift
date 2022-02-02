@@ -10,7 +10,7 @@ final class CurrencyListPresenter: CurrencyListViewOutput, CurrencyListModuleInp
     
     // MARK: - CurrencyListModuleOutput
     
-    var didDismiss: CompletionBlock?
+    var didDismissWithCurrency: Closure<String>?
     
     // MARK: - Properties
     
@@ -58,6 +58,10 @@ extension CurrencyListPresenter {
     }
     
     func leftNavigationBarButtonTapped() {
-        didDismiss?()
+        didDismissWithCurrency?(selectedCurrency ?? "USD")
+    }
+    
+    func didSelectCurrency(with index: Int) {
+        selectedCurrencyIndex = index
     }
 }

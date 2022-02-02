@@ -7,5 +7,6 @@
 //
 
 protocol WalletSettingsViewInput: AnyObject {
-    func setupNewWalletInitialState(with barTitle: String, currency: String?)
+    func setupNewWalletInitialState(with title: String)
+    func set(currency: String)
 }

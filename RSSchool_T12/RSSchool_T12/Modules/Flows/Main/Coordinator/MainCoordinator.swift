@@ -30,12 +30,12 @@ extension MainCoordinator: Coordinatable {
 private extension MainCoordinator {
     func showCreateWallet() {
         let walletSettingsConfigurator = WalletSettingsModuleConfigurator()
-        let (view, output) = walletSettingsConfigurator.configure()
+        let (view, input, output) = walletSettingsConfigurator.configure()
         output.showColorThemeList = { [weak self] in
             self?.showColorThemeList()
         }
-        output.showCurrencyList = { [weak self] selectedCurrency in
-            self?.showCurrencyList(with: selectedCurrency)
+        output.showCurrencyList = { [weak self, weak input] selectedCurrency in
+            self?.showCurrencyList(with: selectedCurrency, input: input)
         }
         router.setNavigationControllerRootModule(view, hideBar: true)
     }
@@ -49,11 +49,12 @@ private extension MainCoordinator {
         router.push(view, animated: true)
     }
     
-    func showCurrencyList(with selectedCurrency: String) {
+    func showCurrencyList(with selectedCurrency: String, input: WalletSettingsModuleInput?) {
         let currencyListConfigurator = CurrencyListModuleConfigurator()
         let (view, output) = currencyListConfigurator.configure(with: selectedCurrency)
-        output.didDismiss = { [weak self] in
+        output.didDismissWithCurrency = { [weak self, weak input] currency in
             self?.router.popModule(animated: true)
+            input?.set(currency: currency)
         }
         router.push(view, animated: true)
     }

@@ -8,6 +8,8 @@
 import UIKit
 
 final class WalletSettingsViewController: UIViewController, WalletSettingsViewInput {
+    
+    
 
     // MARK: - IBOutlets
     
@@ -45,8 +47,11 @@ final class WalletSettingsViewController: UIViewController, WalletSettingsViewIn
 
     // MARK: - WalletSettingsViewInput
     
-    func setupNewWalletInitialState(with barTitle: String, currency: String?) {
-        navigationBar.title = barTitle
+    func setupNewWalletInitialState(with title: String) {
+        navigationBar.title = title
+    }
+    
+    func set(currency: String) {
         currencyLabel.text = currency
     }
 }

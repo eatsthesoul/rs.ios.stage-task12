@@ -9,4 +9,5 @@
 protocol CurrencyListViewOutput {
     func viewLoaded() // Notify presenter that view is ready
     func leftNavigationBarButtonTapped()
+    func didSelectCurrency(with index: Int)
 }

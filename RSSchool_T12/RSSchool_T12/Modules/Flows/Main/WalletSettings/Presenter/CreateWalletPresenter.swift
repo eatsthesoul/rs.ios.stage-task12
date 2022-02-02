@@ -6,7 +6,7 @@
 //  Copyright © 2022 Evgeniy Petlitskiy. All rights reserved.
 //
 
-final class CreateWalletPresenter: WalletSettingsViewOutput, CreateWalletModuleInput, CreateWalletModuleOutput {
+final class CreateWalletPresenter: WalletSettingsViewOutput, WalletSettingsModuleInput, WalletSettingsModuleOutput {
     
     // MARK: - CreateWalletModuleOutput
     
@@ -19,17 +19,31 @@ final class CreateWalletPresenter: WalletSettingsViewOutput, CreateWalletModuleI
     
     // MARK: - Private properties
     
-    private let currentCurrency = Currency.localCode()
+    private var currentCurrency: String {
+        willSet {
+            //update currency on the view
+            view?.set(currency: newValue)
+        }
+    }
+    
+    init() {
+        currentCurrency = Currency.localCode()
+    }
+}
 
-    // MARK: - CreateWalletModuleInput
-
+// MARK: - CreateWalletModuleInput
+extension CreateWalletPresenter {
+    func set(currency: String) {
+        currentCurrency = currency
+    }
 }
 
 // MARK: - WalletSettingsViewOutput
 extension CreateWalletPresenter {
 
     func viewLoaded() {
-        view?.setupNewWalletInitialState(with: "Add new wallet", currency: currentCurrency)
+        view?.setupNewWalletInitialState(with: "Add new wallet")
+        view?.set(currency: currentCurrency)
     }
     
     func leftNavigationBarButtonTapped() {
