@@ -62,6 +62,6 @@ private extension SceneDelegate {
     }
     
     func setupAppearance() {
-        themeManager.setTheme()
+        themeManager.setRandomTheme()
     }
 }

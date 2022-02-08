@@ -9,7 +9,6 @@ import UIKit
 
 protocol ColorThemeManagerProtocol {
     func getTheme() -> ColorTheme?
-    func setTheme()
     func setTheme(_ theme: ColorTheme)
     func setRandomTheme()
 }
@@ -24,11 +23,6 @@ class ColorThemeManager: ColorThemeManagerProtocol {
     
     func getTheme() -> ColorTheme? {
         ColorThemeManager.colorTheme
-    }
-    
-    func setTheme() {
-        //TODO: Request to data base to get setted theme
-        setRandomTheme()  //if we don't get theme from data base
     }
     
     func setTheme(_ theme: ColorTheme) {
