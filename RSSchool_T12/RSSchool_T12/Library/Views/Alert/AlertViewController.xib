@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Medium.ttf">
+            <string>Montserrat-Medium</string>
+        </array>
+        <array key="Montserrat-SemiBold.ttf">
+            <string>Montserrat-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlertViewController" customModule="RSSchool_T12" customModuleProvider="target">
+            <connections>
+                <outlet property="alertView" destination="OhW-S6-ogG" id="PJ2-xO-l7k"/>
+                <outlet property="leftButton" destination="iVf-JJ-1qL" id="OqB-zB-6F1"/>
+                <outlet property="messageLabel" destination="934-WW-S5M" id="WIR-Sz-P9h"/>
+                <outlet property="rightButton" destination="ucv-Hl-pqD" id="CZg-lG-LCN"/>
+                <outlet property="titleLabel" destination="lDW-Ay-Xkc" id="G9v-lc-U1N"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ReW-pM-RAY">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="DiA-3I-dYa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <blurEffect style="dark"/>
+                </visualEffectView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OhW-S6-ogG">
+                    <rect key="frame" x="50" y="357" width="314" height="192"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDW-Ay-Xkc">
+                            <rect key="frame" x="134" y="30" width="46.5" height="26"/>
+                            <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="21"/>
+                            <color key="textColor" name="Rick Black FOGRA 29"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="934-WW-S5M">
+                            <rect key="frame" x="119" y="76" width="76.5" height="21"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="17"/>
+                            <color key="textColor" name="Rick Black FOGRA 29"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="a0b-Jp-hte">
+                            <rect key="frame" x="20" y="127" width="274" height="40"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iVf-JJ-1qL">
+                                    <rect key="frame" x="0.0" y="0.0" width="132" height="40"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Button">
+                                        <color key="baseForegroundColor" name="Rick Black FOGRA 29"/>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <action selector="leftButtonTapped:" destination="-1" eventType="touchUpInside" id="9di-N2-iDH"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucv-Hl-pqD">
+                                    <rect key="frame" x="142" y="0.0" width="132" height="40"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Button">
+                                        <color key="baseForegroundColor" name="Amaranth Red"/>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <action selector="rightButtonTapped:" destination="-1" eventType="touchUpInside" id="cDk-Bk-Jya"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="CTg-ee-2Ca"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="934-WW-S5M" firstAttribute="centerX" secondItem="OhW-S6-ogG" secondAttribute="centerX" id="1I1-u6-ckC"/>
+                        <constraint firstItem="934-WW-S5M" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OhW-S6-ogG" secondAttribute="leading" constant="20" id="1Wg-8D-su2"/>
+                        <constraint firstAttribute="trailing" secondItem="a0b-Jp-hte" secondAttribute="trailing" constant="20" id="8NE-93-Q9W"/>
+                        <constraint firstItem="934-WW-S5M" firstAttribute="top" secondItem="lDW-Ay-Xkc" secondAttribute="bottom" constant="20" id="FrT-YB-Szd"/>
+                        <constraint firstItem="lDW-Ay-Xkc" firstAttribute="top" secondItem="OhW-S6-ogG" secondAttribute="top" constant="30" id="Qx9-Mq-38H"/>
+                        <constraint firstAttribute="bottom" secondItem="a0b-Jp-hte" secondAttribute="bottom" constant="25" id="RwV-v7-7c3"/>
+                        <constraint firstItem="a0b-Jp-hte" firstAttribute="leading" secondItem="OhW-S6-ogG" secondAttribute="leading" constant="20" id="cRr-cI-JE5"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="934-WW-S5M" secondAttribute="trailing" constant="20" id="i5b-F2-4gK"/>
+                        <constraint firstItem="a0b-Jp-hte" firstAttribute="top" secondItem="934-WW-S5M" secondAttribute="bottom" constant="30" id="nMJ-uV-dCF"/>
+                        <constraint firstItem="lDW-Ay-Xkc" firstAttribute="centerX" secondItem="OhW-S6-ogG" secondAttribute="centerX" id="xyz-KD-ydF"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="OhW-S6-ogG" secondAttribute="trailing" constant="50" id="8aq-Bb-E4G"/>
+                <constraint firstItem="ReW-pM-RAY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="96p-hZ-wuc"/>
+                <constraint firstAttribute="trailing" secondItem="ReW-pM-RAY" secondAttribute="trailing" id="DJl-Qv-eJe"/>
+                <constraint firstAttribute="bottom" secondItem="ReW-pM-RAY" secondAttribute="bottom" id="dLv-OM-vVr"/>
+                <constraint firstItem="ReW-pM-RAY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eor-54-hKm"/>
+                <constraint firstItem="OhW-S6-ogG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="ouq-99-poM"/>
+                <constraint firstItem="OhW-S6-ogG" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="xbH-wj-Xxz"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="116.51785714285714"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Amaranth Red">
+            <color red="0.84299999475479126" green="0.14900000393390656" blue="0.2199999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Rick Black FOGRA 29">
+            <color red="0.027000000700354576" green="0.063000001013278961" blue="0.075000002980232239" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

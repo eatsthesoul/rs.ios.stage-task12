@@ -31,6 +31,9 @@
 		4F13013D2787BDBF0003E6B2 /* UIColor + Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13013A2787BDBF0003E6B2 /* UIColor + Assets.swift */; };
 		4F13013E2787BDBF0003E6B2 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13013B2787BDBF0003E6B2 /* UIFont.swift */; };
 		4F13013F2787BDBF0003E6B2 /* UIImage + Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13013C2787BDBF0003E6B2 /* UIImage + Assets.swift */; };
+		4F14782027B3F08000A18644 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F14781E27B3F08000A18644 /* AlertViewController.swift */; };
+		4F14782127B3F08000A18644 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F14781F27B3F08000A18644 /* AlertViewController.xib */; };
+		4F14782327B401C100A18644 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F14782227B401C100A18644 /* AlertService.swift */; };
 		4F4665FB278F84D400228418 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4665FA278F84D400228418 /* NavigationBar.swift */; };
 		4F4665FD278F84DF00228418 /* NavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F4665FC278F84DF00228418 /* NavigationBar.xib */; };
 		4F466601279058E900228418 /* BarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F466600279058E900228418 /* BarButton.swift */; };
@@ -133,6 +136,9 @@
 		4F1301442787BEA40003E6B2 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		4F1301462787BEA40003E6B2 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		4F1301472787BEBC0003E6B2 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		4F14781E27B3F08000A18644 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		4F14781F27B3F08000A18644 /* AlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
+		4F14782227B401C100A18644 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		4F4665FA278F84D400228418 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		4F4665FC278F84DF00228418 /* NavigationBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationBar.xib; sourceTree = "<group>"; };
 		4F466600279058E900228418 /* BarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButton.swift; sourceTree = "<group>"; };
@@ -330,6 +336,7 @@
 		4F1300F82787BBFF0003E6B2 /* RSSchool_T12 */ = {
 			isa = PBXGroup;
 			children = (
+				4F14782427B42F7D00A18644 /* Service */,
 				4F0D48A42796F895008FF92D /* Managers */,
 				4F027C13278F3FBD008A4B39 /* Models */,
 				4F68F34B278CB4A8002E7859 /* Modules */,
@@ -404,9 +411,27 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		4F14781D27B3ED2A00A18644 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				4F14781E27B3F08000A18644 /* AlertViewController.swift */,
+				4F14781F27B3F08000A18644 /* AlertViewController.xib */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		4F14782427B42F7D00A18644 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4F14782227B401C100A18644 /* AlertService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		4F4665F8278F849F00228418 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4F14781D27B3ED2A00A18644 /* Alert */,
 				4F4665F9278F84AA00228418 /* NavigationBar */,
 				4F466600279058E900228418 /* BarButton.swift */,
 				4F4666062791F9AB00228418 /* GlassView.swift */,
@@ -736,6 +761,7 @@
 				4F0D48A02796E983008FF92D /* WalletSettingsViewController.xib in Resources */,
 				4F1301092787BC010003E6B2 /* LaunchScreen.storyboard in Resources */,
 				4F1301062787BC010003E6B2 /* Assets.xcassets in Resources */,
+				4F14782127B3F08000A18644 /* AlertViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -812,6 +838,7 @@
 				4FAF284E27B176C5006F03EC /* Wallet+CoreDataProperties.swift in Sources */,
 				1F44ECEC82D59F617BFEDA25 /* ColorThemesViewController.swift in Sources */,
 				A94AE06218D3CDD8CD3B3800 /* ColorThemesViewInput.swift in Sources */,
+				4F14782327B401C100A18644 /* AlertService.swift in Sources */,
 				4FAF283627A42F67006F03EC /* Currency.swift in Sources */,
 				9CE9B6890C53A7C4103851B5 /* ColorThemesViewOutput.swift in Sources */,
 				D2CB3EB084BAB89B23709557 /* CurrencyListModuleConfigurator.swift in Sources */,
@@ -821,6 +848,7 @@
 				B90DC9D11FC20AA3AEFC7B80 /* CurrencyListViewController.swift in Sources */,
 				2F28011D76AEE867FC2553F2 /* CurrencyListViewInput.swift in Sources */,
 				FE7BEFFEB730AF6E01B52D8B /* CurrencyListViewOutput.swift in Sources */,
+				4F14782027B3F08000A18644 /* AlertViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
