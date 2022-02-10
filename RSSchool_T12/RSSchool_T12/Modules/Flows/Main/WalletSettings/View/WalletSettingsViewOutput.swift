@@ -12,4 +12,5 @@ protocol WalletSettingsViewOutput {
     func rightNavigationBarButtonTapped()
     func didTapOnColorThemePanel()
     func didTapOnCurrencyPanel()
+    func titleDidUpdate(_ string: String)
 }

@@ -9,4 +9,6 @@
 protocol WalletSettingsModuleOutput: AnyObject {
     var showColorThemeList: CompletionBlock? { get set }
     var showCurrencyList: Closure<String>? { get set }
+    var didGetFillRequiredFieldsWarning: CompletionBlock? { get set }
+    var didNameUsedWarning: CompletionBlock? { get set }
 }

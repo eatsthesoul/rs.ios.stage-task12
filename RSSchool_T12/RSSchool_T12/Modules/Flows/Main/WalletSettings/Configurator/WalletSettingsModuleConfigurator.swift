@@ -14,7 +14,11 @@ final class WalletSettingsModuleConfigurator {
 
     func configure() -> (WalletSettingsViewController, WalletSettingsModuleInput,  WalletSettingsModuleOutput) {
         let view = WalletSettingsViewController(nibName: "WalletSettingsViewController", bundle: nil)
-        let presenter = CreateWalletPresenter()
+        
+        let dataStoreManager = DataStoreManager()
+        let colorThemeManager = ColorThemeManager()
+        let presenter = CreateWalletPresenter(dataStoreManager: dataStoreManager,
+                                              themeManager: colorThemeManager)
 
         presenter.view = view
         view.output = presenter

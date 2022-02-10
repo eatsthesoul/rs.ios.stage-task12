@@ -12,10 +12,14 @@ final class CreateWalletPresenter: WalletSettingsViewOutput, WalletSettingsModul
     
     var showColorThemeList: CompletionBlock?
     var showCurrencyList: Closure<String>?
+    var didGetFillRequiredFieldsWarning: CompletionBlock?
+    var didNameUsedWarning: CompletionBlock?
 
     // MARK: - Properties
 
     weak var view: WalletSettingsViewInput?
+    var dataStoreManager: DataStoreProtocol
+    var colorThemeManager: ColorThemeManagerProtocol
     
     // MARK: - Private properties
     
@@ -26,8 +30,16 @@ final class CreateWalletPresenter: WalletSettingsViewOutput, WalletSettingsModul
         }
     }
     
-    init() {
+    private var title: String
+    
+    
+    // MARK: - Initialization and deinitialization
+    
+    init(dataStoreManager: DataStoreProtocol, themeManager: ColorThemeManagerProtocol) {
+        self.dataStoreManager = dataStoreManager
+        colorThemeManager = themeManager
         currentCurrency = Currency.localCode()
+        title = ""
     }
 }
 
@@ -48,6 +60,25 @@ extension CreateWalletPresenter {
     
     func leftNavigationBarButtonTapped() {
         
+        let colorTheme = colorThemeManager.getTheme() ?? .goldenHour
+        
+        //all fields on screen except titleField filled by default
+        if title.count == 0 {
+            didGetFillRequiredFieldsWarning?()
+            return
+        }
+        
+        //ask data store if title is unique
+        if dataStoreManager.doesWalletTitleExists(title) {
+            didNameUsedWarning?()
+            return
+        }
+        
+        let walletModel = WalletSettingsViewModel(
+            colorTheme: colorTheme, currencyCode: currentCurrency, title: title)
+        dataStoreManager.createNewWallet(from: walletModel)
+        
+        
     }
     
     func rightNavigationBarButtonTapped() {
@@ -60,5 +91,9 @@ extension CreateWalletPresenter {
     
     func didTapOnCurrencyPanel() {
         showCurrencyList?(currentCurrency)
+    }
+    
+    func titleDidUpdate(_ string: String) {
+        title = string
     }
 }

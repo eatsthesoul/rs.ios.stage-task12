@@ -9,8 +9,6 @@ import UIKit
 
 final class WalletSettingsViewController: UIViewController, WalletSettingsViewInput {
     
-    
-
     // MARK: - IBOutlets
     
     @IBOutlet weak var navigationBar: NavigationBar!
@@ -40,7 +38,7 @@ final class WalletSettingsViewController: UIViewController, WalletSettingsViewIn
         
         setupAppearance()
         addGestureRegognizers()
-        addDelegateToTextFields()
+        setupTextFields()
         registerForKeyboardNotifications()
         addNavigationBarButtonsHandlers()
     }
@@ -74,8 +72,9 @@ private extension WalletSettingsViewController {
         currencyPanel.addGestureRecognizer(currencyPanelTapGestureRecognizer)
     }
     
-    func addDelegateToTextFields() {
+    func setupTextFields() {
         titleTextField.delegate = self
+        titleTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
     
     func addNavigationBarButtonsHandlers() {
@@ -95,6 +94,15 @@ private extension WalletSettingsViewController {
     
     @objc func currencyPanelTapHandler() {
         output?.didTapOnCurrencyPanel()
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        
+        guard textField == titleTextField,
+              let text = titleTextField.text
+        else { return }
+        
+        output?.titleDidUpdate(text)
     }
 }
 
