@@ -93,7 +93,7 @@ class DataStoreManager: DataStoreProtocol {
     func doesWalletTitleExists(_ title: String) -> Bool {
         
         let fetchRequest = NSFetchRequest<Wallet>(entityName: Constants.walletEntityName)
-        fetchRequest.predicate = NSPredicate(format: "title == @%", title)
+        fetchRequest.predicate = NSPredicate(format: "title == %@", title)
         
         let context = viewContext
         guard let wallets = try? context.fetch(fetchRequest) else { return false }
