@@ -8,5 +8,6 @@
 import Foundation
 
 protocol CoordinatorFactoryProtocol {
-    func makeMainCoordinator(router: Routable) -> Coordinatable & MainCoordinatorOutput
+    func makeMainCoordinator(router: Routable, factory: CoordinatorFactoryProtocol) -> Coordinatable & MainCoordinatorOutput
+    func makeWalletSettingsCoordinator(router: Routable, wallet: Wallet?) -> Coordinatable & WalletSettingsCoordinatorOutput
 }

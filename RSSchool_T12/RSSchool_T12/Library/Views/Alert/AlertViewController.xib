@@ -61,20 +61,20 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iVf-JJ-1qL">
                                     <rect key="frame" x="0.0" y="0.0" width="132" height="40"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Button">
-                                        <color key="baseForegroundColor" name="Rick Black FOGRA 29"/>
-                                    </buttonConfiguration>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Button">
+                                        <color key="titleColor" name="Rick Black FOGRA 29"/>
+                                    </state>
                                     <connections>
                                         <action selector="leftButtonTapped:" destination="-1" eventType="touchUpInside" id="9di-N2-iDH"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucv-Hl-pqD">
                                     <rect key="frame" x="142" y="0.0" width="132" height="40"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Button">
-                                        <color key="baseForegroundColor" name="Amaranth Red"/>
-                                    </buttonConfiguration>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Button">
+                                        <color key="titleColor" name="Amaranth Red"/>
+                                    </state>
                                     <connections>
                                         <action selector="rightButtonTapped:" destination="-1" eventType="touchUpInside" id="cDk-Bk-Jya"/>
                                     </connections>

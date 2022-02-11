@@ -56,11 +56,7 @@ extension CreateWalletPresenter {
         let walletModel = WalletSettingsViewModel(colorTheme: colorTheme,
                                                   currencyCode: currentCurrency,
                                                   title: title)
-        dataStoreManager.createNewWallet(from: walletModel)
-        
-        let wallets = dataStoreManager.fetchWallets()
-        wallets.forEach { print($0.title) }
-        
+        dataStoreManager.createNewWallet(from: walletModel)    
     }
 }
 

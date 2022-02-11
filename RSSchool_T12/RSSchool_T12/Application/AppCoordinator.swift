@@ -29,7 +29,7 @@ extension AppCoordinator: Coordinatable {
 private extension AppCoordinator {
     
     func performMainFlow() {
-        let coordinator = factory.makeMainCoordinator(router: router)
+        let coordinator = factory.makeMainCoordinator(router: router, factory: factory)
         coordinator.finishFlow = { [weak self, weak coordinator] in
             self?.start()
             self?.removeDependency(coordinator)

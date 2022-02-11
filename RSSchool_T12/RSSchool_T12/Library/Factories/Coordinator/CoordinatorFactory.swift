@@ -13,7 +13,12 @@ final class CoordinatorFactory {
 
 // MARK: - CoordinatorFactoryProtocol
 extension CoordinatorFactory: CoordinatorFactoryProtocol {
-    func makeMainCoordinator(router: Routable) -> Coordinatable & MainCoordinatorOutput {
-        return MainCoordinator(router: router)
+    
+    func makeMainCoordinator(router: Routable, factory: CoordinatorFactoryProtocol) -> Coordinatable & MainCoordinatorOutput {
+        return MainCoordinator(router: router, factory: factory)
+    }
+    
+    func makeWalletSettingsCoordinator(router: Routable, wallet: Wallet? = nil) -> Coordinatable & WalletSettingsCoordinatorOutput {
+        return WalletSettingsCoordinator(router: router, wallet: wallet)
     }
 }
