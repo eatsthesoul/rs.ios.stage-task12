@@ -8,4 +8,5 @@
 
 protocol WalletSettingsModuleInput: AnyObject {
     func set(currency: String)
+    func saveWallet()
 }

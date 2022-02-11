@@ -11,4 +11,5 @@ protocol WalletSettingsModuleOutput: AnyObject {
     var showCurrencyList: Closure<String>? { get set }
     var didGetFillRequiredFieldsWarning: CompletionBlock? { get set }
     var didNameUsedWarning: CompletionBlock? { get set }
+    var didCreateWalletMessage: CompletionBlock? { get set }
 }

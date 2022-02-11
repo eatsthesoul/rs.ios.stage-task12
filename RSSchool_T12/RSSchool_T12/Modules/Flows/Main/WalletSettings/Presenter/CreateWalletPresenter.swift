@@ -14,6 +14,7 @@ final class CreateWalletPresenter: WalletSettingsViewOutput, WalletSettingsModul
     var showCurrencyList: Closure<String>?
     var didGetFillRequiredFieldsWarning: CompletionBlock?
     var didNameUsedWarning: CompletionBlock?
+    var didCreateWalletMessage: CompletionBlock?
 
     // MARK: - Properties
 
@@ -45,8 +46,21 @@ final class CreateWalletPresenter: WalletSettingsViewOutput, WalletSettingsModul
 
 // MARK: - CreateWalletModuleInput
 extension CreateWalletPresenter {
+    
     func set(currency: String) {
         currentCurrency = currency
+    }
+    
+    func saveWallet() {
+        let colorTheme = colorThemeManager.getTheme() ?? .goldenHour
+        let walletModel = WalletSettingsViewModel(colorTheme: colorTheme,
+                                                  currencyCode: currentCurrency,
+                                                  title: title)
+        dataStoreManager.createNewWallet(from: walletModel)
+        
+        let wallets = dataStoreManager.fetchWallets()
+        wallets.forEach { print($0.title) }
+        
     }
 }
 
@@ -60,8 +74,6 @@ extension CreateWalletPresenter {
     
     func leftNavigationBarButtonTapped() {
         
-        let colorTheme = colorThemeManager.getTheme() ?? .goldenHour
-        
         //all fields on screen except titleField filled by default
         if title.count == 0 {
             didGetFillRequiredFieldsWarning?()
@@ -74,11 +86,8 @@ extension CreateWalletPresenter {
             return
         }
         
-        let walletModel = WalletSettingsViewModel(
-            colorTheme: colorTheme, currencyCode: currentCurrency, title: title)
-        dataStoreManager.createNewWallet(from: walletModel)
-        
-        
+        //if we don't get any warning we get suggestion to create wallet
+        didCreateWalletMessage?()
     }
     
     func rightNavigationBarButtonTapped() {

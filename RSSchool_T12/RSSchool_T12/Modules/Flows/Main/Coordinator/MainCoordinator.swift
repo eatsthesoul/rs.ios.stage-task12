@@ -50,6 +50,14 @@ private extension MainCoordinator {
             self?.showWalletNameUsedWarning()
         }
         
+        output.didCreateWalletMessage = { [weak self] in
+            self?.showCreateWalletMessage(completion: { [weak input] answer in
+                if answer {    //save wallet if we get positive response from message
+                    input?.saveWallet()
+                }
+            })
+        }
+        
         router.setNavigationControllerRootModule(view, hideBar: true)
     }
     
@@ -75,11 +83,12 @@ private extension MainCoordinator {
     // MARK: - Alerts
     
     func showFillRequiredFieldsWarning() {
+        
         let alertService = AlertService()
         let alert = alertService.walletRequiredFieldsAlert { [weak self] in
-            self?.router.dismissModule(animated: true, completion: nil)
+            self?.router.dismissModule()
         } rightButtonAction: { [weak self] in
-            self?.router.dismissModule(animated: true, completion: nil)
+            self?.router.dismissModule()
             //TODO: pop a module next under the warning
         }
         
@@ -87,14 +96,31 @@ private extension MainCoordinator {
     }
     
     func showWalletNameUsedWarning() {
+        
         let alertService = AlertService()
         let alert = alertService.walletNameIsExistAlert { [weak self] in
-            self?.router.dismissModule(animated: true, completion: nil)
+            self?.router.dismissModule()
         } rightButtonAction: { [weak self] in
-            self?.router.dismissModule(animated: true, completion: nil)
+            self?.router.dismissModule()
             //TODO: pop a module next under the warning
         }
 
+        router.present(alert, animated: true, completion: nil)
+    }
+    
+    //completion here to say what answer we get from this message
+    func showCreateWalletMessage(completion: @escaping Closure<Bool>) {
+        
+        let alertService = AlertService()
+        let alert = alertService.createNewWalletAlert { [weak self] in
+            //completion here for creating a wallet
+            completion(true)
+            self?.router.dismissModule()
+        } rightButtonAction: { [weak self] in
+            completion(false)
+            self?.router.dismissModule()
+        }
+        
         router.present(alert, animated: true, completion: nil)
     }
 }
