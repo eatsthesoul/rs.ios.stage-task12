@@ -39,7 +39,14 @@ private extension MainCoordinator {
 private extension MainCoordinator {
     
     func performMainFlow() {
-        performWalletSettingsFlow()
+        showWalletList()
+    }
+    
+    func showWalletList() {
+        let walletListConfigurator = WalletListModuleConfigurator()
+        let (view, output) = walletListConfigurator.configure()
+        
+        router.setNavigationControllerRootModule(view, hideBar: true)
     }
     
     func performWalletSettingsFlow(_ wallet: Wallet? = nil) {

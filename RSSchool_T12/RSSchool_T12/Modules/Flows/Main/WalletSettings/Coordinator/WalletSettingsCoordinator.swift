@@ -67,7 +67,7 @@ private extension WalletSettingsCoordinator {
             })
         }
         
-        router.setNavigationControllerRootModule(view, hideBar: true)
+        router.push(view)
     }
     
     func showColorThemeList() {
