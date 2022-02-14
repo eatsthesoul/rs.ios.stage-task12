@@ -19,8 +19,8 @@ final class CreateWalletPresenter: WalletSettingsViewOutput, WalletSettingsModul
     // MARK: - Properties
 
     weak var view: WalletSettingsViewInput?
-    var dataStoreManager: DataStoreProtocol
-    var colorThemeManager: ColorThemeManagerProtocol
+    let dataStoreManager: DataStoreProtocol
+    let colorThemeManager: ColorThemeManagerProtocol
     
     // MARK: - Private properties
     

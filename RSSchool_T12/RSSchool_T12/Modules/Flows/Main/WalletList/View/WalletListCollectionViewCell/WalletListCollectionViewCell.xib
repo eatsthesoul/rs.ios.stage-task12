@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+        <array key="Montserrat-SemiBold.ttf">
+            <string>Montserrat-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="WalletListCollectionViewCell" customModule="RSSchool_T12" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="380" height="208"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="380" height="208"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WLz-cf-ex4" customClass="GlassView" customModule="RSSchool_T12" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="380" height="208"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpl-XP-KOx">
+                        <rect key="frame" x="30" y="20" width="54" height="30"/>
+                        <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="24"/>
+                        <color key="textColor" name="Rick Black FOGRA 29"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sC1-0r-i6g">
+                        <rect key="frame" x="30" y="80" width="100" height="30"/>
+                        <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="24"/>
+                        <color key="textColor" name="Rick Black FOGRA 29"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last change" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abF-h4-HD2">
+                        <rect key="frame" x="30" y="134" width="114" height="22"/>
+                        <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="18"/>
+                        <color key="textColor" name="Rick Black FOGRA 29"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OlZ-aU-udX">
+                        <rect key="frame" x="30" y="166" width="44" height="22"/>
+                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
+                        <color key="textColor" name="Rick Black FOGRA 29"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="OlZ-aU-udX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="30" id="3Cj-E4-jeN"/>
+                <constraint firstItem="WLz-cf-ex4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="CaN-1Z-gTN"/>
+                <constraint firstAttribute="bottom" secondItem="OlZ-aU-udX" secondAttribute="bottom" constant="20" id="LWo-KL-YxC"/>
+                <constraint firstItem="Wpl-XP-KOx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="30" id="Njs-gV-O8p"/>
+                <constraint firstItem="WLz-cf-ex4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Pci-iQ-Isw"/>
+                <constraint firstAttribute="bottom" secondItem="WLz-cf-ex4" secondAttribute="bottom" id="Sr4-GA-UJc"/>
+                <constraint firstItem="sC1-0r-i6g" firstAttribute="top" secondItem="Wpl-XP-KOx" secondAttribute="bottom" constant="30" id="dyR-dX-rnX"/>
+                <constraint firstAttribute="trailing" secondItem="WLz-cf-ex4" secondAttribute="trailing" id="fHz-3j-ynB"/>
+                <constraint firstItem="sC1-0r-i6g" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="30" id="h8o-Kb-S34"/>
+                <constraint firstItem="OlZ-aU-udX" firstAttribute="top" secondItem="abF-h4-HD2" secondAttribute="bottom" constant="10" id="jil-2r-0m6"/>
+                <constraint firstItem="abF-h4-HD2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="30" id="s6G-il-WEd"/>
+                <constraint firstItem="Wpl-XP-KOx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="wgk-Fz-2hZ"/>
+            </constraints>
+            <size key="customSize" width="282" height="96"/>
+            <connections>
+                <outlet property="balanceLabel" destination="sC1-0r-i6g" id="h6x-ud-O7Z"/>
+                <outlet property="dateLabel" destination="OlZ-aU-udX" id="I6z-Zt-Osf"/>
+                <outlet property="titleLabel" destination="Wpl-XP-KOx" id="vIO-5U-nYq"/>
+            </connections>
+            <point key="canvasLocation" x="305.79710144927537" y="101.11607142857143"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Rick Black FOGRA 29">
+            <color red="0.027000000700354576" green="0.063000001013278961" blue="0.075000002980232239" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

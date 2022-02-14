@@ -9,17 +9,70 @@
 final class WalletListPresenter: WalletListViewOutput, WalletListModuleInput, WalletListModuleOutput {
 
     // MARK: - WalletListModuleOutput
+    
+    var didCreateNewWallet: CompletionBlock?
 
     // MARK: - Properties
 
     weak var view: WalletListViewInput?
-
-    // MARK: - WalletListViewOutput
-
-    func viewLoaded() {
-        view?.setupInitialState()
+    let dataStoreManager: DataStoreProtocol
+    
+    // MARK: - Private properties
+    
+    var wallets: [Wallet] {
+        didSet {
+            updateWalletsOnView()
+        }
     }
+    
+    // MARK: - Initialization and deinitialization
+    
+    init(storeManager: DataStoreProtocol) {
+        dataStoreManager = storeManager
+        wallets = []
+    }
+}
 
-    // MARK: - WalletListModuleInput
+// MARK: - WalletListViewOutput
 
+extension WalletListPresenter {
+    
+    func viewLoaded() {
+        
+    }
+    
+    func viewWillAppear() {
+        fetchWallets()
+    }
+    
+    func rightNavigationBarTapped() {
+        didCreateNewWallet?()
+    }
+}
+
+// MARK: - Private methods
+
+extension WalletListPresenter {
+    
+    func fetchWallets() {
+        wallets = dataStoreManager.fetchWallets()
+    }
+    
+    //this method will be called every time wallets are updated
+    func updateWalletsOnView() {
+        
+        var viewModels = [WalletCellViewModel]()
+        
+        wallets.forEach { wallet in
+            
+            //TODO: Change 0 to real balance
+            let balance = Currency.formattedString(for: 0, currencyCode: wallet.currencyCode) ?? ""
+            let lastDate = dataStoreManager.lastChangeDate(for: wallet)
+            
+            let viewModel = WalletCellViewModel(title: wallet.title, balance: balance, lastChangeDate: lastDate)
+            viewModels.append(viewModel)
+        }
+        
+        view?.setup(items: viewModels)
+    }
 }

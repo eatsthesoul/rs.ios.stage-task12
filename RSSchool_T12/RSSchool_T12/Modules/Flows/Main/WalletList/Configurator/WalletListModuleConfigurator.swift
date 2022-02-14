@@ -13,9 +13,10 @@ final class WalletListModuleConfigurator {
     // MARK: - Internal methods
 
     func configure() -> (WalletListViewController, WalletListModuleOutput) {
-        let nibName = WalletListViewController.Constants.nibName
-        let view = WalletListViewController(nibName: nibName, bundle: nil)
-        let presenter = WalletListPresenter()
+        
+        let view = WalletListViewController()
+        
+        let presenter = WalletListPresenter(storeManager: DataStoreManager())
 
         presenter.view = view
         view.output = presenter

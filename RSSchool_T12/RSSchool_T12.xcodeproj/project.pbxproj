@@ -41,7 +41,9 @@
 		4F14782827B6838B00A18644 /* WalletSettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F14782727B6838B00A18644 /* WalletSettingsCoordinator.swift */; };
 		4F14782A27B683A800A18644 /* WalletSettingsCoordinatorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F14782927B683A800A18644 /* WalletSettingsCoordinatorOutput.swift */; };
 		4F14782D27B6AC2600A18644 /* WalletListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F14782B27B6AC2600A18644 /* WalletListViewController.swift */; };
-		4F14782E27B6AC2600A18644 /* WalletListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F14782C27B6AC2600A18644 /* WalletListViewController.xib */; };
+		4F14783627B6C10F00A18644 /* WalletListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F14783427B6C10F00A18644 /* WalletListCollectionViewCell.swift */; };
+		4F14783727B6C10F00A18644 /* WalletListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F14783527B6C10F00A18644 /* WalletListCollectionViewCell.xib */; };
+		4F14783927B6C1C000A18644 /* WalletCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F14783827B6C1C000A18644 /* WalletCellViewModel.swift */; };
 		4F4665FB278F84D400228418 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4665FA278F84D400228418 /* NavigationBar.swift */; };
 		4F4665FD278F84DF00228418 /* NavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F4665FC278F84DF00228418 /* NavigationBar.xib */; };
 		4F466601279058E900228418 /* BarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F466600279058E900228418 /* BarButton.swift */; };
@@ -153,7 +155,9 @@
 		4F14782727B6838B00A18644 /* WalletSettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletSettingsCoordinator.swift; sourceTree = "<group>"; };
 		4F14782927B683A800A18644 /* WalletSettingsCoordinatorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletSettingsCoordinatorOutput.swift; sourceTree = "<group>"; };
 		4F14782B27B6AC2600A18644 /* WalletListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletListViewController.swift; sourceTree = "<group>"; };
-		4F14782C27B6AC2600A18644 /* WalletListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletListViewController.xib; sourceTree = "<group>"; };
+		4F14783427B6C10F00A18644 /* WalletListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletListCollectionViewCell.swift; sourceTree = "<group>"; };
+		4F14783527B6C10F00A18644 /* WalletListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletListCollectionViewCell.xib; sourceTree = "<group>"; };
+		4F14783827B6C1C000A18644 /* WalletCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCellViewModel.swift; sourceTree = "<group>"; };
 		4F4665FA278F84D400228418 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		4F4665FC278F84DF00228418 /* NavigationBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationBar.xib; sourceTree = "<group>"; };
 		4F466600279058E900228418 /* BarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButton.swift; sourceTree = "<group>"; };
@@ -468,6 +472,15 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		4F14783327B6C0DC00A18644 /* WalletListCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4F14783427B6C10F00A18644 /* WalletListCollectionViewCell.swift */,
+				4F14783527B6C10F00A18644 /* WalletListCollectionViewCell.xib */,
+			);
+			path = WalletListCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		4F4665F8278F849F00228418 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -602,6 +615,7 @@
 			children = (
 				4FAF283D27A9605B006F03EC /* CurrencyCellViewModel.swift */,
 				4FAF285127B19E65006F03EC /* WalletSettingsViewModel.swift */,
+				4F14783827B6C1C000A18644 /* WalletCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -691,7 +705,7 @@
 				ED49872B6E4C4B6F1747BFE4 /* WalletListViewInput.swift */,
 				F7F2810ED06832466D30539A /* WalletListViewOutput.swift */,
 				4F14782B27B6AC2600A18644 /* WalletListViewController.swift */,
-				4F14782C27B6AC2600A18644 /* WalletListViewController.xib */,
+				4F14783327B6C0DC00A18644 /* WalletListCollectionViewCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -832,7 +846,6 @@
 			files = (
 				4F466610279218F100228418 /* Montserrat-Regular.ttf in Resources */,
 				4FAF283A27A95A02006F03EC /* CurrencyListCollectionViewCell.xib in Resources */,
-				4F14782E27B6AC2600A18644 /* WalletListViewController.xib in Resources */,
 				4F46660F279218EF00228418 /* Montserrat-Medium.ttf in Resources */,
 				4FAF282A279F003D006F03EC /* ColorThemesCollectionViewCell.xib in Resources */,
 				4F466611279218F300228418 /* Montserrat-SemiBold.ttf in Resources */,
@@ -840,6 +853,7 @@
 				4F0D48A02796E983008FF92D /* WalletSettingsViewController.xib in Resources */,
 				4F1301092787BC010003E6B2 /* LaunchScreen.storyboard in Resources */,
 				4F1301062787BC010003E6B2 /* Assets.xcassets in Resources */,
+				4F14783727B6C10F00A18644 /* WalletListCollectionViewCell.xib in Resources */,
 				4F14782127B3F08000A18644 /* AlertViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -904,6 +918,7 @@
 				4FAF284027AD66C8006F03EC /* DataStoreManager.swift in Sources */,
 				53E2862CB967D2D15281F9B9 /* WalletSettingsViewInput.swift in Sources */,
 				4FAF285227B19E65006F03EC /* WalletSettingsViewModel.swift in Sources */,
+				4F14783927B6C1C000A18644 /* WalletCellViewModel.swift in Sources */,
 				4FAF283E27A9605C006F03EC /* CurrencyCellViewModel.swift in Sources */,
 				9FB7892A597DA8F8FA11A295 /* WalletSettingsViewOutput.swift in Sources */,
 				84EF12AF53D36C4A9D9ED12E /* WalletSettingsModuleConfigurator.swift in Sources */,
@@ -924,6 +939,7 @@
 				9CE9B6890C53A7C4103851B5 /* ColorThemesViewOutput.swift in Sources */,
 				D2CB3EB084BAB89B23709557 /* CurrencyListModuleConfigurator.swift in Sources */,
 				4F14782827B6838B00A18644 /* WalletSettingsCoordinator.swift in Sources */,
+				4F14783627B6C10F00A18644 /* WalletListCollectionViewCell.swift in Sources */,
 				2FA84CE8D7B1AE618EDB33FF /* CurrencyListPresenter.swift in Sources */,
 				C2C7796C6FE99E4A1ED24026 /* CurrencyListModuleInput.swift in Sources */,
 				53D495EB2173F11EA9C64AB8 /* CurrencyListModuleOutput.swift in Sources */,

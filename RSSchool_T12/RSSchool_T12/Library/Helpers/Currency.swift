@@ -9,7 +9,7 @@ import Foundation
 
 enum Currency {
     
-    static var numberFormatter: NumberFormatter = {
+    private static var numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.locale = .current
         formatter.numberStyle = .currency

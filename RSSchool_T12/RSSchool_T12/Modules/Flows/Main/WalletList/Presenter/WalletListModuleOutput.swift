@@ -7,4 +7,5 @@
 //
 
 protocol WalletListModuleOutput: AnyObject {
+    var didCreateNewWallet: CompletionBlock? { get set }
 }

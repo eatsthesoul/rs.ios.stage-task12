@@ -7,6 +7,5 @@
 //
 
 protocol WalletListViewInput: AnyObject {
-    /// Method for setup initial state of view
-    func setupInitialState()
+    func setup(items: [WalletCellViewModel])
 }

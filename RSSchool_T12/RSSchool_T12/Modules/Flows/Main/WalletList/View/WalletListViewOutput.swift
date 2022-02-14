@@ -7,6 +7,7 @@
 //
 
 protocol WalletListViewOutput {
-    /// Notify presenter that view is ready
-    func viewLoaded()
+    func viewLoaded() // Notify presenter that view is ready
+    func viewWillAppear() // Notify presenter that view will appear
+    func rightNavigationBarTapped()
 }

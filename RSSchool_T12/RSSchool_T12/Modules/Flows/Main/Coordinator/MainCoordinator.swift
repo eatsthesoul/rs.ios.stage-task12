@@ -46,6 +46,10 @@ private extension MainCoordinator {
         let walletListConfigurator = WalletListModuleConfigurator()
         let (view, output) = walletListConfigurator.configure()
         
+        output.didCreateNewWallet = { [weak self] in
+            self?.performWalletSettingsFlow()
+        }
+        
         router.setNavigationControllerRootModule(view, hideBar: true)
     }
     
