@@ -15,10 +15,14 @@ final class CoordinatorFactory {
 extension CoordinatorFactory: CoordinatorFactoryProtocol {
     
     func makeMainCoordinator(router: Routable, factory: CoordinatorFactoryProtocol) -> Coordinatable & MainCoordinatorOutput {
-        return MainCoordinator(router: router, factory: factory)
+        MainCoordinator(router: router, factory: factory)
     }
     
     func makeWalletSettingsCoordinator(router: Routable, wallet: Wallet? = nil) -> Coordinatable & WalletSettingsCoordinatorOutput {
-        return WalletSettingsCoordinator(router: router, wallet: wallet)
+        WalletSettingsCoordinator(router: router, wallet: wallet)
+    }
+    
+    func makeWalletDetailCoordinator(router: Routable, factory: CoordinatorFactoryProtocol, wallet: Wallet) -> Coordinatable & WalletCoordinatorOutput {
+        WalletCoordinator(router: router, factory: factory, wallet: wallet)
     }
 }

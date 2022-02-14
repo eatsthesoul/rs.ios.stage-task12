@@ -61,7 +61,7 @@ final class WalletListViewController: UIViewController {
         collectionViewAdapter.setup(collectionView: view)
         collectionViewAdapter.itemSize = CGSize(width: itemWidth, height: itemHeight)
         collectionViewAdapter.insetForSections = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
-//        collectionViewAdapter.onSelectItem = output?.
+        collectionViewAdapter.onSelectItem = output?.didSelectWallet(with:)
         
         return view
     }()

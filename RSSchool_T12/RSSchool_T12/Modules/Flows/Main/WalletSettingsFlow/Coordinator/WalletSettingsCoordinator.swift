@@ -62,7 +62,6 @@ private extension WalletSettingsCoordinator {
             self?.showCreateWalletMessage(completion: { [weak self, weak input] answer in
                 if answer {    //save wallet if we get positive response from message
                     input?.saveWallet()
-                    self?.finishFlow?()
                 }
             })
         }
@@ -98,6 +97,7 @@ private extension WalletSettingsCoordinator {
             self?.router.dismissModule()
         } rightButtonAction: { [weak self] in
             self?.router.dismissModule()
+            self?.router.popModule()
             self?.finishFlow?()
         }
         
@@ -111,6 +111,7 @@ private extension WalletSettingsCoordinator {
             self?.router.dismissModule()
         } rightButtonAction: { [weak self] in
             self?.router.dismissModule()
+            self?.router.popModule()
             self?.finishFlow?()
         }
 
@@ -125,9 +126,13 @@ private extension WalletSettingsCoordinator {
             //completion here for creating a wallet
             completion(true)
             self?.router.dismissModule()
+            self?.router.popModule()
+            self?.finishFlow?()
         } rightButtonAction: { [weak self] in
             completion(false)
             self?.router.dismissModule()
+            self?.router.popModule()
+            self?.finishFlow?()
         }
         
         router.present(alert, animated: true, completion: nil)

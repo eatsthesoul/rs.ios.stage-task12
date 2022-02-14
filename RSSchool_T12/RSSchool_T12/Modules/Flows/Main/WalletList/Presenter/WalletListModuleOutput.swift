@@ -8,4 +8,5 @@
 
 protocol WalletListModuleOutput: AnyObject {
     var didCreateNewWallet: CompletionBlock? { get set }
+    var didSelectWallet: Closure<Wallet>? { get set }
 }

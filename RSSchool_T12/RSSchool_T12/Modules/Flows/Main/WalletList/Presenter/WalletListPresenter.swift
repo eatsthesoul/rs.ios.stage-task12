@@ -11,6 +11,7 @@ final class WalletListPresenter: WalletListViewOutput, WalletListModuleInput, Wa
     // MARK: - WalletListModuleOutput
     
     var didCreateNewWallet: CompletionBlock?
+    var didSelectWallet: Closure<Wallet>?
 
     // MARK: - Properties
 
@@ -47,6 +48,11 @@ extension WalletListPresenter {
     
     func rightNavigationBarTapped() {
         didCreateNewWallet?()
+    }
+    
+    func didSelectWallet(with index: Int) {
+        let wallet = wallets[index]
+        didSelectWallet?(wallet)
     }
 }
 

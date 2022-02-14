@@ -47,19 +47,35 @@ private extension MainCoordinator {
         let (view, output) = walletListConfigurator.configure()
         
         output.didCreateNewWallet = { [weak self] in
-            self?.performWalletSettingsFlow()
+            self?.showWalletSettings()
+        }
+        
+        output.didSelectWallet = { [weak self] wallet in
+            self?.showWalletDetail(wallet)
         }
         
         router.setNavigationControllerRootModule(view, hideBar: true)
     }
     
-    func performWalletSettingsFlow(_ wallet: Wallet? = nil) {
+    func showWalletSettings(_ wallet: Wallet? = nil) {
         let coordinator = factory.makeWalletSettingsCoordinator(router: router, wallet: wallet)
-        coordinator.finishFlow = { [weak self, weak coordinator] in
-            self?.removeDependency(coordinator)
-            self?.start()
-        }
         addDependency(coordinator)
+        
+        coordinator.finishFlow = { [weak self] in
+            self?.removeDependency(coordinator)
+        }
+        
+        coordinator.start()
+    }
+    
+    func showWalletDetail(_ wallet: Wallet) {
+        let coordinator = factory.makeWalletDetailCoordinator(router: router, factory: factory, wallet: wallet)
+        addDependency(coordinator)
+        
+        coordinator.finishFlow = { [weak self] in
+            self?.removeDependency(coordinator)
+        }
+        
         coordinator.start()
     }
 }
