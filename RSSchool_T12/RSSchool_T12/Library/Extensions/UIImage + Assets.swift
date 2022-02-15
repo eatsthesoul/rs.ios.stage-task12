@@ -55,4 +55,62 @@ extension UIImage {
     static var seaWave: UIImage {
         UIImage(named: "seaWave")!
     }
+    
+    
+    //transaction type images
+    static var car: UIImage {
+        UIImage(named: "car")!
+    }
+    
+    static var education: UIImage {
+        UIImage(named: "education")!
+    }
+    
+    static var entertainment: UIImage {
+        UIImage(named: "entertainment")!
+    }
+    
+    static var food: UIImage {
+        UIImage(named: "food")!
+    }
+    
+    static var gift: UIImage {
+        UIImage(named: "gift")!
+    }
+    
+    static var healthcare: UIImage {
+        UIImage(named: "healthcare")!
+    }
+    
+    static var investments: UIImage {
+        UIImage(named: "investments")!
+    }
+    
+    static var other: UIImage {
+        UIImage(named: "other")!
+    }
+    
+    static var payments: UIImage {
+        UIImage(named: "payments")!
+    }
+    
+    static var salary: UIImage {
+        UIImage(named: "salary")!
+    }
+    
+    static var shopping: UIImage {
+        UIImage(named: "shopping")!
+    }
+    
+    static var sport: UIImage {
+        UIImage(named: "sport")!
+    }
+    
+    static var transport: UIImage {
+        UIImage(named: "transport")!
+    }
+    
+    static var travel: UIImage {
+        UIImage(named: "travel")!
+    }
 }

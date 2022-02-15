@@ -21,7 +21,7 @@ extension Transaction {
     @NSManaged public var note: String?
     @NSManaged public var sum: NSDecimalNumber
     @NSManaged public var title: String
-    @NSManaged public var type: Int32
+    @NSManaged public var type: TransactionType
     @NSManaged public var wallet: Wallet?
 
 }
