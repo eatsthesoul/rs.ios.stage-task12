@@ -10,12 +10,22 @@ import CoreData
 
 protocol DataStoreProtocol {
     func fetchWallets() -> [Wallet]
-    func fetchWallet(with id: NSManagedObjectID) -> Wallet?
+    func fetchTransactions(for wallet: Wallet) -> [Transaction]
+    
     func createNewWallet(from walletData: WalletSettingsViewModel)
-    func deleteWallet(_ wallet: Wallet)
+    func createNewTransaction(_ transaction: TransactionSettingsViewModel, for wallet: Wallet)
+    
     func updateWallet(_ wallet: Wallet, with newWallet: WalletSettingsViewModel)
+    func updateTransaction(_ transaction: Transaction, with newTransaction: TransactionSettingsViewModel)
+    
+    func deleteWallet(_ wallet: Wallet)
+    func deleteTransaction(_ transaction: Transaction, from wallet: Wallet)
+    
     func doesWalletTitleExists(_ title: String) -> Bool
+    
     func lastChangeDate(for wallet: Wallet) -> Date?
+    
+    func totalBalance(for wallet: Wallet) -> Decimal
 }
 
 class DataStoreManager: DataStoreProtocol {
@@ -26,7 +36,7 @@ class DataStoreManager: DataStoreProtocol {
         static let walletEntityName = "Wallet"
     }
     
-    // MARK: Properties
+    // MARK: - Properties
 
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "RSSchool_T12")
@@ -58,35 +68,83 @@ class DataStoreManager: DataStoreProtocol {
         return wallets ?? []
     }
     
-    func fetchWallet(with id: NSManagedObjectID) -> Wallet? {
+    func fetchTransactions(for wallet: Wallet) -> [Transaction] {
+        
         let context = viewContext
-        guard let wallet = try? context.existingObject(with: id) as? Wallet else { return nil }
-        return wallet
+        guard let wallet = context.object(with: wallet.objectID) as? Wallet else { return [] }
+        guard let transactions = wallet.transactions?.array as? [Transaction] else { return [] }
+        
+        return transactions.sorted { $0.date > $1.date }
     }
     
     func createNewWallet(from walletData: WalletSettingsViewModel) {
+        
         let context = viewContext
+        
         let wallet = Wallet(context: context)
         wallet.currencyCode = walletData.currencyCode
         wallet.colorTheme = walletData.colorTheme
         wallet.title = walletData.title
         wallet.transactions = []
+        
+        context.saveContext()
+    }
+    
+    func createNewTransaction(_ transaction: TransactionSettingsViewModel, for wallet: Wallet) {
+        
+        let context = viewContext
+        guard let wallet = context.object(with: wallet.objectID) as? Wallet else { return }
+        
+        let newTransaction = Transaction(context: viewContext)
+        newTransaction.wallet = wallet
+        newTransaction.date = Date() //setup current date
+        newTransaction.isOutcome = transaction.isOutcome
+        newTransaction.note = transaction.note
+        newTransaction.sum = NSDecimalNumber(decimal: transaction.change)
+        newTransaction.title = transaction.title
+        newTransaction.type = transaction.type
+        
+        wallet.addToTransactions(newTransaction)
+        context.saveContext()
+    }
+    
+    func updateWallet(_ wallet: Wallet, with newWallet: WalletSettingsViewModel) {
+        
+        let context = viewContext
+        
+        let wallet = context.object(with: wallet.objectID) as? Wallet
+        wallet?.colorTheme = newWallet.colorTheme
+        wallet?.currencyCode = newWallet.currencyCode
+        wallet?.title = newWallet.title
+        
+        context.saveContext()
+    }
+    
+    func updateTransaction(_ transaction: Transaction, with newTransaction: TransactionSettingsViewModel) {
+        
+        let context = viewContext
+        let transaction = context.object(with: transaction.objectID) as? Transaction
+        
+        transaction?.isOutcome = newTransaction.isOutcome
+        transaction?.note = newTransaction.note
+        transaction?.sum = NSDecimalNumber(decimal: newTransaction.change)
+        transaction?.title = newTransaction.title
+        transaction?.type = newTransaction.type
+        
         context.saveContext()
     }
     
     func deleteWallet(_ wallet: Wallet) {
         let context = viewContext
-        let object = viewContext.object(with: wallet.objectID)
+        let object = context.object(with: wallet.objectID)
         context.delete(object)
         context.saveContext()
     }
     
-    func updateWallet(_ wallet: Wallet, with newWallet: WalletSettingsViewModel) {
+    func deleteTransaction(_ transaction: Transaction, from wallet: Wallet) {
         let context = viewContext
-        let wallet = try? context.existingObject(with: wallet.objectID) as? Wallet
-        wallet?.colorTheme = newWallet.colorTheme
-        wallet?.currencyCode = newWallet.currencyCode
-        wallet?.title = newWallet.title
+        let wallet = context.object(with: wallet.objectID) as? Wallet
+        wallet?.removeFromTransactions(transaction)
         context.saveContext()
     }
     
@@ -104,7 +162,8 @@ class DataStoreManager: DataStoreProtocol {
     func lastChangeDate(for wallet: Wallet) -> Date? {
         
         let context = viewContext
-        guard let wallet = try? context.existingObject(with: wallet.objectID) as? Wallet else { return nil }
+        
+        guard let wallet = context.object(with: wallet.objectID) as? Wallet else { return nil }
         guard let transactions = wallet.transactions else { return nil }
         
         var date: Date? = nil
@@ -116,6 +175,27 @@ class DataStoreManager: DataStoreProtocol {
         
         return date
     }
+    
+    func totalBalance(for wallet: Wallet) -> Decimal {
+        
+        let context = viewContext
+        
+        guard let wallet = context.object(with: wallet.objectID) as? Wallet else { return 0 }
+        guard let transactions = wallet.transactions?.array as? [Transaction] else { return 0 }
+        
+        var balance: Decimal = 0
+        transactions.forEach { transaction in
+            switch transaction.isOutcome {
+            case true:
+                balance -= transaction.sum.decimalValue
+            case false:
+                balance += transaction.sum.decimalValue
+            }
+        }
+        
+        return balance
+    }
+    
 }
 
 extension NSManagedObjectContext {
