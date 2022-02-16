@@ -142,6 +142,9 @@
                                     <state key="normal" title="See all">
                                         <color key="titleColor" name="Green Blue Crayola"/>
                                     </state>
+                                    <connections>
+                                        <action selector="seeAllButtonTapped:" destination="-1" eventType="touchUpInside" id="t5u-9N-QLQ"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemGray5Color"/>

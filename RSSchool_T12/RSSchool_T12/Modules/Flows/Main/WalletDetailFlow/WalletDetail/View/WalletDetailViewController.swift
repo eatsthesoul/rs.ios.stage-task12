@@ -78,6 +78,12 @@ final class WalletDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         output?.viewWillAppear()
     }
+    
+    // MARK: - IBActions
+    
+    @IBAction func seeAllButtonTapped(_ sender: Any) {
+        output?.showAllTransactions()
+    }
 }
 
 // MARK: - WalletDetailViewInput

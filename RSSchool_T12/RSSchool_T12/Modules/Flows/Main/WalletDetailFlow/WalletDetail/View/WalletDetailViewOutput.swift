@@ -10,4 +10,5 @@ protocol WalletDetailViewOutput {
     func viewLoaded()
     func viewWillAppear()
     func leftNavigationBarButtonTapped()
+    func showAllTransactions()
 }

@@ -11,6 +11,7 @@ final class WalletDetailPresenter: WalletDetailModuleInput, WalletDetailModuleOu
     // MARK: - WalletDetailModuleOutput
     
     var didDismiss: CompletionBlock?
+    var didShowAllTransactions: Closure<Wallet>?
 
     // MARK: - Properties
 
@@ -52,6 +53,10 @@ extension WalletDetailPresenter: WalletDetailViewOutput {
     
     func leftNavigationBarButtonTapped() {
         didDismiss?()
+    }
+    
+    func showAllTransactions() {
+        didShowAllTransactions?(wallet)
     }
 }
 

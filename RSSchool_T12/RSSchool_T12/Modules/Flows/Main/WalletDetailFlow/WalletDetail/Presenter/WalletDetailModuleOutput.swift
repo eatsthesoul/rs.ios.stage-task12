@@ -8,4 +8,5 @@
 
 protocol WalletDetailModuleOutput: AnyObject {
     var didDismiss: CompletionBlock? { get set }
+    var didShowAllTransactions: Closure<Wallet>? { get set }
 }

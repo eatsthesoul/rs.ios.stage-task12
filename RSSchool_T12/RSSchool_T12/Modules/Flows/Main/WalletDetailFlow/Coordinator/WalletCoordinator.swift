@@ -41,6 +41,18 @@ private extension WalletCoordinator {
             self?.finishFlow?()
         }
         
+        output.didShowAllTransactions = { [weak self] wallet in
+            self?.showAllTransactions(for: wallet)
+        }
+        
+        router.push(view)
+    }
+    
+    func showAllTransactions(for wallet: Wallet) {
+        
+        let transactionListConfigurator = TransactionListModuleConfigurator()
+        let (view, output) = transactionListConfigurator.configure(with: wallet)
+        
         router.push(view)
     }
 }
