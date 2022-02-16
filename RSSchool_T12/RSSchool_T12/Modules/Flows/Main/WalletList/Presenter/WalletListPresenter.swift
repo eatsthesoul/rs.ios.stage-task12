@@ -71,8 +71,8 @@ extension WalletListPresenter {
         
         wallets.forEach { wallet in
             
-            //TODO: Change 0 to real balance
-            let balance = Currency.formattedString(for: 0, currencyCode: wallet.currencyCode) ?? ""
+            let walletBalance = dataStoreManager.totalBalance(for: wallet)
+            let balance = Currency.formattedString(for: walletBalance, currencyCode: wallet.currencyCode) ?? ""
             let lastDate = dataStoreManager.lastChangeDate(for: wallet)
             
             let viewModel = WalletCellViewModel(title: wallet.title, balance: balance, lastChangeDate: lastDate)

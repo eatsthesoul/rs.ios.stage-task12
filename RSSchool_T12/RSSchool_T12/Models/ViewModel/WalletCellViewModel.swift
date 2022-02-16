@@ -16,6 +16,7 @@ struct WalletCellViewModel {
         self.title = title
         self.balance = balance
         
-        self.lastChangeDate = "New"
+        let dateString = lastChangeDate?.string(with: "MMMM d, yyyy") ?? "New"
+        self.lastChangeDate = dateString
     }
 }
