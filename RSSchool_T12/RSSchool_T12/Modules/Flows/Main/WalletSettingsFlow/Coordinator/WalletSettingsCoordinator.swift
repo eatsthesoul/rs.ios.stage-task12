@@ -59,7 +59,7 @@ private extension WalletSettingsCoordinator {
         }
         
         output.didCreateWalletMessage = { [weak self] in
-            self?.showCreateWalletMessage(completion: { [weak self, weak input] answer in
+            self?.showCreateWalletMessage(completion: { [weak input] answer in
                 if answer {    //save wallet if we get positive response from message
                     input?.saveWallet()
                 }

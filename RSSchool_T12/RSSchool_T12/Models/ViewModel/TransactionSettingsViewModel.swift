@@ -11,6 +11,6 @@ struct TransactionSettingsViewModel {
     let title: String
     let change: Decimal
     let isOutcome: Bool
-    let note: String
+    let note: String?
     let type: TransactionType
 }

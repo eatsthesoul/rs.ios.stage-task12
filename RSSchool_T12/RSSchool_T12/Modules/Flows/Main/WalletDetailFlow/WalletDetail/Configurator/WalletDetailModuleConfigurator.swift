@@ -12,12 +12,14 @@ final class WalletDetailModuleConfigurator {
 
     // MARK: - Internal methods
 
-    func configure() -> (WalletDetailViewController, WalletDetailModuleOutput) {
+    func configure(with wallet: Wallet) -> (WalletDetailViewController, WalletDetailModuleOutput) {
         
         let nibName = WalletDetailViewController.nibName
         let view = WalletDetailViewController(nibName: nibName, bundle: nil)
         
-        let presenter = WalletDetailPresenter()
+        let dataStoreManager = DataStoreManager()
+        let presenter = WalletDetailPresenter(with: wallet,
+                                              dataStore: dataStoreManager)
 
         presenter.view = view
         view.output = presenter

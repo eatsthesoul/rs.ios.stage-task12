@@ -23,7 +23,7 @@ final class WalletCoordinator: BaseCoordinator, WalletCoordinatorOutput {
 // MARK: - Coordinatable
 extension WalletCoordinator: Coordinatable {
     func start() {
-        showWallet()
+        showWallet(wallet)
     }
 }
 
@@ -31,10 +31,15 @@ extension WalletCoordinator: Coordinatable {
 
 private extension WalletCoordinator {
     
-    func showWallet() {
+    func showWallet(_ wallet: Wallet) {
         
         let walletDetailConfigurator = WalletDetailModuleConfigurator()
-        let (view, output) = walletDetailConfigurator.configure()
+        let (view, output) = walletDetailConfigurator.configure(with: wallet)
+        
+        output.didDismiss = { [weak self] in
+            self?.router.popModule()
+            self?.finishFlow?()
+        }
         
         router.push(view)
     }

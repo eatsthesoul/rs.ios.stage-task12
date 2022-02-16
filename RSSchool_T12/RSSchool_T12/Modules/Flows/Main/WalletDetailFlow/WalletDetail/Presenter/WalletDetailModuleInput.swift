@@ -6,5 +6,5 @@
 //  Copyright © 2022 Evgeniy Petlitskiy. All rights reserved.
 //
 
-protocol WalletDetailModuleInput: class {
+protocol WalletDetailModuleInput: AnyObject {
 }

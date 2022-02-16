@@ -6,5 +6,6 @@
 //  Copyright © 2022 Evgeniy Petlitskiy. All rights reserved.
 //
 
-protocol WalletDetailModuleOutput: class {
+protocol WalletDetailModuleOutput: AnyObject {
+    var didDismiss: CompletionBlock? { get set }
 }

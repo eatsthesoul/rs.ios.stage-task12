@@ -8,4 +8,6 @@
 
 protocol WalletDetailViewOutput {
     func viewLoaded()
+    func viewWillAppear()
+    func leftNavigationBarButtonTapped()
 }
