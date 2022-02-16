@@ -7,4 +7,5 @@
 //
 
 protocol TransactionListModuleOutput: AnyObject {
+    var didDismiss: CompletionBlock? { get set }
 }

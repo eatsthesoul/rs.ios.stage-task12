@@ -6,30 +6,69 @@
 //  Copyright © 2022 Evgeniy Petlitskiy. All rights reserved.
 //
 
-final class TransactionListPresenter: TransactionListViewOutput, TransactionListModuleInput, TransactionListModuleOutput {
+final class TransactionListPresenter: TransactionListModuleInput, TransactionListModuleOutput {
 
     // MARK: - TransactionListModuleOutput
+    
+    var didDismiss: CompletionBlock?
 
     // MARK: - Properties
 
     weak var view: TransactionListViewInput?
     
-    // MARK: Private properties
+    // MARK: - Private properties
     
-    let wallet: Wallet
+    private let wallet: Wallet
+    private var transactions: [Transaction] {
+        didSet {
+            updateTransactionsOnView()
+        }
+    }
+    
+    private let dataStoreMagager: DataStoreProtocol
     
     // MARK: - Initialization and deinitialization
     
-    init(with wallet: Wallet) {
+    init(with wallet: Wallet, dataStoreManager: DataStoreProtocol) {
+        transactions = []
         self.wallet = wallet
+        self.dataStoreMagager = dataStoreManager
     }
+}
 
-    // MARK: - TransactionListViewOutput
+// MARK: - TransactionListViewOutput
 
+extension TransactionListPresenter: TransactionListViewOutput {
+    
     func viewLoaded() {
-        view?.setupInitialState()
+        
     }
+    
+    func viewWillAppear() {
+        updateTransactions()
+    }
+    
+    func leftNavigationBarTapped() {
+        didDismiss?()
+    }
+}
 
-    // MARK: - TransactionListModuleInput
+extension TransactionListPresenter {
+    
+    func updateTransactions() {
+        transactions = dataStoreMagager.fetchTransactions(for: wallet)
+    }
+    
+    //this method will be called every time transactions are updated
+    func updateTransactionsOnView() {
 
+        var viewModels = [TransactionCellViewModel]()
+        
+        transactions.forEach { transaction in
+            let viewModel = TransactionCellViewModel(with: transaction)
+            viewModels.append(viewModel)
+        }
+        
+        view?.setup(items: viewModels)
+    }
 }

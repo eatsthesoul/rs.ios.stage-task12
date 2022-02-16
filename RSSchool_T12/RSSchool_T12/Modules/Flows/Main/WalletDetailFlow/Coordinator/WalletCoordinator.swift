@@ -53,6 +53,10 @@ private extension WalletCoordinator {
         let transactionListConfigurator = TransactionListModuleConfigurator()
         let (view, output) = transactionListConfigurator.configure(with: wallet)
         
+        output.didDismiss = { [weak self] in
+            self?.router.popModule()
+        }
+        
         router.push(view)
     }
 }

@@ -14,7 +14,9 @@ final class TransactionListModuleConfigurator {
 
     func configure(with wallet: Wallet) -> (TransactionListViewController, TransactionListModuleOutput) {
         let view = TransactionListViewController()
-        let presenter = TransactionListPresenter(with: wallet)
+        
+        let dataStoreManager = DataStoreManager()
+        let presenter = TransactionListPresenter(with: wallet, dataStoreManager: dataStoreManager)
 
         presenter.view = view
         view.output = presenter
