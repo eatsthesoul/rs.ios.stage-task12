@@ -9,14 +9,19 @@ import UIKit
 
 class TransactionCollectionViewCell: UICollectionViewCell, ConfigurableCell {
     
-    @IBOutlet weak var imageView: BorderedImageView!
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var sumLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupAppearance()
+    }
+    
+    private func setupAppearance() {
         makeGlassBackground(with: 20)
+        imageView.makeBorderBackground(with: 10)
     }
     
     // MARK: - ConfigurableCell

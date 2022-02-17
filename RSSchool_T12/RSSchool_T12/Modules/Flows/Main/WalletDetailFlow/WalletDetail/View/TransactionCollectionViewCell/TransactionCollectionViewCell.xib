@@ -22,7 +22,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="325" height="90"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xzn-Y4-HmF" customClass="BorderedImageView" customModule="RSSchool_T12" customModuleProvider="target">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xzn-Y4-HmF">
                         <rect key="frame" x="20" y="20" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="0le-eG-w82"/>
@@ -78,7 +78,7 @@
             </constraints>
             <connections>
                 <outlet property="dateLabel" destination="fSO-bT-Dd0" id="AHU-4Y-qdw"/>
-                <outlet property="imageView" destination="Xzn-Y4-HmF" id="0l0-hl-VAb"/>
+                <outlet property="imageView" destination="Xzn-Y4-HmF" id="BDt-dB-0qP"/>
                 <outlet property="nameLabel" destination="zbb-ST-zNN" id="PyW-tY-PJe"/>
                 <outlet property="sumLabel" destination="RUP-IM-zvF" id="zDC-v4-cGT"/>
             </connections>

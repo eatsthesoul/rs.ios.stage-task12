@@ -10,10 +10,12 @@ import UIKit
 protocol BackgroundPresentable where Self: UIView {
     func makeGlassBackground(with cornerRadius: CGFloat)
     func makeThemeBackground()
+    func makeBorderBackground(with cornerRadius: CGFloat)
     func removeBackground()
 }
 
 extension BackgroundPresentable {
+    
     func makeGlassBackground(with cornerRadius: CGFloat = 0) {
         removeBackground()
         let glassView = GlassView(with: cornerRadius)
@@ -43,6 +45,27 @@ extension BackgroundPresentable {
         ])
     }
     
+    func makeBorderBackground(with cornerRadius: CGFloat = 0) {
+        
+        removeBackground()
+        
+        let borderedView = BorderedView(with: cornerRadius)
+        borderedView.isUserInteractionEnabled = false
+        borderedView.translatesAutoresizingMaskIntoConstraints = false
+        
+        insertSubview(borderedView, at: 0)
+        NSLayoutConstraint.activate([
+            borderedView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            borderedView.topAnchor.constraint(equalTo: self.topAnchor),
+            borderedView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            borderedView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+        ])
+        
+        backgroundColor = .clear
+        layer.cornerRadius = cornerRadius
+        layer.masksToBounds = true
+    }
+    
     func removeBackground() {
         self.subviews.forEach { view in
             if view is BackgroundViewType {
@@ -50,5 +73,4 @@ extension BackgroundPresentable {
             }
         }
     }
-    
 }
