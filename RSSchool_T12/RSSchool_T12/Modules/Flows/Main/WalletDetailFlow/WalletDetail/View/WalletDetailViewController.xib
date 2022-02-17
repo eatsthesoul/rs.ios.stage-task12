@@ -20,7 +20,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WalletDetailViewController" customModule="RSSchool_T12" customModuleProvider="target">
             <connections>
-                <outlet property="addTransactionButton" destination="vJV-tk-QWA" id="s1D-zK-CZu"/>
+                <outlet property="addTransactionButton" destination="vJV-tk-QWA" id="fvH-0F-Rhi"/>
                 <outlet property="balanceLabel" destination="lgD-Mp-9df" id="or1-3S-p1M"/>
                 <outlet property="collectionView" destination="48Y-If-z9A" id="7V5-dC-UYe"/>
                 <outlet property="collectionViewHeightConstraint" destination="NkN-Yw-AqV" id="W7h-bF-8aB"/>
@@ -113,6 +113,9 @@
                                     <state key="normal" title="Add transaction">
                                         <color key="titleColor" name="Green Blue Crayola"/>
                                     </state>
+                                    <connections>
+                                        <action selector="addTransactionTapped:" destination="-1" eventType="touchUpInside" id="Mxk-tf-WCw"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemGray5Color"/>

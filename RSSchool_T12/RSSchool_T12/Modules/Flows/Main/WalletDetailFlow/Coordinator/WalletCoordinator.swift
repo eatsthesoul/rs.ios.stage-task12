@@ -45,6 +45,10 @@ private extension WalletCoordinator {
             self?.showAllTransactions(for: wallet)
         }
         
+        output.didAddTransaction = { [weak self] in
+            self?.showAddTransaction()
+        }
+        
         router.push(view)
     }
     
@@ -56,6 +60,14 @@ private extension WalletCoordinator {
         output.didDismiss = { [weak self] in
             self?.router.popModule()
         }
+        
+        router.push(view)
+    }
+    
+    func showAddTransaction() {
+        
+        let createTransactionConfigurator = CreateTransactionModuleConfigurator()
+        let (view, input, output) = createTransactionConfigurator.configure()
         
         router.push(view)
     }

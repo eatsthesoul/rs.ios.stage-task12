@@ -12,6 +12,7 @@ final class WalletDetailPresenter: WalletDetailModuleInput, WalletDetailModuleOu
     
     var didDismiss: CompletionBlock?
     var didShowAllTransactions: Closure<Wallet>?
+    var didAddTransaction: CompletionBlock?
 
     // MARK: - Properties
 
@@ -57,6 +58,10 @@ extension WalletDetailPresenter: WalletDetailViewOutput {
     
     func showAllTransactions() {
         didShowAllTransactions?(wallet)
+    }
+    
+    func addTransaction() {
+        didAddTransaction?()
     }
 }
 

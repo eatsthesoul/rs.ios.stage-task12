@@ -9,4 +9,5 @@
 protocol WalletDetailModuleOutput: AnyObject {
     var didDismiss: CompletionBlock? { get set }
     var didShowAllTransactions: Closure<Wallet>? { get set }
+    var didAddTransaction: CompletionBlock? { get set }
 }
