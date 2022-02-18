@@ -100,7 +100,7 @@ class DataStoreManager: DataStoreProtocol {
         newTransaction.date = Date() //setup current date
         newTransaction.isOutcome = transaction.isOutcome
         newTransaction.note = transaction.note
-        newTransaction.sum = NSDecimalNumber(decimal: transaction.change)
+        newTransaction.sum = NSDecimalNumber(string: transaction.change)
         newTransaction.title = transaction.title
         newTransaction.type = transaction.type
         
@@ -127,7 +127,7 @@ class DataStoreManager: DataStoreProtocol {
         
         transaction?.isOutcome = newTransaction.isOutcome
         transaction?.note = newTransaction.note
-        transaction?.sum = NSDecimalNumber(decimal: newTransaction.change)
+        transaction?.sum = NSDecimalNumber(string: newTransaction.change)
         transaction?.title = newTransaction.title
         transaction?.type = newTransaction.type
         

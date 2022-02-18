@@ -33,15 +33,15 @@ class TextField: UITextField {
     }
     
     private func setupAppearance() {
-        backgroundColor = .clear
         font = UIFont.montserrat(24, .semibold)
         textColor = .rickBlack
         
         borderStyle = .none
-        adjustsFontSizeToFitWidth = false
-        
-        layer.borderWidth = 1
-        layer.borderColor = UIColor.rickBlack.cgColor
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        makeBorderBackground(with: cornerRadius)
     }
 
 }

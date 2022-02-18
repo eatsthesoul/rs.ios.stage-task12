@@ -13,10 +13,12 @@ final class WalletCoordinator: BaseCoordinator, WalletCoordinatorOutput {
     
     fileprivate let router: Routable
     fileprivate let wallet: Wallet
+    fileprivate let factory: CoordinatorFactoryProtocol
     
     init(router: Routable, factory: CoordinatorFactoryProtocol, wallet: Wallet) {
         self.router = router
         self.wallet = wallet
+        self.factory = factory
     }
 }
 
@@ -66,9 +68,13 @@ private extension WalletCoordinator {
     
     func showAddTransaction() {
         
-        let createTransactionConfigurator = CreateTransactionModuleConfigurator()
-        let (view, input, output) = createTransactionConfigurator.configure()
-        
-        router.push(view)
+        let coordinator = factory.makeTransactionSettingsCoordinator(router: router, transaction: nil)
+        addDependency(coordinator)
+
+        coordinator.finishFlow = { [weak self] in
+            self?.removeDependency(coordinator)
+        }
+
+        coordinator.start()
     }
 }

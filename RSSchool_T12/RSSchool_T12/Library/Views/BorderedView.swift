@@ -35,7 +35,7 @@ class BorderedView: UIView, BackgroundViewType {
     }
     
     func addBorder() {
-        layer.cornerRadius = 10
+        layer.cornerRadius = cornerRadius
         layer.borderColor = UIColor.rickBlack.cgColor
         layer.borderWidth = 1
     }

@@ -8,9 +8,9 @@
 import Foundation
 
 struct TransactionSettingsViewModel {
-    let title: String
-    let change: Decimal
-    let isOutcome: Bool
-    let note: String?
-    let type: TransactionType
+    var title: String
+    var change: String
+    var isOutcome: Bool
+    var note: String?
+    var type: TransactionType
 }

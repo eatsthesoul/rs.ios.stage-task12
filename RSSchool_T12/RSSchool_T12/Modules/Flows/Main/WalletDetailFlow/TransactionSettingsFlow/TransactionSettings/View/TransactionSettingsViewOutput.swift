@@ -6,7 +6,13 @@
 //  Copyright © 2022 Evgeniy Petlitskiy. All rights reserved.
 //
 
+import Foundation
+
 protocol TransactionSettingsViewOutput {
-    /// Notify presenter that view is ready
     func viewLoaded()
+    func leftNavigationBarButtonTapped()
+    func didTapOnTypePanel()
+    func transactionTitleDidUpdate(_ string: String)
+    func transactionSumDidUpdate(_ sum: String)
+    func transactionNoteDidUpdate(_ string: String)
 }

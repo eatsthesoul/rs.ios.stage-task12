@@ -7,6 +7,6 @@
 //
 
 protocol TransactionSettingsViewInput: AnyObject {
-    /// Method for setup initial state of view
-    func setupInitialState()
+    //title for navigation bar
+    func setupInitialState(with title: String, transaction: TransactionSettingsViewModel)
 }
