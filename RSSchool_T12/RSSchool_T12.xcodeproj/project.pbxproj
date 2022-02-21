@@ -108,6 +108,9 @@
 		4FF64B2027BE865A00B3F800 /* TransactionSettingsCoordinatorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF64B1F27BE865A00B3F800 /* TransactionSettingsCoordinatorOutput.swift */; };
 		4FF64B2227BEB07200B3F800 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF64B2127BEB07200B3F800 /* TextView.swift */; };
 		4FF64B2427C39F8C00B3F800 /* TransactionSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF64B2327C39F8C00B3F800 /* TransactionSegmentedControl.swift */; };
+		4FF64B2727C3EA7F00B3F800 /* TransactionTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF64B2527C3EA7F00B3F800 /* TransactionTypeCollectionViewCell.swift */; };
+		4FF64B2827C3EA7F00B3F800 /* TransactionTypeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF64B2627C3EA7F00B3F800 /* TransactionTypeCollectionViewCell.xib */; };
+		4FF64B2B27C3EB0E00B3F800 /* TransactionTypeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF64B2A27C3EB0E00B3F800 /* TransactionTypeCellViewModel.swift */; };
 		51A41A5E4961D45642D8A8B5 /* TransactionListViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAB1C51196D1ADD8F6EB6F7 /* TransactionListViewInput.swift */; };
 		53D495EB2173F11EA9C64AB8 /* CurrencyListModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16EE0E2D4AC7C1F17C9E72D /* CurrencyListModuleOutput.swift */; };
 		53E2862CB967D2D15281F9B9 /* WalletSettingsViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9252D5CD08C90ED47EA5CB9A /* WalletSettingsViewInput.swift */; };
@@ -259,6 +262,9 @@
 		4FF64B1F27BE865A00B3F800 /* TransactionSettingsCoordinatorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSettingsCoordinatorOutput.swift; sourceTree = "<group>"; };
 		4FF64B2127BEB07200B3F800 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		4FF64B2327C39F8C00B3F800 /* TransactionSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSegmentedControl.swift; sourceTree = "<group>"; };
+		4FF64B2527C3EA7F00B3F800 /* TransactionTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTypeCollectionViewCell.swift; sourceTree = "<group>"; };
+		4FF64B2627C3EA7F00B3F800 /* TransactionTypeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTypeCollectionViewCell.xib; sourceTree = "<group>"; };
+		4FF64B2A27C3EB0E00B3F800 /* TransactionTypeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTypeCellViewModel.swift; sourceTree = "<group>"; };
 		609319653CEED51AD5F0087C /* TransactionSettingsViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransactionSettingsViewInput.swift; sourceTree = "<group>"; };
 		6B37950D3E21AA4D47DA0CA6 /* CurrencyListModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CurrencyListModuleInput.swift; sourceTree = "<group>"; };
 		6CE5733AF7029380D5CB9482 /* CreateTransactionModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreateTransactionModuleInput.swift; sourceTree = "<group>"; };
@@ -766,6 +772,7 @@
 				4FAF285127B19E65006F03EC /* WalletSettingsViewModel.swift */,
 				4F14784427BAF43900A18644 /* TransactionSettingsViewModel.swift */,
 				4F14783827B6C1C000A18644 /* WalletCellViewModel.swift */,
+				4FF64B2A27C3EB0E00B3F800 /* TransactionTypeCellViewModel.swift */,
 				4F14784F27BD217500A18644 /* TransactionCellViewModel.swift */,
 			);
 			path = ViewModel;
@@ -800,6 +807,15 @@
 				4FF64B1F27BE865A00B3F800 /* TransactionSettingsCoordinatorOutput.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		4FF64B2927C3EA8600B3F800 /* TransactionTypeCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4FF64B2527C3EA7F00B3F800 /* TransactionTypeCollectionViewCell.swift */,
+				4FF64B2627C3EA7F00B3F800 /* TransactionTypeCollectionViewCell.xib */,
+			);
+			path = TransactionTypeCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		5381123F380241E966C12339 /* Configurator */ = {
@@ -991,6 +1007,7 @@
 				46A34B847228AE55A85D680E /* TransactionTypeListViewController.swift */,
 				3D02F10A8B5AF332A456DF01 /* TransactionTypeListViewInput.swift */,
 				C2A1012E31AE930BB2352481 /* TransactionTypeListViewOutput.swift */,
+				4FF64B2927C3EA8600B3F800 /* TransactionTypeCollectionViewCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1151,6 +1168,7 @@
 			files = (
 				4F466610279218F100228418 /* Montserrat-Regular.ttf in Resources */,
 				4FAF283A27A95A02006F03EC /* CurrencyListCollectionViewCell.xib in Resources */,
+				4FF64B2827C3EA7F00B3F800 /* TransactionTypeCollectionViewCell.xib in Resources */,
 				4F46660F279218EF00228418 /* Montserrat-Medium.ttf in Resources */,
 				4FAF282A279F003D006F03EC /* ColorThemesCollectionViewCell.xib in Resources */,
 				4F466611279218F300228418 /* Montserrat-SemiBold.ttf in Resources */,
@@ -1226,11 +1244,13 @@
 				4F1300FC2787BBFF0003E6B2 /* SceneDelegate.swift in Sources */,
 				4F466601279058E900228418 /* BarButton.swift in Sources */,
 				4F68F341278CB049002E7859 /* MainCoordinator.swift in Sources */,
+				4FF64B2727C3EA7F00B3F800 /* TransactionTypeCollectionViewCell.swift in Sources */,
 				4F0D48AA27983FFB008FF92D /* BackgroundPresentable.swift in Sources */,
 				4F0D486127959FD9008FF92D /* UIView.swift in Sources */,
 				4F68F337278CACD4002E7859 /* CoordinatorFactory.swift in Sources */,
 				4F14782D27B6AC2600A18644 /* WalletListViewController.swift in Sources */,
 				4FAF284027AD66C8006F03EC /* DataStoreManager.swift in Sources */,
+				4FF64B2B27C3EB0E00B3F800 /* TransactionTypeCellViewModel.swift in Sources */,
 				53E2862CB967D2D15281F9B9 /* WalletSettingsViewInput.swift in Sources */,
 				4FAF285227B19E65006F03EC /* WalletSettingsViewModel.swift in Sources */,
 				4F14783927B6C1C000A18644 /* WalletCellViewModel.swift in Sources */,

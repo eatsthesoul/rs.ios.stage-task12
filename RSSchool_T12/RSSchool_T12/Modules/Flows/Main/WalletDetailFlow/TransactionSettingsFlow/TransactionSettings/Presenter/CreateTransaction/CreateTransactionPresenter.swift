@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class CreateTransactionPresenter: CreateTransactionModuleInput, CreateTransactionModuleOutput {
+final class CreateTransactionPresenter: CreateTransactionModuleOutput {
 
     // MARK: - TransactionSettingsModuleOutput
     
@@ -22,7 +22,7 @@ final class CreateTransactionPresenter: CreateTransactionModuleInput, CreateTran
     
     // MARK: - Private properties
     
-    let navigationBarTitle = "Add transaction"
+    private let navigationBarTitle = "Add transaction"
     
     private var transaction: TransactionSettingsViewModel
     
@@ -39,7 +39,12 @@ final class CreateTransactionPresenter: CreateTransactionModuleInput, CreateTran
 extension CreateTransactionPresenter: TransactionSettingsViewOutput {
     
     func viewLoaded() {
-        view?.setupInitialState(with: navigationBarTitle, transaction: transaction)
+        view?.setupInitialState(with: navigationBarTitle)
+    }
+    
+    func viewWillAppear() {
+        view?.setupView(with: transaction)
+        
     }
     
     func leftNavigationBarButtonTapped() {
@@ -64,5 +69,14 @@ extension CreateTransactionPresenter: TransactionSettingsViewOutput {
     
     func transactionNoteDidUpdate(_ string: String) {
         transaction.note = string
+    }
+}
+
+// MARK: - CreateTransactionModuleInput
+
+extension CreateTransactionPresenter: CreateTransactionModuleInput {
+    
+    func set(transactionType: TransactionType) {
+        transaction.type = transactionType
     }
 }

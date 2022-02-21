@@ -7,5 +7,6 @@
 //
 
 protocol TransactionTypeListViewInput: AnyObject {
-    func setupInitialState()
+    func setupInitialState(with title: String)
+    func setup(items: [TransactionTypeCellViewModel], with selectedIndex: Int?)
 }

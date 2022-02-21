@@ -67,7 +67,7 @@ extension TransactionType {
         case .sport:
             return "Sport"
         case .healthcare:
-            return "Heealthcare"
+            return "Healthcare"
         case .education:
             return "Education"
         case .travel:

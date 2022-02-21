@@ -55,6 +55,11 @@ private extension TransactionSettingsCoordinator {
         let transactionTypeListConfigurator = TransactionTypeListModuleConfigurator()
         let (view, output) = transactionTypeListConfigurator.configure(with: selectedType)
         
+        output.didDismissWithType = { [weak self, weak input] type in
+            self?.router.popModule(animated: true)
+            input?.set(transactionType: type)
+        }
+        
         router.push(view)
     }
 }

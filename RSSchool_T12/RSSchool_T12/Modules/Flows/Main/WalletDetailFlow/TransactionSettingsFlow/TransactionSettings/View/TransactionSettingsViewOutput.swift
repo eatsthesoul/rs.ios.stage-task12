@@ -10,6 +10,7 @@ import Foundation
 
 protocol TransactionSettingsViewOutput {
     func viewLoaded()
+    func viewWillAppear()
     func leftNavigationBarButtonTapped()
     func didTapOnTypePanel()
     func transactionTitleDidUpdate(_ string: String)

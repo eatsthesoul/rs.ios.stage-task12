@@ -7,4 +7,5 @@
 //
 
 protocol TransactionTypeListModuleOutput: AnyObject {
+    var didDismissWithType: Closure<TransactionType>? { get set }
 }

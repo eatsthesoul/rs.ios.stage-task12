@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-SemiBold.ttf">
+            <string>Montserrat-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TransactionTypeCollectionViewCell" customModule="RSSchool_T12" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="120"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="500" height="120"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JHr-hj-bQ2">
+                        <rect key="frame" x="20" y="35" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="BJY-cZ-O3X"/>
+                            <constraint firstAttribute="height" constant="50" id="hSq-Vv-2bD"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="gcH-Nm-U11">
+                        <rect key="frame" x="90" y="46.5" width="62" height="27"/>
+                        <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="22"/>
+                        <color key="textColor" name="Rick Black FOGRA 29"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="gcH-Nm-U11" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="DTs-Qw-27l"/>
+                <constraint firstItem="gcH-Nm-U11" firstAttribute="leading" secondItem="JHr-hj-bQ2" secondAttribute="trailing" constant="20" id="Ocp-De-UdI"/>
+                <constraint firstItem="JHr-hj-bQ2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="Oh6-eQ-Vts"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gcH-Nm-U11" secondAttribute="trailing" constant="20" id="SCC-Cc-mZq"/>
+                <constraint firstItem="JHr-hj-bQ2" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="yuT-az-O2L"/>
+            </constraints>
+            <connections>
+                <outlet property="imageView" destination="JHr-hj-bQ2" id="eSt-1O-Aw0"/>
+                <outlet property="titleLabel" destination="gcH-Nm-U11" id="4eK-re-bFp"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="117"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Rick Black FOGRA 29">
+            <color red="0.027000000700354576" green="0.063000001013278961" blue="0.075000002980232239" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

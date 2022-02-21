@@ -8,4 +8,6 @@
 
 protocol TransactionTypeListViewOutput {
     func viewLoaded()
+    func leftNavigationBarButtonTapped()
+    func didSelectType(with index: Int)
 }

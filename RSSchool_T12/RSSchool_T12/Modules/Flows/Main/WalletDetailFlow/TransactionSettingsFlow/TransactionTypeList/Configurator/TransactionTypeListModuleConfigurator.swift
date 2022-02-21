@@ -15,7 +15,8 @@ final class TransactionTypeListModuleConfigurator {
     func configure(with selectedType: TransactionType) -> (TransactionTypeListViewController, TransactionTypeListModuleOutput) {
         
         let view = TransactionTypeListViewController()
-        let presenter = TransactionTypeListPresenter()
+        
+        let presenter = TransactionTypeListPresenter(with: selectedType)
 
         presenter.view = view
         view.output = presenter

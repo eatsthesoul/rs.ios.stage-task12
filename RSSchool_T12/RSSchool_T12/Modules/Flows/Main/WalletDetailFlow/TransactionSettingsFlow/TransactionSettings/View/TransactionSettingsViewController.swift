@@ -48,21 +48,21 @@ final class TransactionSettingsViewController: UIViewController {
         
         output?.viewLoaded()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        output?.viewWillAppear()
+    }
 }
 
 // MARK: - TransactionSettingsViewInput
 
 extension TransactionSettingsViewController: TransactionSettingsViewInput {
     
-    func setupInitialState(with title: String, transaction: TransactionSettingsViewModel) {
+    func setupInitialState(with title: String) {
         navigationBar.title = title
-        setupView(with: transaction)
     }
-}
-
-// MARK: - Private methods
-
-private extension TransactionSettingsViewController {
     
     func setupView(with transaction: TransactionSettingsViewModel) {
         titleTextField.text = transaction.title
@@ -71,6 +71,11 @@ private extension TransactionSettingsViewController {
         typeLabel.text = transaction.type.name
         noteTextView.text = transaction.note
     }
+}
+
+// MARK: - Private methods
+
+private extension TransactionSettingsViewController {
     
     func setupAppearance() {
         view.makeThemeBackground()
