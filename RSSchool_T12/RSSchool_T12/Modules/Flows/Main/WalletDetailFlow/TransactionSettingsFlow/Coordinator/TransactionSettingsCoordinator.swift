@@ -15,9 +15,11 @@ final class TransactionSettingsCoordinator: BaseCoordinator, TransactionSettings
     
     fileprivate let router: Routable
     fileprivate let transaction: Transaction?
+    fileprivate let wallet: Wallet
     
-    init(router: Routable, transaction: Transaction? = nil) {
+    init(router: Routable, wallet: Wallet, transaction: Transaction? = nil) {
         self.router = router
+        self.wallet = wallet
         self.transaction = transaction
     }
 }
@@ -29,7 +31,7 @@ extension TransactionSettingsCoordinator: Coordinatable {
             //TODO: - add method for transaction editing
         }
         else {
-            showCreateTransaction()
+            showCreateTransaction(with: wallet)
         }
     }
 }
@@ -38,13 +40,33 @@ extension TransactionSettingsCoordinator: Coordinatable {
 
 private extension TransactionSettingsCoordinator {
     
-    func showCreateTransaction() {
+    func showCreateTransaction(with wallet: Wallet) {
         
         let createTransactionConfigurator = CreateTransactionModuleConfigurator()
-        let (view, input, output) = createTransactionConfigurator.configure()
+        let (view, input, output) = createTransactionConfigurator.configure(with: wallet)
         
         output.showTransactionTypeList = { [weak self, weak input] transactionType in
             self?.showTransactionTypeList(with: transactionType, input: input)
+        }
+        
+        output.didGetTitleWarning = { [weak self] in
+            self?.showTitleWarning()
+        }
+        
+        output.didGetSumWarning = { [weak self] in
+            self?.showSumWarning()
+        }
+        
+        output.didGetNoteWarning = { [weak self] in
+            self?.showNoteWarning()
+        }
+        
+        output.didCreateTransactionMessage = { [weak self] in
+            self?.showCreateTransactionMessage(completion: { [weak input] answer in
+                if answer {    //save transition if we get positive response from message
+                    input?.saveTransaction()
+                }
+            })
         }
         
         router.push(view)
@@ -61,5 +83,66 @@ private extension TransactionSettingsCoordinator {
         }
         
         router.push(view)
+    }
+    
+    func showTitleWarning() {
+        
+        let alertService = AlertService()
+        let alert = alertService.transactionTitleAlert { [weak self] in
+            self?.router.dismissModule()
+        } rightButtonAction: { [weak self] in
+            self?.router.dismissModule()
+            self?.router.popModule()
+            self?.finishFlow?()
+        }
+        
+        router.present(alert)
+    }
+    
+    func showSumWarning() {
+        
+        let alertService = AlertService()
+        let alert = alertService.transactionSumAlert { [weak self] in
+            self?.router.dismissModule()
+        } rightButtonAction: { [weak self] in
+            self?.router.dismissModule()
+            self?.router.popModule()
+            self?.finishFlow?()
+        }
+        
+        router.present(alert)
+    }
+    
+    func showNoteWarning() {
+        let alertService = AlertService()
+        let alert = alertService.transactionSumAlert { [weak self] in
+            self?.router.dismissModule()
+        } rightButtonAction: { [weak self] in
+            self?.router.dismissModule()
+            self?.router.popModule()
+            self?.finishFlow?()
+        }
+        
+        router.present(alert)
+    }
+    
+    //completion here to say what answer we get from this message
+    func showCreateTransactionMessage(completion: @escaping Closure<Bool>) {
+        
+        let alertService = AlertService()
+        let alert = alertService.createNewTransactionAlert { [weak self] in
+            //completion here for creating a transaction
+            completion(true)
+            self?.router.dismissModule()
+            self?.router.popModule()
+            self?.finishFlow?()
+        } rightButtonAction: { [weak self] in
+            completion(false)
+            self?.router.dismissModule()
+            self?.router.popModule()
+            self?.finishFlow?()
+        }
+        
+        router.present(alert, animated: true, completion: nil)
     }
 }

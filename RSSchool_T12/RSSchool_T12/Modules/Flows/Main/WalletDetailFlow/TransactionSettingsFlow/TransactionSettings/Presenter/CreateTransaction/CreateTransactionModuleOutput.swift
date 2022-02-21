@@ -8,4 +8,8 @@
 
 protocol CreateTransactionModuleOutput: AnyObject {
     var showTransactionTypeList: Closure<TransactionType>? { get set }
+    var didGetTitleWarning: CompletionBlock? { get set }
+    var didGetSumWarning: CompletionBlock? { get set }
+    var didGetNoteWarning: CompletionBlock? { get set }
+    var didCreateTransactionMessage: CompletionBlock? { get set }
 }

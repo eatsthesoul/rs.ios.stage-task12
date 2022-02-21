@@ -48,7 +48,7 @@ private extension WalletCoordinator {
         }
         
         output.didAddTransaction = { [weak self] in
-            self?.showAddTransaction()
+            self?.showAddTransaction(with: wallet)
         }
         
         router.push(view)
@@ -66,9 +66,9 @@ private extension WalletCoordinator {
         router.push(view)
     }
     
-    func showAddTransaction() {
+    func showAddTransaction(with wallet: Wallet) {
         
-        let coordinator = factory.makeTransactionSettingsCoordinator(router: router, transaction: nil)
+        let coordinator = factory.makeTransactionSettingsCoordinator(router: router, wallet: wallet, transaction: nil)
         addDependency(coordinator)
 
         coordinator.finishFlow = { [weak self] in

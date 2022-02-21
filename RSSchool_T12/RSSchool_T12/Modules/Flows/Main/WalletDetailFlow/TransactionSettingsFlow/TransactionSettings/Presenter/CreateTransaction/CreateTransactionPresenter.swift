@@ -13,7 +13,11 @@ final class CreateTransactionPresenter: CreateTransactionModuleOutput {
     // MARK: - TransactionSettingsModuleOutput
     
     var showTransactionTypeList: Closure<TransactionType>?
-
+    var didGetTitleWarning: CompletionBlock?
+    var didGetSumWarning: CompletionBlock?
+    var didGetNoteWarning: CompletionBlock?
+    var didCreateTransactionMessage: CompletionBlock?
+    
     // MARK: - Properties
 
     weak var view: TransactionSettingsViewInput?
@@ -24,11 +28,13 @@ final class CreateTransactionPresenter: CreateTransactionModuleOutput {
     
     private let navigationBarTitle = "Add transaction"
     
+    private var wallet: Wallet
     private var transaction: TransactionSettingsViewModel
     
     // MARK: - Initialization and deinitialization
     
-    init(dataStoreManager: DataStoreProtocol) {
+    init(wallet: Wallet, dataStoreManager: DataStoreProtocol) {
+        self.wallet = wallet
         self.dataStoreManager = dataStoreManager
         transaction = TransactionSettingsViewModel(title: "", change: "", isOutcome: true, note: nil, type: .other)
     }
@@ -47,8 +53,26 @@ extension CreateTransactionPresenter: TransactionSettingsViewOutput {
         
     }
     
+    // here we check transaction for errors. If there is, we will show alert with error. If there are none, show alert offering to create new transaction
     func leftNavigationBarButtonTapped() {
         
+        if transaction.title.count == 0 || transaction.title.count > 20 {
+            didGetTitleWarning?()
+            return
+        }
+        
+        if transaction.change.count == 0 || transaction.change == "0" {
+            didGetSumWarning?()
+            return
+        }
+        
+        if let note = transaction.note, note.count > 250 {
+            didGetNoteWarning?()
+            return
+        }
+        
+        //if we don't get any warning we get suggestion to create new wallet
+        didCreateTransactionMessage?()
     }
     
     func didTapOnTypePanel() {
@@ -75,6 +99,10 @@ extension CreateTransactionPresenter: TransactionSettingsViewOutput {
 // MARK: - CreateTransactionModuleInput
 
 extension CreateTransactionPresenter: CreateTransactionModuleInput {
+    
+    func saveTransaction() {
+        dataStoreManager.createNewTransaction(transaction, for: wallet)
+    }
     
     func set(transactionType: TransactionType) {
         transaction.type = transactionType

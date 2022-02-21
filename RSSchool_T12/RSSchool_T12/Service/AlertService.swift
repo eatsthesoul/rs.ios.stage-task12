@@ -58,4 +58,39 @@ class AlertService {
               rightButtonAction: rightButtonAction)
     }
     
+    func transactionTitleAlert(leftButtonAction: CompletionBlock?, rightButtonAction: CompletionBlock?) -> AlertViewController {
+        alert(title: "Warning!",
+              message: "Title must contain more than 0 but not more than 20 characters",
+              leftButtonTitle: "Change",
+              rightButtonTitle: "Back",
+              leftButtonAction: leftButtonAction,
+              rightButtonAction: rightButtonAction)
+    }
+    
+    func transactionSumAlert(leftButtonAction: CompletionBlock?, rightButtonAction: CompletionBlock?) -> AlertViewController {
+        alert(title: "Warning!",
+              message: "Sum cannot be empty or equal to 0",
+              leftButtonTitle: "Change",
+              rightButtonTitle: "Back",
+              leftButtonAction: leftButtonAction,
+              rightButtonAction: rightButtonAction)
+    }
+    
+    func transactionNoteAlert(leftButtonAction: CompletionBlock?, rightButtonAction: CompletionBlock?) -> AlertViewController {
+        alert(title: "Warning!",
+              message: "Note must contain not more than 250 characters",
+              leftButtonTitle: "Change",
+              rightButtonTitle: "Back",
+              leftButtonAction: leftButtonAction,
+              rightButtonAction: rightButtonAction)
+    }
+    
+    func createNewTransactionAlert(leftButtonAction: CompletionBlock?, rightButtonAction: CompletionBlock?) -> AlertViewController {
+        alert(title: "New Transaction",
+              message: "Do you want to create a new transaction?",
+              leftButtonTitle: "Yes",
+              rightButtonTitle: "No",
+              leftButtonAction: leftButtonAction,
+              rightButtonAction: rightButtonAction)
+    }
 }

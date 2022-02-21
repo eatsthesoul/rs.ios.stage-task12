@@ -44,6 +44,7 @@ final class TransactionSettingsViewController: UIViewController {
         setupTextViews()
         setupChangeSegmentedControl()
         addGestureRegognizers()
+        addNavigationBarButtonsHandlers()
         registerForKeyboardNotifications()
         
         output?.viewLoaded()
