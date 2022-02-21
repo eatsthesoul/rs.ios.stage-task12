@@ -16,7 +16,9 @@ final class TransactionSettingsViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var titleTextField: TextField!
+    
     @IBOutlet weak var changeTextField: TextField!
+    @IBOutlet weak var changeSegmentedControl: TransactionSegmentedControl!
     
     @IBOutlet weak var typePanel: UIView!
     @IBOutlet weak var typeImageView: UIImageView!
@@ -40,12 +42,12 @@ final class TransactionSettingsViewController: UIViewController {
         super.viewDidLoad()
         setupAppearance()
         setupTextViews()
+        setupChangeSegmentedControl()
         addGestureRegognizers()
         registerForKeyboardNotifications()
         
         output?.viewLoaded()
     }
-    
 }
 
 // MARK: - TransactionSettingsViewInput
@@ -84,6 +86,10 @@ private extension TransactionSettingsViewController {
         changeTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
     
+    func setupChangeSegmentedControl() {
+        changeSegmentedControl.addTarget(self, action: #selector(segmentedControlValueDidChange), for: .valueChanged)
+    }
+    
     func addGestureRegognizers() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGestureRecognizer)
@@ -116,6 +122,11 @@ private extension TransactionSettingsViewController {
         {
                 output?.transactionSumDidUpdate(text)
         }
+    }
+    
+    @objc func segmentedControlValueDidChange() {
+        let value = changeSegmentedControl.isOutcome
+        output?.isOutcomeDidUpdate(value)
     }
 }
 

@@ -14,5 +14,6 @@ protocol TransactionSettingsViewOutput {
     func didTapOnTypePanel()
     func transactionTitleDidUpdate(_ string: String)
     func transactionSumDidUpdate(_ sum: String)
+    func isOutcomeDidUpdate(_ bool: Bool)
     func transactionNoteDidUpdate(_ string: String)
 }

@@ -56,6 +56,10 @@ extension CreateTransactionPresenter: TransactionSettingsViewOutput {
         transaction.change = sum
     }
     
+    func isOutcomeDidUpdate(_ bool: Bool) {
+        transaction.isOutcome = bool
+    }
+    
     func transactionNoteDidUpdate(_ string: String) {
         transaction.note = string
     }

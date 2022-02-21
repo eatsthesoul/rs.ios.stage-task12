@@ -17,6 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransactionSettingsViewController" customModule="RSSchool_T12" customModuleProvider="target">
             <connections>
+                <outlet property="changeSegmentedControl" destination="2dV-U7-nhG" id="TGA-vT-Em5"/>
                 <outlet property="changeTextField" destination="Yhc-eS-2mK" id="5ee-k9-hUA"/>
                 <outlet property="navigationBar" destination="Iim-1j-vsh" id="pKf-xc-OUY"/>
                 <outlet property="noteTextView" destination="Hhr-iZ-rx9" id="hxW-rY-yj6"/>
@@ -110,10 +111,20 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </textField>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dV-U7-nhG" customClass="TransactionSegmentedControl" customModule="RSSchool_T12" customModuleProvider="target">
+                                            <rect key="frame" x="174" y="18" width="180" height="32"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="180" id="03i-Au-aM3"/>
+                                                <constraint firstAttribute="height" constant="32" id="sGx-XV-DxN"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="linkColor"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="Yhc-eS-2mK" secondAttribute="bottom" constant="20" id="2rf-p6-K4W"/>
+                                        <constraint firstItem="2dV-U7-nhG" firstAttribute="top" secondItem="8z6-jH-miX" secondAttribute="top" constant="18" id="LDH-cy-Mec"/>
+                                        <constraint firstAttribute="trailing" secondItem="2dV-U7-nhG" secondAttribute="trailing" constant="20" id="ND4-pa-oJm"/>
                                         <constraint firstAttribute="height" constant="175" id="UoD-64-M6K"/>
                                         <constraint firstItem="W3I-vj-tic" firstAttribute="leading" secondItem="8z6-jH-miX" secondAttribute="leading" constant="20" id="c22-lh-Q9d"/>
                                         <constraint firstItem="Yhc-eS-2mK" firstAttribute="leading" secondItem="8z6-jH-miX" secondAttribute="leading" constant="20" id="hTR-Vv-9WC"/>
