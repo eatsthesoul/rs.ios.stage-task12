@@ -7,4 +7,5 @@
 //
 
 protocol CreateTransactionModuleOutput: AnyObject {
+    var showTransactionTypeList: Closure<TransactionType>? { get set }
 }

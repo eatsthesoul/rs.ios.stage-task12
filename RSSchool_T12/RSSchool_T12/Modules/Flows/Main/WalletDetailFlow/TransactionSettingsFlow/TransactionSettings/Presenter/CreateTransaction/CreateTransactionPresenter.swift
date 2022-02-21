@@ -11,6 +11,8 @@ import Foundation
 final class CreateTransactionPresenter: CreateTransactionModuleInput, CreateTransactionModuleOutput {
 
     // MARK: - TransactionSettingsModuleOutput
+    
+    var showTransactionTypeList: Closure<TransactionType>?
 
     // MARK: - Properties
 
@@ -45,7 +47,7 @@ extension CreateTransactionPresenter: TransactionSettingsViewOutput {
     }
     
     func didTapOnTypePanel() {
-        
+        showTransactionTypeList?(transaction.type)
     }
     
     func transactionTitleDidUpdate(_ string: String) {

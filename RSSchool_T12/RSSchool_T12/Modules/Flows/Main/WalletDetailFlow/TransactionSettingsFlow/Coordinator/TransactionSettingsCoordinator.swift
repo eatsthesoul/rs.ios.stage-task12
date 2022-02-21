@@ -43,6 +43,18 @@ private extension TransactionSettingsCoordinator {
         let createTransactionConfigurator = CreateTransactionModuleConfigurator()
         let (view, input, output) = createTransactionConfigurator.configure()
         
+        output.showTransactionTypeList = { [weak self, weak input] transactionType in
+            self?.showTransactionTypeList(with: transactionType, input: input)
+        }
+        
+        router.push(view)
+    }
+    
+    func showTransactionTypeList(with selectedType: TransactionType, input: CreateTransactionModuleInput?) {
+        
+        let transactionTypeListConfigurator = TransactionTypeListModuleConfigurator()
+        let (view, output) = transactionTypeListConfigurator.configure(with: selectedType)
+        
         router.push(view)
     }
 }
