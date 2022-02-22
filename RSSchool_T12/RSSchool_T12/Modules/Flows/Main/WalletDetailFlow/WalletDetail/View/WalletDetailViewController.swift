@@ -143,6 +143,7 @@ private extension WalletDetailViewController {
         
         collectionViewAdapter.setup(collectionView: collectionView)
         collectionViewAdapter.itemSize = CGSize(width: itemWidth, height: itemHeight)
+        collectionViewAdapter.onSelectItem = output?.didSelectCollectionViewItem(with:)
     }
     
     func addButtonTargets() {

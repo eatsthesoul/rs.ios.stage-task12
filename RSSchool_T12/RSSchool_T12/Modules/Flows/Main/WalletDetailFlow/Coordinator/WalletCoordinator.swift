@@ -51,6 +51,10 @@ private extension WalletCoordinator {
             self?.showAddTransaction(with: wallet)
         }
         
+        output.didSelectTransaction = { [weak self] transaction in
+            self?.showTransactionDetail(for: transaction, wallet: wallet)
+        }
+        
         router.push(view)
     }
     
@@ -61,6 +65,10 @@ private extension WalletCoordinator {
         
         output.didDismiss = { [weak self] in
             self?.router.popModule()
+        }
+        
+        output.didSelectTransaction = { [weak self] transaction in
+            self?.showTransactionDetail(for: transaction, wallet: wallet)
         }
         
         router.push(view)
@@ -76,5 +84,18 @@ private extension WalletCoordinator {
         }
 
         coordinator.start()
+    }
+    
+    func showTransactionDetail(for transaction: Transaction, wallet: Wallet) {
+        
+        let transactionDetailCoordinator = factory.makeTransactionDetailCoordinator(router: router, transaction: transaction, wallet: wallet)
+        
+        addDependency(transactionDetailCoordinator)
+
+        transactionDetailCoordinator.finishFlow = { [weak self] in
+            self?.removeDependency(transactionDetailCoordinator)
+        }
+
+        transactionDetailCoordinator.start()
     }
 }

@@ -12,4 +12,5 @@ protocol CoordinatorFactoryProtocol {
     func makeWalletSettingsCoordinator(router: Routable, wallet: Wallet?) -> Coordinatable & WalletSettingsCoordinatorOutput
     func makeWalletDetailCoordinator(router: Routable, factory: CoordinatorFactoryProtocol, wallet: Wallet) -> Coordinatable & WalletCoordinatorOutput
     func makeTransactionSettingsCoordinator(router: Routable, wallet: Wallet, transaction: Transaction?) -> Coordinatable & TransactionSettingsCoordinatorOutput
+    func makeTransactionDetailCoordinator(router: Routable, transaction: Transaction, wallet: Wallet) -> Coordinatable & TransactionDetailCoordinatorOutput
 }

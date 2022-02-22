@@ -29,4 +29,8 @@ extension CoordinatorFactory: CoordinatorFactoryProtocol {
     func makeTransactionSettingsCoordinator(router: Routable, wallet: Wallet, transaction: Transaction? = nil) -> Coordinatable & TransactionSettingsCoordinatorOutput {
         TransactionSettingsCoordinator(router: router, wallet: wallet, transaction: transaction)
     }
+    
+    func makeTransactionDetailCoordinator(router: Routable, transaction: Transaction, wallet: Wallet) -> Coordinatable & TransactionDetailCoordinatorOutput {
+        TransactionDetailCoordinator(router: router, transaction: transaction, wallet: wallet)
+    }
 }

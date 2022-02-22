@@ -8,4 +8,5 @@
 
 protocol TransactionListModuleOutput: AnyObject {
     var didDismiss: CompletionBlock? { get set }
+    var didSelectTransaction: Closure<Transaction>? { get set }
 }

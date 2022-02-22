@@ -46,7 +46,7 @@ final class TransactionListViewController: UIViewController {
         collectionViewAdapter.setup(collectionView: view)
         collectionViewAdapter.itemSize = CGSize(width: itemWidth, height: itemHeight)
         collectionViewAdapter.insetForSections = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
-//        collectionViewAdapter.onSelectItem = output?.didSelectTransaction(with:)
+        collectionViewAdapter.onSelectItem = output?.didSelectCollectionViewItem(with:)
         
         return view
     }()

@@ -10,4 +10,5 @@ protocol TransactionListViewOutput {
     func viewLoaded()
     func viewWillAppear()
     func leftNavigationBarTapped()
+    func didSelectCollectionViewItem(with index: Int)
 }

@@ -11,6 +11,7 @@ final class TransactionListPresenter: TransactionListModuleInput, TransactionLis
     // MARK: - TransactionListModuleOutput
     
     var didDismiss: CompletionBlock?
+    var didSelectTransaction: Closure<Transaction>?
 
     // MARK: - Properties
 
@@ -50,6 +51,11 @@ extension TransactionListPresenter: TransactionListViewOutput {
     
     func leftNavigationBarTapped() {
         didDismiss?()
+    }
+    
+    func didSelectCollectionViewItem(with index: Int) {
+        let transaction = transactions[index]
+        didSelectTransaction?(transaction)
     }
 }
 
