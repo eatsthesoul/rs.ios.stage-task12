@@ -17,7 +17,7 @@ final class CreateTransactionModuleConfigurator {
         let nibName = TransactionSettingsViewController.nibName
         let view = TransactionSettingsViewController(nibName: nibName, bundle: nil)
         
-        let dataStoreManager = DataStoreManager()
+        let dataStoreManager = DataStoreManager.shared
         let presenter = CreateTransactionPresenter(wallet: wallet, dataStoreManager: dataStoreManager)
 
         presenter.view = view

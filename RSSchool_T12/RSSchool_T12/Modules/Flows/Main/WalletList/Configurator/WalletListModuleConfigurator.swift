@@ -16,7 +16,7 @@ final class WalletListModuleConfigurator {
         
         let view = WalletListViewController()
         
-        let presenter = WalletListPresenter(storeManager: DataStoreManager())
+        let presenter = WalletListPresenter(storeManager: DataStoreManager.shared)
 
         presenter.view = view
         view.output = presenter

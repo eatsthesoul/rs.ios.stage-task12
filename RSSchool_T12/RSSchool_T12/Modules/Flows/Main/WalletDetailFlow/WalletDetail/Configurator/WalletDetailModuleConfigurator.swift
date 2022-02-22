@@ -17,7 +17,7 @@ final class WalletDetailModuleConfigurator {
         let nibName = WalletDetailViewController.nibName
         let view = WalletDetailViewController(nibName: nibName, bundle: nil)
         
-        let dataStoreManager = DataStoreManager()
+        let dataStoreManager = DataStoreManager.shared
         let presenter = WalletDetailPresenter(with: wallet,
                                               dataStore: dataStoreManager)
 

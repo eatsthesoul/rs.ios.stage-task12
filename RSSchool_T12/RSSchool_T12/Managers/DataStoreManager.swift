@@ -37,8 +37,8 @@ class DataStoreManager: DataStoreProtocol {
     }
     
     // MARK: - Properties
-
-    lazy var persistentContainer: NSPersistentContainer = {
+    
+    private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "RSSchool_T12")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
@@ -48,17 +48,27 @@ class DataStoreManager: DataStoreProtocol {
         return container
     }()
     
-    lazy var viewContext: NSManagedObjectContext = {
+    private lazy var viewContext: NSManagedObjectContext = {
         let context = persistentContainer.viewContext
-        context.automaticallyMergesChangesFromParent = true
+        context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         return context
     }()
     
-    lazy var backgroundContext: NSManagedObjectContext = {
+    private lazy var backgroundContext: NSManagedObjectContext = {
         let context = persistentContainer.newBackgroundContext()
         context.automaticallyMergesChangesFromParent = true
         return context
     }()
+    
+    // MARK: - Singleton
+    
+    static let shared = DataStoreManager()
+    
+    // MARK: - Initialization and deinitialization
+    
+    private init() {
+
+    }
     
     // MARK: - DataStoreProtocol
     
