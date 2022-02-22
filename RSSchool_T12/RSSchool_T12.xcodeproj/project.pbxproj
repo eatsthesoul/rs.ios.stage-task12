@@ -739,6 +739,8 @@
 				B224AE7289D42006ABB484D6 /* WalletList */,
 				4F14782527B6810E00A18644 /* WalletSettingsFlow */,
 				779FC9C46220F4A8F07779F3 /* WalletDetailFlow */,
+				4FF64B2C27C501D400B3F800 /* TransactionDetailFlow */,
+				4FF64B1B27BE84FF00B3F800 /* TransactionSettingsFlow */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -928,8 +930,6 @@
 				4F14783A27BA771B00A18644 /* Coordinator */,
 				71157BDF49BD4075336F8E2B /* WalletDetail */,
 				6B5066F8445C559BADA1496A /* TransactionList */,
-				4FF64B1B27BE84FF00B3F800 /* TransactionSettingsFlow */,
-				4FF64B2C27C501D400B3F800 /* TransactionDetailFlow */,
 			);
 			path = WalletDetailFlow;
 			sourceTree = "<group>";
