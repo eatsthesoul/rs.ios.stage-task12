@@ -10,7 +10,7 @@ import Foundation
 
 final class CreateTransactionPresenter: CreateTransactionModuleOutput {
 
-    // MARK: - TransactionSettingsModuleOutput
+    // MARK: - CreateTransactionModuleOutput
     
     var showTransactionTypeList: Closure<TransactionType>?
     var didGetTitleWarning: CompletionBlock?
@@ -22,12 +22,11 @@ final class CreateTransactionPresenter: CreateTransactionModuleOutput {
 
     weak var view: TransactionSettingsViewInput?
     
-    let dataStoreManager: DataStoreProtocol
-    
     // MARK: - Private properties
     
     private let navigationBarTitle = "Add transaction"
     
+    private let dataStoreManager: DataStoreProtocol
     private var wallet: Wallet
     private var transaction: TransactionSettingsViewModel
     
@@ -96,9 +95,9 @@ extension CreateTransactionPresenter: TransactionSettingsViewOutput {
     }
 }
 
-// MARK: - CreateTransactionModuleInput
+// MARK: - ModuleInput
 
-extension CreateTransactionPresenter: CreateTransactionModuleInput {
+extension CreateTransactionPresenter: CreateTransactionModuleInput, SettingsTransactionModuleInput {
     
     func saveTransaction() {
         dataStoreManager.createNewTransaction(transaction, for: wallet)

@@ -7,10 +7,21 @@
 
 import Foundation
 
-struct TransactionSettingsViewModel {
+struct TransactionSettingsViewModel: Equatable {
     var title: String
     var change: String
     var isOutcome: Bool
     var note: String?
     var type: TransactionType
+}
+
+extension TransactionSettingsViewModel {
+    
+    init(_ transaction: Transaction) {
+        title = transaction.title
+        change = "\(transaction.sum)"
+        isOutcome = transaction.isOutcome
+        note = transaction.note
+        type = transaction.type
+    }
 }

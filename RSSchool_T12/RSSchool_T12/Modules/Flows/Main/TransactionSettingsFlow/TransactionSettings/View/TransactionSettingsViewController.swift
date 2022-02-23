@@ -71,6 +71,7 @@ extension TransactionSettingsViewController: TransactionSettingsViewInput {
         typeImageView.image = transaction.type.image
         typeLabel.text = transaction.type.name
         noteTextView.text = transaction.note
+        changeSegmentedControl.isOutcome = transaction.isOutcome
     }
 }
 

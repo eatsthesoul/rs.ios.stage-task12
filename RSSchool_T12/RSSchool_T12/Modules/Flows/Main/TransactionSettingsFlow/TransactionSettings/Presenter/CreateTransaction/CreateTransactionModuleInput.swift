@@ -7,6 +7,5 @@
 //
 
 protocol CreateTransactionModuleInput: AnyObject {
-    func set(transactionType: TransactionType)
     func saveTransaction()
 }

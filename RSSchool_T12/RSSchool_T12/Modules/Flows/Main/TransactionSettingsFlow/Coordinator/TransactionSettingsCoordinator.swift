@@ -28,7 +28,7 @@ final class TransactionSettingsCoordinator: BaseCoordinator, TransactionSettings
 extension TransactionSettingsCoordinator: Coordinatable {
     func start() {
         if transaction != nil {
-            //TODO: - add method for transaction editing
+            showEditTransaction(with: transaction!)
         }
         else {
             showCreateTransaction(with: wallet)
@@ -40,13 +40,49 @@ extension TransactionSettingsCoordinator: Coordinatable {
 
 private extension TransactionSettingsCoordinator {
     
+    func showEditTransaction(with transaction: Transaction) {
+        
+        let editTransactionConfigurator = EditTransactionModuleConfigurator()
+        let (view, settingsInput, input, output) = editTransactionConfigurator.configure(with: transaction)
+        
+        output.showTransactionTypeList = { [weak self, weak settingsInput] transactionType in
+            self?.showTransactionTypeList(with: transactionType, input: settingsInput)
+        }
+        
+        output.didShowEditTransactionMessage = { [weak self] in
+            self?.showEditTransactionMessage(completion: { [weak input] answer in
+                if answer {
+                    input?.editTransaction()
+                }
+            })
+        }
+        
+        output.didGetTitleWarning = { [weak self] in
+            self?.showTitleWarning()
+        }
+        
+        output.didGetSumWarning = { [weak self] in
+            self?.showSumWarning()
+        }
+        
+        output.didGetNoteWarning = { [weak self] in
+            self?.showNoteWarning()
+        }
+        
+        output.didDismiss = { [weak self] in
+            self?.dismissModule()
+        }
+        
+        router.push(view)
+    }
+    
     func showCreateTransaction(with wallet: Wallet) {
         
         let createTransactionConfigurator = CreateTransactionModuleConfigurator()
-        let (view, input, output) = createTransactionConfigurator.configure(with: wallet)
+        let (view, settingsInput, input, output) = createTransactionConfigurator.configure(with: wallet)
         
-        output.showTransactionTypeList = { [weak self, weak input] transactionType in
-            self?.showTransactionTypeList(with: transactionType, input: input)
+        output.showTransactionTypeList = { [weak self, weak settingsInput] transactionType in
+            self?.showTransactionTypeList(with: transactionType, input: settingsInput)
         }
         
         output.didGetTitleWarning = { [weak self] in
@@ -72,7 +108,7 @@ private extension TransactionSettingsCoordinator {
         router.push(view)
     }
     
-    func showTransactionTypeList(with selectedType: TransactionType, input: CreateTransactionModuleInput?) {
+    func showTransactionTypeList(with selectedType: TransactionType, input: SettingsTransactionModuleInput?) {
         
         let transactionTypeListConfigurator = TransactionTypeListModuleConfigurator()
         let (view, output) = transactionTypeListConfigurator.configure(with: selectedType)
@@ -85,46 +121,12 @@ private extension TransactionSettingsCoordinator {
         router.push(view)
     }
     
-    func showTitleWarning() {
-        
-        let alertService = AlertService()
-        let alert = alertService.transactionTitleAlert { [weak self] in
-            self?.router.dismissModule()
-        } rightButtonAction: { [weak self] in
-            self?.router.dismissModule()
-            self?.router.popModule()
-            self?.finishFlow?()
-        }
-        
-        router.present(alert)
+    func dismissModule() {
+        router.popModule()
+        finishFlow?()
     }
     
-    func showSumWarning() {
-        
-        let alertService = AlertService()
-        let alert = alertService.transactionSumAlert { [weak self] in
-            self?.router.dismissModule()
-        } rightButtonAction: { [weak self] in
-            self?.router.dismissModule()
-            self?.router.popModule()
-            self?.finishFlow?()
-        }
-        
-        router.present(alert)
-    }
-    
-    func showNoteWarning() {
-        let alertService = AlertService()
-        let alert = alertService.transactionSumAlert { [weak self] in
-            self?.router.dismissModule()
-        } rightButtonAction: { [weak self] in
-            self?.router.dismissModule()
-            self?.router.popModule()
-            self?.finishFlow?()
-        }
-        
-        router.present(alert)
-    }
+    // MARK: - Alerts
     
     //completion here to say what answer we get from this message
     func showCreateTransactionMessage(completion: @escaping Closure<Bool>) {
@@ -139,10 +141,67 @@ private extension TransactionSettingsCoordinator {
         } rightButtonAction: { [weak self] in
             completion(false)
             self?.router.dismissModule()
-            self?.router.popModule()
-            self?.finishFlow?()
+            self?.dismissModule()
         }
         
         router.present(alert, animated: true, completion: nil)
+    }
+    
+    //completion here to say what answer we get from this message
+    func showEditTransactionMessage(completion: @escaping Closure<Bool>) {
+        
+        let alertService = AlertService()
+        let alert = alertService.editTransactionAlert { [weak self] in
+            
+            self?.router.dismissModule(animated: true, completion: {
+                //if true, we need to edit transaction
+                completion(true)
+            })
+            
+        } rightButtonAction: { [weak self] in
+            completion(false)
+            self?.router.dismissModule()
+            self?.dismissModule()
+        }
+        
+        router.present(alert)
+    }
+    
+    func showTitleWarning() {
+        
+        let alertService = AlertService()
+        let alert = alertService.transactionTitleAlert { [weak self] in
+            self?.router.dismissModule()
+        } rightButtonAction: { [weak self] in
+            self?.router.dismissModule()
+            self?.dismissModule()
+        }
+        
+        router.present(alert)
+    }
+    
+    func showSumWarning() {
+        
+        let alertService = AlertService()
+        let alert = alertService.transactionSumAlert { [weak self] in
+            self?.router.dismissModule()
+        } rightButtonAction: { [weak self] in
+            self?.router.dismissModule()
+            self?.dismissModule()
+        }
+        
+        router.present(alert)
+    }
+    
+    func showNoteWarning() {
+        let alertService = AlertService()
+        let alert = alertService.transactionSumAlert { [weak self] in
+            self?.router.dismissModule()
+        } rightButtonAction: { [weak self] in
+            self?.router.dismissModule()
+            self?.dismissModule()
+        }
+        
+        router.present(alert)
     }
 }

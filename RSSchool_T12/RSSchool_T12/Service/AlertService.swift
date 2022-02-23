@@ -102,4 +102,13 @@ class AlertService {
               leftButtonAction: leftButtonAction,
               rightButtonAction: rightButtonAction)
     }
+    
+    func editTransactionAlert(leftButtonAction: CompletionBlock?, rightButtonAction: CompletionBlock?) -> AlertViewController {
+        alert(title: "Edit Transaction",
+              message: "Are you sure you want to edit transaction?",
+              leftButtonTitle: "Yes",
+              rightButtonTitle: "No",
+              leftButtonAction: leftButtonAction,
+              rightButtonAction: rightButtonAction)
+    }
 }

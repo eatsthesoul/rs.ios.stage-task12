@@ -12,7 +12,7 @@ final class CreateTransactionModuleConfigurator {
 
     // MARK: - Internal methods
 
-    func configure(with wallet: Wallet) -> (TransactionSettingsViewController, CreateTransactionModuleInput,  CreateTransactionModuleOutput) {
+    func configure(with wallet: Wallet) -> (TransactionSettingsViewController, SettingsTransactionModuleInput, CreateTransactionModuleInput,  CreateTransactionModuleOutput) {
         
         let nibName = TransactionSettingsViewController.nibName
         let view = TransactionSettingsViewController(nibName: nibName, bundle: nil)
@@ -23,7 +23,7 @@ final class CreateTransactionModuleConfigurator {
         presenter.view = view
         view.output = presenter
 
-        return (view, presenter, presenter)
+        return (view, presenter, presenter, presenter)
     }
 
 }

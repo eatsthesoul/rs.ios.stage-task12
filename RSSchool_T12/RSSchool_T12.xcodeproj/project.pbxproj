@@ -119,6 +119,11 @@
 		4FF64B3327C5067C00B3F800 /* TransactionDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF64B3227C5067C00B3F800 /* TransactionDetailCoordinator.swift */; };
 		4FF64B3527C506AB00B3F800 /* TransactionDetailCoordinatorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF64B3427C506AB00B3F800 /* TransactionDetailCoordinatorOutput.swift */; };
 		4FF64B3727C548F400B3F800 /* TransactionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF64B3627C548F400B3F800 /* TransactionDetailViewModel.swift */; };
+		4FF64B3A27C6A5D900B3F800 /* EditTransactionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF64B3927C6A5D900B3F800 /* EditTransactionPresenter.swift */; };
+		4FF64B3C27C6A60700B3F800 /* EditTransactionModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF64B3B27C6A60700B3F800 /* EditTransactionModuleInput.swift */; };
+		4FF64B3E27C6A61200B3F800 /* EditTransactionModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF64B3D27C6A61200B3F800 /* EditTransactionModuleOutput.swift */; };
+		4FF64B4027C6A69600B3F800 /* EditTransactionModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF64B3F27C6A69600B3F800 /* EditTransactionModuleConfigurator.swift */; };
+		4FF64B4227C6B5B900B3F800 /* SettingsTransactionModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF64B4127C6B5B900B3F800 /* SettingsTransactionModuleInput.swift */; };
 		51A41A5E4961D45642D8A8B5 /* TransactionListViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAB1C51196D1ADD8F6EB6F7 /* TransactionListViewInput.swift */; };
 		53D495EB2173F11EA9C64AB8 /* CurrencyListModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16EE0E2D4AC7C1F17C9E72D /* CurrencyListModuleOutput.swift */; };
 		53E2862CB967D2D15281F9B9 /* WalletSettingsViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9252D5CD08C90ED47EA5CB9A /* WalletSettingsViewInput.swift */; };
@@ -282,6 +287,11 @@
 		4FF64B3227C5067C00B3F800 /* TransactionDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailCoordinator.swift; sourceTree = "<group>"; };
 		4FF64B3427C506AB00B3F800 /* TransactionDetailCoordinatorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailCoordinatorOutput.swift; sourceTree = "<group>"; };
 		4FF64B3627C548F400B3F800 /* TransactionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewModel.swift; sourceTree = "<group>"; };
+		4FF64B3927C6A5D900B3F800 /* EditTransactionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTransactionPresenter.swift; sourceTree = "<group>"; };
+		4FF64B3B27C6A60700B3F800 /* EditTransactionModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTransactionModuleInput.swift; sourceTree = "<group>"; };
+		4FF64B3D27C6A61200B3F800 /* EditTransactionModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTransactionModuleOutput.swift; sourceTree = "<group>"; };
+		4FF64B3F27C6A69600B3F800 /* EditTransactionModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTransactionModuleConfigurator.swift; sourceTree = "<group>"; };
+		4FF64B4127C6B5B900B3F800 /* SettingsTransactionModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTransactionModuleInput.swift; sourceTree = "<group>"; };
 		5DF791585A53D96F56517736 /* TransactionDetailModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransactionDetailModuleOutput.swift; sourceTree = "<group>"; };
 		609319653CEED51AD5F0087C /* TransactionSettingsViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransactionSettingsViewInput.swift; sourceTree = "<group>"; };
 		6B37950D3E21AA4D47DA0CA6 /* CurrencyListModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CurrencyListModuleInput.swift; sourceTree = "<group>"; };
@@ -879,6 +889,16 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		4FF64B3827C6A5BA00B3F800 /* EditTransaction */ = {
+			isa = PBXGroup;
+			children = (
+				4FF64B3927C6A5D900B3F800 /* EditTransactionPresenter.swift */,
+				4FF64B3B27C6A60700B3F800 /* EditTransactionModuleInput.swift */,
+				4FF64B3D27C6A61200B3F800 /* EditTransactionModuleOutput.swift */,
+			);
+			path = EditTransaction;
+			sourceTree = "<group>";
+		};
 		5381123F380241E966C12339 /* Configurator */ = {
 			isa = PBXGroup;
 			children = (
@@ -1002,6 +1022,8 @@
 		B6771E89903A239AEB502A33 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				4FF64B4127C6B5B900B3F800 /* SettingsTransactionModuleInput.swift */,
+				4FF64B3827C6A5BA00B3F800 /* EditTransaction */,
 				4F14785727BE784D00A18644 /* CreateTransaction */,
 			);
 			path = Presenter;
@@ -1038,6 +1060,7 @@
 			isa = PBXGroup;
 			children = (
 				75BEBBE4024D95AD5DA1660B /* CreateTransactionModuleConfigurator.swift */,
+				4FF64B3F27C6A69600B3F800 /* EditTransactionModuleConfigurator.swift */,
 			);
 			path = Configurator;
 			sourceTree = "<group>";
@@ -1321,6 +1344,7 @@
 				4FAF284D27B176C5006F03EC /* Wallet+CoreDataClass.swift in Sources */,
 				4F14784227BA81E000A18644 /* WalletDetailViewController.swift in Sources */,
 				4F13013E2787BDBF0003E6B2 /* UIFont.swift in Sources */,
+				4FF64B3A27C6A5D900B3F800 /* EditTransactionPresenter.swift in Sources */,
 				4F4666072791F9AB00228418 /* GlassView.swift in Sources */,
 				4FF64B1E27BE863F00B3F800 /* TransactionSettingsCoordinator.swift in Sources */,
 				4F1300FC2787BBFF0003E6B2 /* SceneDelegate.swift in Sources */,
@@ -1342,6 +1366,7 @@
 				4F14785A27BE789200A18644 /* TransactionSettingsViewController.swift in Sources */,
 				F22B1F1FE9313CF3A197F185 /* CreateWalletPresenter.swift in Sources */,
 				8F1635240987BB10C27FC103 /* WalletSettingsModuleInput.swift in Sources */,
+				4FF64B4227C6B5B900B3F800 /* SettingsTransactionModuleInput.swift in Sources */,
 				4F0D48A827971652008FF92D /* ThemeView.swift in Sources */,
 				3CAB5E9AA8111FF270C189B3 /* WalletSettingsModuleOutput.swift in Sources */,
 				4F14785027BD217500A18644 /* TransactionCellViewModel.swift in Sources */,
@@ -1376,6 +1401,7 @@
 				4F14783F27BA78B600A18644 /* WalletCoordinatorOutput.swift in Sources */,
 				4FF64B3327C5067C00B3F800 /* TransactionDetailCoordinator.swift in Sources */,
 				01C35A1FDBA93C7888FC1B0B /* WalletListModuleOutput.swift in Sources */,
+				4FF64B3E27C6A61200B3F800 /* EditTransactionModuleOutput.swift in Sources */,
 				27F3439ED966296888AFD00B /* WalletListViewInput.swift in Sources */,
 				A536BAE04C8C56C67B161141 /* WalletListViewOutput.swift in Sources */,
 				0A4BBB471F65B0F57E21E860 /* WalletDetailModuleConfigurator.swift in Sources */,
@@ -1408,6 +1434,8 @@
 				29BE32C7A54BE9806424BF26 /* TransactionTypeListViewOutput.swift in Sources */,
 				876E7EC1E48134FE83D05B22 /* TransactionDetailModuleConfigurator.swift in Sources */,
 				868A22CBC5B8F95E27B98797 /* TransactionDetailPresenter.swift in Sources */,
+				4FF64B4027C6A69600B3F800 /* EditTransactionModuleConfigurator.swift in Sources */,
+				4FF64B3C27C6A60700B3F800 /* EditTransactionModuleInput.swift in Sources */,
 				105577ECCB307FB5226B77F0 /* TransactionDetailModuleInput.swift in Sources */,
 				446726B17119AFA28FE46284 /* TransactionDetailModuleOutput.swift in Sources */,
 				4FF64B2F27C5047500B3F800 /* TransactionDetailViewController.swift in Sources */,

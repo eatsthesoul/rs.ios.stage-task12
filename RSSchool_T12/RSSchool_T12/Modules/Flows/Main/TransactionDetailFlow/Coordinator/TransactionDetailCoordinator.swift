@@ -12,11 +12,13 @@ final class TransactionDetailCoordinator: BaseCoordinator, TransactionDetailCoor
     var finishFlow: CompletionBlock?
     
     fileprivate let router: Routable
+    fileprivate let factory: CoordinatorFactoryProtocol
     fileprivate let transaction: Transaction
     fileprivate let wallet: Wallet
     
-    init(router: Routable, transaction: Transaction, wallet: Wallet) {
+    init(router: Routable, factory: CoordinatorFactoryProtocol, transaction: Transaction, wallet: Wallet) {
         self.router = router
+        self.factory = factory
         self.transaction = transaction
         self.wallet = wallet
     }
@@ -40,6 +42,7 @@ private extension TransactionDetailCoordinator {
         
         output.didDismiss = { [weak self] in
             self?.router.popModule()
+            self?.finishFlow?()
         }
         
         output.didShowDeleteTransactionMessage = { [weak self] in
@@ -48,7 +51,25 @@ private extension TransactionDetailCoordinator {
             })
         }
         
+        output.didShowEditTransaction = { [weak self] transaction in
+            self?.showEditTransaction(transaction, wallet: wallet)
+        }
+        
         router.push(view)
+    }
+    
+    func showEditTransaction(_ transaction: Transaction, wallet: Wallet) {
+        
+        let editTransactionCoordinator = factory.makeTransactionSettingsCoordinator(router: router,
+                                                                                    wallet: wallet,
+                                                                                    transaction: transaction)
+        addDependency(editTransactionCoordinator)
+        
+        editTransactionCoordinator.finishFlow = { [weak self] in
+            self?.removeDependency(editTransactionCoordinator)
+        }
+        
+        editTransactionCoordinator.start()
     }
     
     //completion return bool answer to delete transaction or not

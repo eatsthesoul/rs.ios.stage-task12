@@ -88,7 +88,7 @@ private extension WalletCoordinator {
     
     func showTransactionDetail(for transaction: Transaction, wallet: Wallet) {
         
-        let transactionDetailCoordinator = factory.makeTransactionDetailCoordinator(router: router, transaction: transaction, wallet: wallet)
+        let transactionDetailCoordinator = factory.makeTransactionDetailCoordinator(router: router, factory: factory, transaction: transaction, wallet: wallet)
         
         addDependency(transactionDetailCoordinator)
 

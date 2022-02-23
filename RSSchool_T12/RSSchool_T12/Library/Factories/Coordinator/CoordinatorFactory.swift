@@ -30,7 +30,7 @@ extension CoordinatorFactory: CoordinatorFactoryProtocol {
         TransactionSettingsCoordinator(router: router, wallet: wallet, transaction: transaction)
     }
     
-    func makeTransactionDetailCoordinator(router: Routable, transaction: Transaction, wallet: Wallet) -> Coordinatable & TransactionDetailCoordinatorOutput {
-        TransactionDetailCoordinator(router: router, transaction: transaction, wallet: wallet)
+    func makeTransactionDetailCoordinator(router: Routable, factory: CoordinatorFactoryProtocol, transaction: Transaction, wallet: Wallet) -> Coordinatable & TransactionDetailCoordinatorOutput {
+        TransactionDetailCoordinator(router: router, factory: factory, transaction: transaction, wallet: wallet)
     }
 }
