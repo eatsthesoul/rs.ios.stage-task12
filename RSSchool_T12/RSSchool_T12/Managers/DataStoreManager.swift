@@ -11,6 +11,7 @@ import CoreData
 protocol DataStoreProtocol {
     func fetchWallets() -> [Wallet]
     func fetchTransactions(for wallet: Wallet) -> [Transaction]
+    func fetchTransaction(with id: NSManagedObjectID) -> Transaction?
     
     func createNewWallet(from walletData: WalletSettingsViewModel)
     func createNewTransaction(_ transaction: TransactionSettingsViewModel, for wallet: Wallet)
@@ -85,6 +86,12 @@ class DataStoreManager: DataStoreProtocol {
         guard let transactions = wallet.transactions?.array as? [Transaction] else { return [] }
         
         return transactions.sorted { $0.date > $1.date }
+    }
+    
+    func fetchTransaction(with id: NSManagedObjectID) -> Transaction? {
+        let context = viewContext
+        guard let transaction = context.object(with: id) as? Transaction else { return nil }
+        return transaction
     }
     
     func createNewWallet(from walletData: WalletSettingsViewModel) {

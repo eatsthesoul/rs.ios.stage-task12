@@ -7,4 +7,7 @@
 //
 
 protocol TransactionDetailModuleOutput: AnyObject {
+    var didDismiss: CompletionBlock? { get set }
+    var didShowEditTransaction: Closure<Transaction>? { get set }
+    var didShowDeleteTransactionMessage: CompletionBlock? { get set }
 }

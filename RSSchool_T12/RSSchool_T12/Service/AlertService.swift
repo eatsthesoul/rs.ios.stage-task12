@@ -93,4 +93,13 @@ class AlertService {
               leftButtonAction: leftButtonAction,
               rightButtonAction: rightButtonAction)
     }
+    
+    func deleteTransactionAlert(leftButtonAction: CompletionBlock?, rightButtonAction: CompletionBlock?) -> AlertViewController {
+        alert(title: "Delete transaction",
+              message: "Are you sure you want to delete transaction?",
+              leftButtonTitle: "Cancel",
+              rightButtonTitle: "Delete",
+              leftButtonAction: leftButtonAction,
+              rightButtonAction: rightButtonAction)
+    }
 }

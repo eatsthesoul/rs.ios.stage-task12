@@ -12,17 +12,18 @@ final class TransactionDetailModuleConfigurator {
 
     // MARK: - Internal methods
 
-    func configure(with transaction: Transaction, wallet: Wallet) -> (TransactionDetailViewController, TransactionDetailModuleOutput) {
+    func configure(with transaction: Transaction, wallet: Wallet) -> (TransactionDetailViewController, TransactionDetailModuleInput, TransactionDetailModuleOutput) {
         
         let nibName = TransactionDetailViewController.nibName
         let view = TransactionDetailViewController(nibName: nibName, bundle: nil)
         
-        let presenter = TransactionDetailPresenter(transaction: transaction, wallet: wallet)
+        let dataStoreManager = DataStoreManager.shared
+        let presenter = TransactionDetailPresenter(transaction: transaction, wallet: wallet, dataStore: dataStoreManager)
 
         presenter.view = view
         view.output = presenter
 
-        return (view, presenter)
+        return (view, presenter, presenter)
     }
 
 }

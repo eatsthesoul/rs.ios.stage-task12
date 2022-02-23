@@ -7,4 +7,5 @@
 //
 
 protocol TransactionDetailViewInput: AnyObject {
+    func setup(transaction: TransactionDetailViewModel)
 }

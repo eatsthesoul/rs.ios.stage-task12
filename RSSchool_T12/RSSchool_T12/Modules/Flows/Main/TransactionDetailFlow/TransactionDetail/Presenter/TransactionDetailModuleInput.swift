@@ -7,4 +7,5 @@
 //
 
 protocol TransactionDetailModuleInput: AnyObject {
+    func deleteCurrentTransaction()
 }

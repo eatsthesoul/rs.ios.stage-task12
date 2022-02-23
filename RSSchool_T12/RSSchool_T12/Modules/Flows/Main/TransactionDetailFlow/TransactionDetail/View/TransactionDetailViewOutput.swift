@@ -7,6 +7,9 @@
 //
 
 protocol TransactionDetailViewOutput {
-    /// Notify presenter that view is ready
     func viewLoaded()
+    func viewWillAppear()
+    func leftNavigationBarButtonTapped()
+    func editTransaction()
+    func deleteTransaction()
 }

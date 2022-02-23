@@ -36,8 +36,33 @@ private extension TransactionDetailCoordinator {
     func showTransactionDetail(for transaction: Transaction, wallet: Wallet) {
         
         let transactionDetailConfigurator = TransactionDetailModuleConfigurator()
-        let (view, output) = transactionDetailConfigurator.configure(with: transaction, wallet: wallet)
+        let (view, input, output) = transactionDetailConfigurator.configure(with: transaction, wallet: wallet)
+        
+        output.didDismiss = { [weak self] in
+            self?.router.popModule()
+        }
+        
+        output.didShowDeleteTransactionMessage = { [weak self] in
+            self?.showDeleteTransactionMessage(completion: { [weak input] answer in
+                if answer { input?.deleteCurrentTransaction() }
+            })
+        }
         
         router.push(view)
+    }
+    
+    //completion return bool answer to delete transaction or not
+    func showDeleteTransactionMessage(completion: @escaping Closure<Bool>) {
+        
+        let alertService = AlertService()
+        let alert = alertService.deleteTransactionAlert { [weak self] in
+            completion(false)
+            self?.router.dismissModule()
+        } rightButtonAction: { [weak self] in
+            completion(true)
+            self?.router.dismissModule()
+        }
+        
+        router.present(alert)
     }
 }
