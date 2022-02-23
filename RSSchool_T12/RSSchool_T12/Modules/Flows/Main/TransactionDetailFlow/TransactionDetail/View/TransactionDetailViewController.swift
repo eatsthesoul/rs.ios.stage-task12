@@ -73,6 +73,6 @@ extension TransactionDetailViewController: TransactionDetailViewInput {
         changeLabel.text = transaction.change
         noteLabel.text = transaction.note
         
-        changeLabel.tintColor = transaction.isOutcome ? .amaranthRed : .celadon
+        changeLabel.textColor = transaction.isOutcome ? .amaranthRed : .celadon
     }
 }
