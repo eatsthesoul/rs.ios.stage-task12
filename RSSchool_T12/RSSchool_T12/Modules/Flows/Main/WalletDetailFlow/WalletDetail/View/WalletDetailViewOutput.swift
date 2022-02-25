@@ -10,6 +10,7 @@ protocol WalletDetailViewOutput {
     func viewLoaded()
     func viewWillAppear()
     func leftNavigationBarButtonTapped()
+    func rightNavigationBarButtonTapped()
     func showAllTransactions()
     func addTransaction()
     func didSelectCollectionViewItem(with index: Int)

@@ -51,9 +51,7 @@ private extension TransactionSettingsCoordinator {
         
         output.didShowEditTransactionMessage = { [weak self] in
             self?.showEditTransactionMessage(completion: { [weak input] answer in
-                if answer {
-                    input?.editTransaction()
-                }
+                if answer { input?.editTransaction() }
             })
         }
         

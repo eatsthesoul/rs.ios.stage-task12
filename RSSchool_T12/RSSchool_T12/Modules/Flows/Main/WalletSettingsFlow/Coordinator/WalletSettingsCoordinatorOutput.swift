@@ -9,4 +9,5 @@ import Foundation
 
 protocol WalletSettingsCoordinatorOutput: AnyObject {
     var finishFlow: CompletionBlock? { get set }
+    var finishFlowWithDeletingWallet: CompletionBlock? { get set }
 }

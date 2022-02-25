@@ -47,7 +47,7 @@ final class ColorThemesViewController: UIViewController {
         collectionViewAdapter.itemSize = CGSize(width: itemWidth, height: itemHeight)
         collectionViewAdapter.selectedItemSize = CGSize(width: selectedItemWidth, height: selectedItemHeight)
         collectionViewAdapter.insetForSections = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
-        collectionViewAdapter.onSelectItem = output?.selectedColorTheme(with:)
+        collectionViewAdapter.onSelectItem = output?.didSelectColorTheme(with:)
         
         return view
     }()

@@ -7,5 +7,6 @@
 //
 
 protocol CreateTransactionModuleInput: AnyObject {
+    //this method calls from Alert asking for save(create) transaction permission (calls if answer is positive)
     func saveTransaction()
 }

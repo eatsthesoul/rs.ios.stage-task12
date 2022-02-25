@@ -7,5 +7,5 @@
 //
 
 protocol ColorThemesModuleOutput: AnyObject {
-    var didDismiss: CompletionBlock? { get set }
+    var didDismissWithTheme: Closure<ColorTheme>? { get set }
 }

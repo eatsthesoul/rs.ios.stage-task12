@@ -95,10 +95,6 @@ final class WalletDetailViewController: UIViewController {
 
 extension WalletDetailViewController: WalletDetailViewInput {
     
-    func setupInitialState(with walletName: String) {
-        navigationBar.title = walletName
-    }
-    
     func setup(items: [TransactionCellViewModel]) {
         
         //if there are more items than view can contain
@@ -115,6 +111,10 @@ extension WalletDetailViewController: WalletDetailViewInput {
     
     func setup(balance: String?) {
         balanceLabel.text = balance
+    }
+    
+    func updateNavigationBar(with title: String) {
+        navigationBar.title = title
     }
 }
 
@@ -148,5 +148,6 @@ private extension WalletDetailViewController {
     
     func addButtonTargets() {
         navigationBar.leftButtonHandler = output?.leftNavigationBarButtonTapped
+        navigationBar.rightButtonHandler = output?.rightNavigationBarButtonTapped
     }
 }

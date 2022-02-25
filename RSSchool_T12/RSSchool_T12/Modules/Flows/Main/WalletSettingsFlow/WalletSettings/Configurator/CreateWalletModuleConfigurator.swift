@@ -1,5 +1,5 @@
 //
-//  WalletSettingsModuleConfigurator.swift
+//  CreateWalletModuleConfigurator.swift
 //  RSSchool_T12
 //
 //  Created by Evgeniy Petlitskiy on 18/01/2022.
@@ -8,11 +8,12 @@
 
 import UIKit
 
-final class WalletSettingsModuleConfigurator {
+final class CreateWalletModuleConfigurator {
 
     // MARK: - Internal methods
 
-    func configure() -> (WalletSettingsViewController, WalletSettingsModuleInput,  WalletSettingsModuleOutput) {
+    func configure() -> (WalletSettingsViewController, WalletSettingsModuleInput, CreateWalletModuleInput, CreateWalletModuleOutput) {
+        
         let view = WalletSettingsViewController(nibName: "WalletSettingsViewController", bundle: nil)
         
         let dataStoreManager = DataStoreManager.shared
@@ -23,7 +24,6 @@ final class WalletSettingsModuleConfigurator {
         presenter.view = view
         view.output = presenter
 
-        return (view, presenter, presenter)
+        return (view, presenter, presenter, presenter)
     }
-
 }

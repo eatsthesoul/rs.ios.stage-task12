@@ -11,4 +11,5 @@ protocol WalletDetailModuleOutput: AnyObject {
     var didShowAllTransactions: Closure<Wallet>? { get set }
     var didAddTransaction: CompletionBlock? { get set }
     var didSelectTransaction: Closure<Transaction>? { get set }
+    var didShowEditWallet: Closure<Wallet>? { get set }
 }

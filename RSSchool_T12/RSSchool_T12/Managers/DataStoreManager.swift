@@ -10,6 +10,8 @@ import CoreData
 
 protocol DataStoreProtocol {
     func fetchWallets() -> [Wallet]
+    func fetchWallet(with id: NSManagedObjectID) -> Wallet?
+    
     func fetchTransactions(for wallet: Wallet) -> [Transaction]
     func fetchTransaction(with id: NSManagedObjectID) -> Transaction?
     
@@ -77,6 +79,12 @@ class DataStoreManager: DataStoreProtocol {
         let fetchRequest = Wallet.fetchRequest()
         let wallets = try? viewContext.fetch(fetchRequest)
         return wallets ?? []
+    }
+    
+    func fetchWallet(with id: NSManagedObjectID) -> Wallet? {
+        let context = viewContext
+        guard let wallet = context.object(with: id) as? Wallet else { return nil }
+        return wallet
     }
     
     func fetchTransactions(for wallet: Wallet) -> [Transaction] {

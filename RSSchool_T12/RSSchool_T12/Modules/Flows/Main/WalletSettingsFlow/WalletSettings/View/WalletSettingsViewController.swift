@@ -49,12 +49,20 @@ final class WalletSettingsViewController: UIViewController, WalletSettingsViewIn
         navigationBar.title = title
     }
     
-    func set(currency: String) {
-        currencyLabel.text = currency
+    func setupEditWalletInitialState(with title: String) {
+        navigationBar.title = title
+        navigationBar.rightButtonImage = .delete
+        navigationBar.rightButton.style = .destructive
+    }
+    
+    func updateView(with wallet: WalletSettingsViewModel) {
+        titleTextField.text = wallet.title
+        currencyLabel.text = wallet.currencyCode
     }
 }
 
 // MARK: - Private methods
+
 private extension WalletSettingsViewController {
     
     func setupAppearance() {
@@ -86,6 +94,7 @@ private extension WalletSettingsViewController {
 }
 
 // MARK: - Handlers
+
 private extension WalletSettingsViewController {
     
     @objc func colorThemePanelTapHandler() {
@@ -107,6 +116,7 @@ private extension WalletSettingsViewController {
 }
 
 // MARK: - Keyboard methods
+
 private extension WalletSettingsViewController {
     
     func registerForKeyboardNotifications() {

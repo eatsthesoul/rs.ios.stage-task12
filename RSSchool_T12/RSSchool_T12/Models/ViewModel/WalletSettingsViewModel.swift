@@ -8,9 +8,18 @@
 import Foundation
 import CoreData
 
-struct WalletSettingsViewModel {
+struct WalletSettingsViewModel: Equatable {
     
     var colorTheme: ColorTheme
     var currencyCode: String
     var title: String
+}
+
+extension WalletSettingsViewModel {
+    
+    init(_ wallet: Wallet) {
+        colorTheme = wallet.colorTheme
+        currencyCode = wallet.currencyCode
+        title = wallet.title
+    }
 }

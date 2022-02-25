@@ -7,7 +7,7 @@
 //
 
 protocol WalletDetailViewInput: AnyObject {
-    func setupInitialState(with walletName: String)
     func setup(items: [TransactionCellViewModel]) //set collection view items
     func setup(balance: String?)
+    func updateNavigationBar(with title: String)
 }

@@ -7,5 +7,6 @@
 
 
 protocol EditTransactionModuleInput: AnyObject {
+    //this method calls from Alert asking for edit transaction permission (calls if answer is positive)
     func editTransaction()
 }

@@ -8,5 +8,5 @@
 
 protocol WalletSettingsModuleInput: AnyObject {
     func set(currency: String)
-    func saveWallet()
+    func set(theme: ColorTheme)
 }

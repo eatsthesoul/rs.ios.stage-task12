@@ -9,5 +9,5 @@
 protocol ColorThemesViewOutput {
     func viewLoaded() // Notify presenter that view is ready
     func leftNavigationBarButtonTapped()
-    func selectedColorTheme(with index: Int)
+    func didSelectColorTheme(with index: Int)
 }

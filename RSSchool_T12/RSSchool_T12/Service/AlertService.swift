@@ -96,7 +96,7 @@ class AlertService {
     
     func deleteTransactionAlert(leftButtonAction: CompletionBlock?, rightButtonAction: CompletionBlock?) -> AlertViewController {
         alert(title: "Delete transaction",
-              message: "Are you sure you want to delete transaction?",
+              message: "Are you sure you want to delete this transaction?",
               leftButtonTitle: "Cancel",
               rightButtonTitle: "Delete",
               leftButtonAction: leftButtonAction,
@@ -105,7 +105,25 @@ class AlertService {
     
     func editTransactionAlert(leftButtonAction: CompletionBlock?, rightButtonAction: CompletionBlock?) -> AlertViewController {
         alert(title: "Edit Transaction",
-              message: "Are you sure you want to edit transaction?",
+              message: "Are you sure you want to edit this transaction?",
+              leftButtonTitle: "Yes",
+              rightButtonTitle: "No",
+              leftButtonAction: leftButtonAction,
+              rightButtonAction: rightButtonAction)
+    }
+    
+    func editWalletAlert(leftButtonAction: CompletionBlock?, rightButtonAction: CompletionBlock?) -> AlertViewController {
+        alert(title: "Edit Wallet",
+              message: "Are you sure you want to edit this wallet?",
+              leftButtonTitle: "Yes",
+              rightButtonTitle: "No",
+              leftButtonAction: leftButtonAction,
+              rightButtonAction: rightButtonAction)
+    }
+    
+    func deleteWalletAlert(leftButtonAction: CompletionBlock?, rightButtonAction: CompletionBlock?) -> AlertViewController {
+        alert(title: "Delete Wallet",
+              message: "Are you sure you want to delete this wallet?",
               leftButtonTitle: "Yes",
               rightButtonTitle: "No",
               leftButtonAction: leftButtonAction,

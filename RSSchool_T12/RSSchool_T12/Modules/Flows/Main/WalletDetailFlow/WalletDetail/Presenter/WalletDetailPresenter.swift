@@ -14,6 +14,7 @@ final class WalletDetailPresenter: WalletDetailModuleInput, WalletDetailModuleOu
     var didShowAllTransactions: Closure<Wallet>?
     var didAddTransaction: CompletionBlock?
     var didSelectTransaction: Closure<Transaction>?
+    var didShowEditWallet: Closure<Wallet>?
 
     // MARK: - Properties
 
@@ -46,15 +47,20 @@ final class WalletDetailPresenter: WalletDetailModuleInput, WalletDetailModuleOu
 extension WalletDetailPresenter: WalletDetailViewOutput {
     
     func viewLoaded() {
-        view?.setupInitialState(with: wallet.title)
+        
     }
     
     func viewWillAppear() {
         transactions = dataStoreManager.fetchTransactions(for: wallet)
+        updateNavigationBar()
     }
     
     func leftNavigationBarButtonTapped() {
         didDismiss?()
+    }
+    
+    func rightNavigationBarButtonTapped() {
+        didShowEditWallet?(wallet)
     }
     
     func showAllTransactions() {
@@ -73,7 +79,7 @@ extension WalletDetailPresenter: WalletDetailViewOutput {
 
 // MARK: - Private methods
 
-extension WalletDetailPresenter {
+private extension WalletDetailPresenter {
     
     //this method will be called every time transactions are updated
     func updateTransactionsOnView() {
@@ -93,5 +99,10 @@ extension WalletDetailPresenter {
         let balance = dataStoreManager.totalBalance(for: wallet)
         let balanceString = Currency.formattedString(for: balance, currencyCode: wallet.currencyCode)
         view?.setup(balance: balanceString)
+    }
+    
+    func updateNavigationBar() {
+        let navigationBarTitle = wallet.title
+        view?.updateNavigationBar(with: navigationBarTitle)
     }
 }

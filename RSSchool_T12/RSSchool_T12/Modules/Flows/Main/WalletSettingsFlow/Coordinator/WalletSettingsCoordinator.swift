@@ -12,6 +12,7 @@ import UIKit
 final class WalletSettingsCoordinator: BaseCoordinator, WalletSettingsCoordinatorOutput {
     
     var finishFlow: CompletionBlock?
+    var finishFlowWithDeletingWallet: CompletionBlock?
     
     fileprivate let router: Routable
     fileprivate let wallet: Wallet?
@@ -26,7 +27,7 @@ final class WalletSettingsCoordinator: BaseCoordinator, WalletSettingsCoordinato
 extension WalletSettingsCoordinator: Coordinatable {
     func start() {
         if wallet != nil {
-            //TODO: - add method for wallet editing
+            showEditWallet(wallet: wallet!)
         }
         else {
             showCreateWallet()
@@ -38,30 +39,44 @@ extension WalletSettingsCoordinator: Coordinatable {
 
 private extension WalletSettingsCoordinator {
     
-    func showCreateWallet() {
-        let walletSettingsConfigurator = WalletSettingsModuleConfigurator()
-        let (view, input, output) = walletSettingsConfigurator.configure()
+    func showEditWallet(wallet: Wallet) {
+        
+        let editWalletConfigurator = EditWalletModuleConfigurator()
+        let (view, settingsInput, input, output) = editWalletConfigurator.configure(with: wallet)
         
         output.showColorThemeList = { [weak self] in
-            self?.showColorThemeList()
+            self?.showColorThemeList(input: settingsInput)
         }
         
-        output.showCurrencyList = { [weak self, weak input] selectedCurrency in
-            self?.showCurrencyList(with: selectedCurrency, input: input)
+        output.showCurrencyList = { [weak self, weak settingsInput] selectedCurrency in
+            self?.showCurrencyList(with: selectedCurrency, input: settingsInput)
+        }
+        
+        output.didDismiss = { [weak self] in
+            self?.dismissModule()
+        }
+        
+        output.didShowEditWalletMessage = { [weak self] in
+            self?.showEditWalletMessage(completion: { [weak input] answer in
+                if answer { input?.editWallet() }
+            })
         }
         
         output.didGetFillRequiredFieldsWarning = { [weak self] in
             self?.showFillRequiredFieldsWarning()
         }
         
-        output.didNameUsedWarning = { [weak self] in
+        output.didShowNameUsedWarning = { [weak self] in
             self?.showWalletNameUsedWarning()
         }
         
-        output.didCreateWalletMessage = { [weak self] in
-            self?.showCreateWalletMessage(completion: { [weak input] answer in
-                if answer {    //save wallet if we get positive response from message
-                    input?.saveWallet()
+        output.didShowDeleteWalletMessage = { [weak self] in
+            self?.showDeleteWalletMessage(completion: { [weak self, weak input] answer in
+                if answer {
+                    input?.deleteWallet()
+                    self?.router.popToRootModule(animated: true)
+                    self?.finishFlowWithDeletingWallet?()
+                    
                 }
             })
         }
@@ -69,23 +84,71 @@ private extension WalletSettingsCoordinator {
         router.push(view)
     }
     
-    func showColorThemeList() {
+    func showCreateWallet() {
+        
+        let createWalletConfigurator = CreateWalletModuleConfigurator()
+        let (view, settingsInput, input, output) = createWalletConfigurator.configure()
+        
+        output.showColorThemeList = { [weak self] in
+            self?.showColorThemeList(input: settingsInput)
+        }
+        
+        output.showCurrencyList = { [weak self, weak settingsInput] selectedCurrency in
+            self?.showCurrencyList(with: selectedCurrency, input: settingsInput)
+        }
+        
+        output.didDismiss = { [weak self] in
+            self?.dismissModule()
+        }
+        
+        output.didShowCreateWalletMessage = { [weak self] in
+            self?.showCreateWalletMessage(completion: { [weak input] answer in
+                if answer {    //save wallet if we get positive response from message
+                    input?.saveWallet()
+                }
+            })
+        }
+        
+        output.didGetFillRequiredFieldsWarning = { [weak self] in
+            self?.showFillRequiredFieldsWarning()
+        }
+        
+        output.didShowNameUsedWarning = { [weak self] in
+            self?.showWalletNameUsedWarning()
+        }
+        
+        router.push(view)
+    }
+    
+    func showColorThemeList(input: WalletSettingsModuleInput) {
+        
         let colorThemeCongifurator = ColorThemesModuleConfigurator()
         let (view, output) = colorThemeCongifurator.configure()
-        output.didDismiss = { [weak self] in
-            self?.router.popModule(animated: true)
+        
+        output.didDismissWithTheme = { [weak self, weak input] theme in
+            input?.set(theme: theme)
+            self?.router.popModule()
         }
+        
         router.push(view, animated: true)
     }
     
     func showCurrencyList(with selectedCurrency: String, input: WalletSettingsModuleInput?) {
+        
         let currencyListConfigurator = CurrencyListModuleConfigurator()
         let (view, output) = currencyListConfigurator.configure(with: selectedCurrency)
+        
         output.didDismissWithCurrency = { [weak self, weak input] currency in
             self?.router.popModule(animated: true)
             input?.set(currency: currency)
         }
+        
         router.push(view, animated: true)
+    }
+    
+    func dismissModule() {
+        router.popModule()
+        finishFlow?()
     }
     
     // MARK: - Alerts
@@ -97,8 +160,7 @@ private extension WalletSettingsCoordinator {
             self?.router.dismissModule()
         } rightButtonAction: { [weak self] in
             self?.router.dismissModule()
-            self?.router.popModule()
-            self?.finishFlow?()
+            self?.dismissModule()
         }
         
         router.present(alert, animated: true, completion: nil)
@@ -111,8 +173,7 @@ private extension WalletSettingsCoordinator {
             self?.router.dismissModule()
         } rightButtonAction: { [weak self] in
             self?.router.dismissModule()
-            self?.router.popModule()
-            self?.finishFlow?()
+            self?.dismissModule()
         }
 
         router.present(alert, animated: true, completion: nil)
@@ -126,13 +187,47 @@ private extension WalletSettingsCoordinator {
             //completion here for creating a wallet
             completion(true)
             self?.router.dismissModule()
-            self?.router.popModule()
-            self?.finishFlow?()
+            self?.dismissModule()
         } rightButtonAction: { [weak self] in
             completion(false)
             self?.router.dismissModule()
-            self?.router.popModule()
-            self?.finishFlow?()
+            self?.dismissModule()
+        }
+        
+        router.present(alert, animated: true, completion: nil)
+    }
+    
+    //completion here to say what answer we get from this message
+    func showEditWalletMessage(completion: @escaping Closure<Bool>) {
+        
+        let alertService = AlertService()
+        let alert = alertService.editWalletAlert { [weak self] in
+            self?.router.dismissModule(animated: true, completion: {
+                //if true, we need to edit wallet
+                completion(true)
+            })
+        } rightButtonAction: { [weak self] in
+            completion(false)
+            self?.router.dismissModule()
+            self?.dismissModule()
+        }
+        
+        router.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    //completion here to say what answer we get from this message
+    func showDeleteWalletMessage(completion: @escaping Closure<Bool>) {
+        
+        let alertService = AlertService()
+        let alert = alertService.deleteWalletAlert { [weak self] in
+            self?.router.dismissModule(animated: true, completion: {
+                //if true, we need to delete wallet
+                completion(true)
+            })
+        } rightButtonAction: { [weak self] in
+            completion(false)
+            self?.router.dismissModule()
         }
         
         router.present(alert, animated: true, completion: nil)

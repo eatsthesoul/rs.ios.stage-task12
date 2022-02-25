@@ -8,5 +8,6 @@
 
 protocol WalletSettingsViewInput: AnyObject {
     func setupNewWalletInitialState(with title: String)
-    func set(currency: String)
+    func setupEditWalletInitialState(with title: String)
+    func updateView(with wallet: WalletSettingsViewModel)
 }

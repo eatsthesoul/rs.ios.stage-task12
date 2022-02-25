@@ -55,6 +55,10 @@ private extension WalletCoordinator {
             self?.showTransactionDetail(for: transaction, wallet: wallet)
         }
         
+        output.didShowEditWallet = { [weak self] wallet in
+            self?.showEditWallet(wallet)
+        }
+        
         router.push(view)
     }
     
@@ -97,5 +101,24 @@ private extension WalletCoordinator {
         }
 
         transactionDetailCoordinator.start()
+    }
+    
+    func showEditWallet(_ wallet: Wallet) {
+        
+        let walletSettingsCoordinator = factory.makeWalletSettingsCoordinator(router: router, wallet: wallet)
+        
+        addDependency(walletSettingsCoordinator)
+        
+        walletSettingsCoordinator.finishFlow = { [weak self] in
+            self?.removeDependency(walletSettingsCoordinator)
+        }
+        
+        walletSettingsCoordinator.finishFlowWithDeletingWallet = { [weak self] in
+            self?.removeDependency(walletSettingsCoordinator)
+            //finish here because of in that case will be called popToRoot
+            self?.finishFlow?()
+        }
+        
+        walletSettingsCoordinator.start()
     }
 }

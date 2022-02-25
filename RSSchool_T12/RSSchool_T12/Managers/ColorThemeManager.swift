@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ColorThemeManagerProtocol {
-    func getTheme() -> ColorTheme?
+    func getTheme() -> ColorTheme
     func setTheme(_ theme: ColorTheme)
     func setRandomTheme()
 }
@@ -17,12 +17,18 @@ class ColorThemeManager: ColorThemeManagerProtocol {
     
     private static var colorTheme: ColorTheme? {
         didSet {
+            //it updates images of all existing and future created ThemeView objects in application
             ThemeView.appearance().image = colorTheme?.image
         }
     }
     
-    func getTheme() -> ColorTheme? {
-        ColorThemeManager.colorTheme
+    func getTheme() -> ColorTheme {
+        if let theme = ColorThemeManager.colorTheme { return theme }
+        else {
+            setRandomTheme()
+            return ColorThemeManager.colorTheme!
+        }
+            
     }
     
     func setTheme(_ theme: ColorTheme) {

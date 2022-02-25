@@ -10,32 +10,43 @@ final class ColorThemesPresenter: ColorThemesViewOutput, ColorThemesModuleInput,
     
     // MARK: - ColorThemesModuleOutput
     
-    var didDismiss: CompletionBlock?
-
-    // MARK: - Properties
-
-    let colorThemes = ColorTheme.allCases
-    weak var view: ColorThemesViewInput?
+    var didDismissWithTheme: Closure<ColorTheme>?
     
-    let colorThemeManager = ColorThemeManager()
+    // MARK: - Properties
+    
+    weak var view: ColorThemesViewInput?
+
+    // MARK: - Private properties
+    
+    private let colorThemeManager: ColorThemeManagerProtocol
+    private let colorThemes: [ColorTheme]
+    private var selectedColorTheme: ColorTheme
+    
+    // MARK: - Initialization and deinitialization
+    
+    init(themeManager: ColorThemeManagerProtocol) {
+        self.colorThemeManager = themeManager
+        colorThemes = ColorTheme.allCases
+        selectedColorTheme = themeManager.getTheme()
+    }
 
     // MARK: - ColorThemesViewOutput
 
     func viewLoaded() {
         view?.setupInitialState()
         
-        let selectedColorTheme = colorThemeManager.getTheme()
-        let selectedColorThemeIndex = colorThemes.firstIndex(of: selectedColorTheme!)
-        
+        //getting actual selected colorTheme index
+        let selectedColorThemeIndex = colorThemes.firstIndex(of: selectedColorTheme)
         view?.setup(items: colorThemes, with: selectedColorThemeIndex!)
     }
     
     func leftNavigationBarButtonTapped() {
-        didDismiss?()
+        didDismissWithTheme?(selectedColorTheme)
     }
     
-    func selectedColorTheme(with index: Int) {
-        colorThemeManager.setTheme(colorThemes[index])
+    func didSelectColorTheme(with index: Int) {
+        selectedColorTheme = colorThemes[index]
+        colorThemeManager.setTheme(selectedColorTheme)
         view?.updateBackground()
     }
 
