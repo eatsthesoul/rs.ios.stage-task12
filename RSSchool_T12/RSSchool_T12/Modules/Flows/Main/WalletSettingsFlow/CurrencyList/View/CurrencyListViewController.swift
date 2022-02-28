@@ -18,9 +18,9 @@ final class CurrencyListViewController: UIViewController, CurrencyListViewInput 
     // MARK: - Private properties
     
     var itemWidth: CGFloat { UIScreen.main.bounds.width - 40 }
-    var itemHeight: CGFloat { itemWidth * 0.2 }
+    let itemHeight: CGFloat = 80
     var selectedItemWidth: CGFloat { itemWidth * 0.8 }
-    var selectedItemHeight: CGFloat { selectedItemWidth * 0.2 }
+    var selectedItemHeight: CGFloat { itemHeight * 0.8 }
     
     // MARK: - Views
     

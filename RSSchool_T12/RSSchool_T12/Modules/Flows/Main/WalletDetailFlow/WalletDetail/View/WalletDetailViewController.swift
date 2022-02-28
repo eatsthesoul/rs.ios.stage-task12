@@ -13,6 +13,7 @@ final class WalletDetailViewController: UIViewController {
     
     @IBOutlet weak var navigationBar: NavigationBar!
     @IBOutlet weak var balanceLabel: UILabel!
+    @IBOutlet weak var transactionsView: GlassView!
     @IBOutlet weak var seeAllButton: UIButton!
     @IBOutlet weak var addTransactionButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -35,8 +36,8 @@ final class WalletDetailViewController: UIViewController {
     
     private var numberOfItems: Int = 0
     
-    private var itemWidth: CGFloat { collectionView.bounds.width }
-    private var itemHeight: CGFloat { itemWidth * 0.28 }
+    private var itemWidth: CGFloat { transactionsView.bounds.width - 28 * 2 }
+    private let itemHeight: CGFloat = 90
     private let verticalSpacing: CGFloat = 20
     
     private var possibleCollectionViewHeight: CGFloat {

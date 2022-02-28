@@ -57,6 +57,7 @@
                         <color key="tintColor" name="Rick Black FOGRA 29"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="EMc-1m-Har"/>
+                            <constraint firstAttribute="width" constant="8.5" id="zZI-eu-LgE"/>
                         </constraints>
                     </imageView>
                 </subviews>

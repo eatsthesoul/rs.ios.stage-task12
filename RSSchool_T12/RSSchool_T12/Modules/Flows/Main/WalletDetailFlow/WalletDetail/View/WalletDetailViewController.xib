@@ -28,6 +28,7 @@
                 <outlet property="navigationBar" destination="92f-KH-She" id="2wP-jA-eTX"/>
                 <outlet property="seeAllButton" destination="o9j-v1-fos" id="Ruo-vF-35j"/>
                 <outlet property="transactionViewToCollectionViewVerticalSpacing" destination="jhe-u3-TGA" id="RjZ-Ia-PR5"/>
+                <outlet property="transactionsView" destination="t9V-cC-Uvi" id="iFY-FJ-6tw"/>
                 <outlet property="transactionsViewTopConstraint" destination="AMQ-Bx-6eB" id="cCa-vV-5cO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -88,7 +89,7 @@
                     <rect key="frame" x="20" y="299" width="374" height="563"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="48Y-If-z9A">
-                            <rect key="frame" x="28" y="75" width="318" height="403"/>
+                            <rect key="frame" x="0.0" y="75" width="374" height="403"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="403" id="NkN-Yw-AqV"/>
@@ -175,7 +176,7 @@
                     <constraints>
                         <constraint firstItem="5SL-Av-CkU" firstAttribute="centerX" secondItem="t9V-cC-Uvi" secondAttribute="centerX" id="2fP-2P-0Pm"/>
                         <constraint firstItem="5SL-Av-CkU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="t9V-cC-Uvi" secondAttribute="leading" constant="20" id="HEn-Qe-Vme"/>
-                        <constraint firstItem="48Y-If-z9A" firstAttribute="leading" secondItem="t9V-cC-Uvi" secondAttribute="leading" constant="28" id="QqR-cD-sPf"/>
+                        <constraint firstItem="48Y-If-z9A" firstAttribute="leading" secondItem="t9V-cC-Uvi" secondAttribute="leading" id="QqR-cD-sPf"/>
                         <constraint firstItem="5SL-Av-CkU" firstAttribute="top" secondItem="48Y-If-z9A" secondAttribute="bottom" constant="30" id="RUd-Mi-IwF"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5SL-Av-CkU" secondAttribute="trailing" constant="20" id="Rpt-D6-OHh"/>
                         <constraint firstItem="oKx-KF-Xad" firstAttribute="top" secondItem="t9V-cC-Uvi" secondAttribute="top" constant="24" id="XMB-Av-shE"/>
@@ -185,7 +186,7 @@
                         <constraint firstAttribute="trailing" secondItem="bJI-j5-TTT" secondAttribute="trailing" constant="28" id="jVO-e2-kDJ"/>
                         <constraint firstItem="48Y-If-z9A" firstAttribute="top" secondItem="t9V-cC-Uvi" secondAttribute="top" constant="75" id="jhe-u3-TGA"/>
                         <constraint firstAttribute="bottom" secondItem="48Y-If-z9A" secondAttribute="bottom" constant="85" id="pKi-9N-fdS"/>
-                        <constraint firstAttribute="trailing" secondItem="48Y-If-z9A" secondAttribute="trailing" constant="28" id="uGx-Ol-ZNT"/>
+                        <constraint firstAttribute="trailing" secondItem="48Y-If-z9A" secondAttribute="trailing" id="uGx-Ol-ZNT"/>
                         <constraint firstItem="oKx-KF-Xad" firstAttribute="leading" secondItem="t9V-cC-Uvi" secondAttribute="leading" constant="36" id="uRY-tB-GpH"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>

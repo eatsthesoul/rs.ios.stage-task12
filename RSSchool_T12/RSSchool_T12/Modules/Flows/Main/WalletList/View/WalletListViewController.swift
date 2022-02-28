@@ -18,12 +18,13 @@ final class WalletListViewController: UIViewController {
     // MARK: - Properties
 
     var output: WalletListViewOutput?
-    var collectionViewAdapter = ListAdapter<WalletListCollectionViewCell>()
     
     // MARK: - Private properties
     
-    var itemWidth: CGFloat { UIScreen.main.bounds.width - 40 }
-    var itemHeight: CGFloat { itemWidth * 0.55 }
+    private var collectionViewAdapter = ListAdapter<WalletListCollectionViewCell>()
+    
+    private var itemWidth: CGFloat { UIScreen.main.bounds.width - 40 }
+    private let itemHeight: CGFloat = 210
     
     // MARK: - Views
     
