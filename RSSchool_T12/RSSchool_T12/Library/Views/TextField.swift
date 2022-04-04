@@ -11,7 +11,10 @@ class TextField: UITextField {
     
     @IBInspectable var cornerRadius: CGFloat {
         get { layer.cornerRadius }
-        set { layer.cornerRadius = newValue }
+        set {
+            layer.cornerRadius = newValue
+            makeBorderBackground(with: cornerRadius)
+        }
     }
     
     override init(frame: CGRect) {
@@ -38,10 +41,4 @@ class TextField: UITextField {
         
         borderStyle = .none
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        makeBorderBackground(with: cornerRadius)
-    }
-
 }
