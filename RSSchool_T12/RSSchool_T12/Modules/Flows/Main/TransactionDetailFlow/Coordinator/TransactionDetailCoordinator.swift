@@ -45,9 +45,13 @@ private extension TransactionDetailCoordinator {
             self?.finishFlow?()
         }
         
-        output.didShowDeleteTransactionMessage = { [weak self] in
-            self?.showDeleteTransactionMessage(completion: { [weak input] answer in
-                if answer { input?.deleteCurrentTransaction() }
+        output.didShowDeleteTransactionMessage = { [weak self, weak input] in
+            self?.showDeleteTransactionMessage(completion: { answer in
+                if answer {
+                    input?.deleteCurrentTransaction()
+                    self?.router.popModule()
+                    self?.finishFlow?()
+                }
             })
         }
         
@@ -65,7 +69,7 @@ private extension TransactionDetailCoordinator {
                                                                                     transaction: transaction)
         addDependency(editTransactionCoordinator)
         
-        editTransactionCoordinator.finishFlow = { [weak self] in
+        editTransactionCoordinator.finishFlow = { [weak self, weak editTransactionCoordinator] in
             self?.removeDependency(editTransactionCoordinator)
         }
         
@@ -80,8 +84,8 @@ private extension TransactionDetailCoordinator {
             completion(false)
             self?.router.dismissModule()
         } rightButtonAction: { [weak self] in
-            completion(true)
             self?.router.dismissModule()
+            completion(true)
         }
         
         router.present(alert)

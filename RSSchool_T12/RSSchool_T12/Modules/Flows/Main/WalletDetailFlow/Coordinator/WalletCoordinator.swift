@@ -43,9 +43,7 @@ private extension WalletCoordinator {
             self?.finishFlow?()
         }
         
-        output.didShowAllTransactions = { [weak self] wallet in
-            self?.showAllTransactions(for: wallet)
-        }
+        output.didShowAllTransactions = showAddTransaction(with:)
         
         output.didAddTransaction = { [weak self] in
             self?.showAddTransaction(with: wallet)
@@ -55,9 +53,7 @@ private extension WalletCoordinator {
             self?.showTransactionDetail(for: transaction, wallet: wallet)
         }
         
-        output.didShowEditWallet = { [weak self] wallet in
-            self?.showEditWallet(wallet)
-        }
+        output.didShowEditWallet = showEditWallet(_:)
         
         router.push(view)
     }
@@ -67,9 +63,7 @@ private extension WalletCoordinator {
         let transactionListConfigurator = TransactionListModuleConfigurator()
         let (view, output) = transactionListConfigurator.configure(with: wallet)
         
-        output.didDismiss = { [weak self] in
-            self?.router.popModule()
-        }
+        output.didDismiss = router.popModule
         
         output.didSelectTransaction = { [weak self] transaction in
             self?.showTransactionDetail(for: transaction, wallet: wallet)
@@ -83,7 +77,7 @@ private extension WalletCoordinator {
         let coordinator = factory.makeTransactionSettingsCoordinator(router: router, wallet: wallet, transaction: nil)
         addDependency(coordinator)
 
-        coordinator.finishFlow = { [weak self] in
+        coordinator.finishFlow = { [weak self, weak coordinator] in
             self?.removeDependency(coordinator)
         }
 
@@ -96,7 +90,7 @@ private extension WalletCoordinator {
         
         addDependency(transactionDetailCoordinator)
 
-        transactionDetailCoordinator.finishFlow = { [weak self] in
+        transactionDetailCoordinator.finishFlow = { [weak self, weak transactionDetailCoordinator] in
             self?.removeDependency(transactionDetailCoordinator)
         }
 
@@ -109,11 +103,11 @@ private extension WalletCoordinator {
         
         addDependency(walletSettingsCoordinator)
         
-        walletSettingsCoordinator.finishFlow = { [weak self] in
+        walletSettingsCoordinator.finishFlow = { [weak self, weak walletSettingsCoordinator] in
             self?.removeDependency(walletSettingsCoordinator)
         }
         
-        walletSettingsCoordinator.finishFlowWithDeletingWallet = { [weak self] in
+        walletSettingsCoordinator.finishFlowWithDeletingWallet = { [weak self, weak walletSettingsCoordinator] in
             self?.removeDependency(walletSettingsCoordinator)
             //finish here because of in that case will be called popToRoot
             self?.finishFlow?()

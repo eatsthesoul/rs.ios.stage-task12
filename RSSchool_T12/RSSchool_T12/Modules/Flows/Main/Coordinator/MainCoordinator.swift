@@ -29,13 +29,6 @@ extension MainCoordinator: Coordinatable {
 }
 
 // MARK: - Private methods
-
-private extension MainCoordinator {
-    
-}
-
-
-// MARK: - Private methods
 private extension MainCoordinator {
     
     func performMainFlow() {
@@ -46,22 +39,18 @@ private extension MainCoordinator {
         let walletListConfigurator = WalletListModuleConfigurator()
         let (view, output) = walletListConfigurator.configure()
         
-        output.didCreateNewWallet = { [weak self] in
-            self?.showWalletSettings()
-        }
+        output.didCreateNewWallet = showWalletSettings
         
-        output.didSelectWallet = { [weak self] wallet in
-            self?.showWalletDetail(wallet)
-        }
+        output.didSelectWallet = showWalletDetail(_:)
         
         router.setNavigationControllerRootModule(view, hideBar: true)
     }
     
-    func showWalletSettings(_ wallet: Wallet? = nil) {
-        let coordinator = factory.makeWalletSettingsCoordinator(router: router, wallet: wallet)
+    func showWalletSettings() {
+        let coordinator = factory.makeWalletSettingsCoordinator(router: router, wallet: nil)
         addDependency(coordinator)
         
-        coordinator.finishFlow = { [weak self] in
+        coordinator.finishFlow = { [weak self, weak coordinator] in
             self?.removeDependency(coordinator)
         }
         
@@ -72,7 +61,7 @@ private extension MainCoordinator {
         let coordinator = factory.makeWalletDetailCoordinator(router: router, factory: factory, wallet: wallet)
         addDependency(coordinator)
         
-        coordinator.finishFlow = { [weak self] in
+        coordinator.finishFlow = { [weak self, weak coordinator] in
             self?.removeDependency(coordinator)
         }
         

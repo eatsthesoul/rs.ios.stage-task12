@@ -17,9 +17,7 @@ final class CreateWalletModuleConfigurator {
         let view = WalletSettingsViewController(nibName: "WalletSettingsViewController", bundle: nil)
         
         let dataStoreManager = DataStoreManager.shared
-        let colorThemeManager = ColorThemeManager()
-        let presenter = CreateWalletPresenter(dataStoreManager: dataStoreManager,
-                                              themeManager: colorThemeManager)
+        let presenter = CreateWalletPresenter(dataStoreManager: dataStoreManager)
 
         presenter.view = view
         view.output = presenter

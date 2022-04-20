@@ -18,16 +18,14 @@ final class ColorThemesPresenter: ColorThemesViewOutput, ColorThemesModuleInput,
 
     // MARK: - Private properties
     
-    private let colorThemeManager: ColorThemeManagerProtocol
     private let colorThemes: [ColorTheme]
     private var selectedColorTheme: ColorTheme
     
     // MARK: - Initialization and deinitialization
     
-    init(themeManager: ColorThemeManagerProtocol) {
-        self.colorThemeManager = themeManager
+    init() {
         colorThemes = ColorTheme.allCases
-        selectedColorTheme = themeManager.getTheme()
+        selectedColorTheme = ColorThemeManager.shared.getTheme()
     }
 
     // MARK: - ColorThemesViewOutput
@@ -46,7 +44,7 @@ final class ColorThemesPresenter: ColorThemesViewOutput, ColorThemesModuleInput,
     
     func didSelectColorTheme(with index: Int) {
         selectedColorTheme = colorThemes[index]
-        colorThemeManager.setTheme(selectedColorTheme)
+        ColorThemeManager.shared.setTheme(selectedColorTheme)
         view?.updateBackground()
     }
 

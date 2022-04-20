@@ -44,7 +44,8 @@ private extension WalletSettingsCoordinator {
         let editWalletConfigurator = EditWalletModuleConfigurator()
         let (view, settingsInput, input, output) = editWalletConfigurator.configure(with: wallet)
         
-        output.showColorThemeList = { [weak self] in
+        output.showColorThemeList = { [weak self, weak settingsInput] in
+            guard let settingsInput = settingsInput else { return }
             self?.showColorThemeList(input: settingsInput)
         }
         
@@ -52,31 +53,24 @@ private extension WalletSettingsCoordinator {
             self?.showCurrencyList(with: selectedCurrency, input: settingsInput)
         }
         
-        output.didDismiss = { [weak self] in
-            self?.dismissModule()
-        }
+        output.didDismiss = dismissModule
         
-        output.didShowEditWalletMessage = { [weak self] in
-            self?.showEditWalletMessage(completion: { [weak input] answer in
+        output.didShowEditWalletMessage = { [weak self, weak input] in
+            self?.showEditWalletMessage(completion: { answer in
                 if answer { input?.editWallet() }
             })
         }
         
-        output.didGetFillRequiredFieldsWarning = { [weak self] in
-            self?.showFillRequiredFieldsWarning()
-        }
+        output.didGetFillRequiredFieldsWarning = showFillRequiredFieldsWarning
         
-        output.didShowNameUsedWarning = { [weak self] in
-            self?.showWalletNameUsedWarning()
-        }
+        output.didShowNameUsedWarning = showWalletNameUsedWarning
         
-        output.didShowDeleteWalletMessage = { [weak self] in
-            self?.showDeleteWalletMessage(completion: { [weak self, weak input] answer in
+        output.didShowDeleteWalletMessage = { [weak self, weak input] in
+            self?.showDeleteWalletMessage(completion: { answer in
                 if answer {
                     input?.deleteWallet()
                     self?.router.popToRootModule(animated: true)
                     self?.finishFlowWithDeletingWallet?()
-                    
                 }
             })
         }
@@ -89,7 +83,8 @@ private extension WalletSettingsCoordinator {
         let createWalletConfigurator = CreateWalletModuleConfigurator()
         let (view, settingsInput, input, output) = createWalletConfigurator.configure()
         
-        output.showColorThemeList = { [weak self] in
+        output.showColorThemeList = { [weak self, weak settingsInput] in
+            guard let settingsInput = settingsInput else { return }
             self?.showColorThemeList(input: settingsInput)
         }
         
@@ -97,25 +92,19 @@ private extension WalletSettingsCoordinator {
             self?.showCurrencyList(with: selectedCurrency, input: settingsInput)
         }
         
-        output.didDismiss = { [weak self] in
-            self?.dismissModule()
-        }
+        output.didDismiss = dismissModule
         
-        output.didShowCreateWalletMessage = { [weak self] in
-            self?.showCreateWalletMessage(completion: { [weak input] answer in
+        output.didShowCreateWalletMessage = { [weak self, weak input] in
+            self?.showCreateWalletMessage(completion: { answer in
                 if answer {    //save wallet if we get positive response from message
                     input?.saveWallet()
                 }
             })
         }
         
-        output.didGetFillRequiredFieldsWarning = { [weak self] in
-            self?.showFillRequiredFieldsWarning()
-        }
+        output.didGetFillRequiredFieldsWarning = showFillRequiredFieldsWarning
         
-        output.didShowNameUsedWarning = { [weak self] in
-            self?.showWalletNameUsedWarning()
-        }
+        output.didShowNameUsedWarning = showWalletNameUsedWarning
         
         router.push(view)
     }
@@ -211,7 +200,7 @@ private extension WalletSettingsCoordinator {
             self?.router.dismissModule()
             self?.dismissModule()
         }
-        
+        completion(false)
         router.present(alert, animated: true, completion: nil)
     }
     

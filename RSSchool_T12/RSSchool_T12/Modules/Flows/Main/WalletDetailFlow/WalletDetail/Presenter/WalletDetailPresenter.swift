@@ -23,7 +23,6 @@ final class WalletDetailPresenter: WalletDetailModuleInput, WalletDetailModuleOu
     // MARK: - Private properties
     
     private let dataStoreManager: DataStoreProtocol
-    private let themeManager: ColorThemeManagerProtocol
     
     private let wallet: Wallet
     private var transactions: [Transaction] {
@@ -35,9 +34,8 @@ final class WalletDetailPresenter: WalletDetailModuleInput, WalletDetailModuleOu
     
     // MARK: - Initialization and deinitialization
     
-    init(with wallet: Wallet, dataStore: DataStoreProtocol, themeManager: ColorThemeManagerProtocol) {
+    init(with wallet: Wallet, dataStore: DataStoreProtocol) {
         self.dataStoreManager = dataStore
-        self.themeManager = themeManager
         
         self.wallet = wallet
         self.transactions = []
@@ -112,6 +110,6 @@ private extension WalletDetailPresenter {
     //this method set saved wallet theme
     func setWalletTheme() {
         let walletTheme = wallet.colorTheme
-        themeManager.setTheme(walletTheme)
+        ColorThemeManager.shared.setTheme(walletTheme)
     }
 }

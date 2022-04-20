@@ -12,7 +12,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     fileprivate lazy var coordinator: Coordinatable = makeCoordinator()
-    fileprivate let themeManager: ColorThemeManagerProtocol = ColorThemeManager()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
@@ -62,6 +61,6 @@ private extension SceneDelegate {
     }
     
     func setupAppearance() {
-        themeManager.setRandomTheme()
+        ColorThemeManager.shared.setRandomTheme()
     }
 }

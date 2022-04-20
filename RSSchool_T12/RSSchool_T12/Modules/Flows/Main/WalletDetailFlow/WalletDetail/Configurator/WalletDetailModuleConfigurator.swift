@@ -19,8 +19,7 @@ final class WalletDetailModuleConfigurator {
         
         let dataStoreManager = DataStoreManager.shared
         let presenter = WalletDetailPresenter(with: wallet,
-                                              dataStore: dataStoreManager,
-                                              themeManager: ColorThemeManager())
+                                              dataStore: dataStoreManager)
 
         presenter.view = view
         view.output = presenter

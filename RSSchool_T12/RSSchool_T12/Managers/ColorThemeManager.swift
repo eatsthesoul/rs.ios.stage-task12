@@ -15,29 +15,40 @@ protocol ColorThemeManagerProtocol {
 
 class ColorThemeManager: ColorThemeManagerProtocol {
     
-    private static var colorTheme: ColorTheme? {
+    private var colorTheme: ColorTheme? {
         didSet {
             //it updates images of all existing and future created ThemeView objects in application
             ThemeView.appearance().image = colorTheme?.image
         }
     }
     
+    // MARK: - Singleton
+    
+    static let shared = ColorThemeManager()
+    
+    // MARK: - Initialization and deinitialization
+    
+    private init() {
+        
+    }
+    
+    //MARK: - ColorThemeManagerProtocol
+    
     func getTheme() -> ColorTheme {
-        if let theme = ColorThemeManager.colorTheme { return theme }
+        if let theme = colorTheme { return theme }
         else {
             setRandomTheme()
-            return ColorThemeManager.colorTheme!
+            return colorTheme!
         }
-            
     }
     
     func setTheme(_ theme: ColorTheme) {
-        ColorThemeManager.colorTheme = theme
+        colorTheme = theme
     }
     
     func setRandomTheme() {
         guard let colorTheme = ColorTheme.allCases.randomElement() else { return }
-        ColorThemeManager.colorTheme = colorTheme
+        self.colorTheme = colorTheme
     }
 }
 

@@ -86,6 +86,5 @@ extension TransactionDetailPresenter: TransactionDetailModuleInput {
     
     func deleteCurrentTransaction() {
         dataStoreManager.deleteTransaction(transaction, from: wallet)
-        didDismiss?()
     }
 }

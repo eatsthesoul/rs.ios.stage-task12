@@ -16,10 +16,8 @@ final class EditWalletModuleConfigurator {
         let view = WalletSettingsViewController(nibName: "WalletSettingsViewController", bundle: nil)
         
         let dataStoreManager = DataStoreManager.shared
-        let colorThemeManager = ColorThemeManager()
         let presenter = EditWalletPresenter(wallet: wallet,
-                                              dataStoreManager: dataStoreManager,
-                                              themeManager: colorThemeManager)
+                                              dataStoreManager: dataStoreManager)
 
         presenter.view = view
         view.output = presenter

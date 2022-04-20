@@ -134,10 +134,10 @@ private extension WalletSettingsViewController {
         let topOfKeyboard = self.view.frame.height - keyboardSize.height
         let textFieldAndKeyboardDifference = topOfKeyboard - bottomOfTextField - keyboardMargin
         
+        let insets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+        scrollView.contentInset = insets
+        
         if textFieldAndKeyboardDifference < 0 {
-            
-            let insets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
-            scrollView.contentInset = insets
             
             let newXOffset = scrollView.contentOffset.x
             let newYOffset = scrollView.contentOffset.y - textFieldAndKeyboardDifference

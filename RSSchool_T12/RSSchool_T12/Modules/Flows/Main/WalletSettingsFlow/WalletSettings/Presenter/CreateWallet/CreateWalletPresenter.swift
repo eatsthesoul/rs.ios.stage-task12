@@ -25,18 +25,16 @@ final class CreateWalletPresenter: WalletSettingsViewOutput, CreateWalletModuleO
     // MARK: - Private properties
     
     private let dataStoreManager: DataStoreProtocol
-    private let colorThemeManager: ColorThemeManagerProtocol
     
     private var walletViewModel: WalletSettingsViewModel
     
     
     // MARK: - Initialization and deinitialization
     
-    init(dataStoreManager: DataStoreProtocol, themeManager: ColorThemeManagerProtocol) {
+    init(dataStoreManager: DataStoreProtocol) {
         self.dataStoreManager = dataStoreManager
-        colorThemeManager = themeManager
         
-        let theme = themeManager.getTheme()
+        let theme = ColorThemeManager.shared.getTheme()
         let localCurrency = Currency.localCode()
         
         walletViewModel = WalletSettingsViewModel(colorTheme: theme, currencyCode: localCurrency, title: "")
@@ -59,7 +57,6 @@ extension CreateWalletPresenter: WalletSettingsModuleInput, CreateWalletModuleIn
     
     func saveWallet() {
         dataStoreManager.createNewWallet(from: walletViewModel)
-        didDismiss?() //close module
     }
 }
 

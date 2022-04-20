@@ -49,27 +49,19 @@ private extension TransactionSettingsCoordinator {
             self?.showTransactionTypeList(with: transactionType, input: settingsInput)
         }
         
-        output.didShowEditTransactionMessage = { [weak self] in
-            self?.showEditTransactionMessage(completion: { [weak input] answer in
+        output.didShowEditTransactionMessage = { [weak self, weak input] in
+            self?.showEditTransactionMessage(completion: { answer in
                 if answer { input?.editTransaction() }
             })
         }
         
-        output.didGetTitleWarning = { [weak self] in
-            self?.showTitleWarning()
-        }
+        output.didGetTitleWarning = showTitleWarning
         
-        output.didGetSumWarning = { [weak self] in
-            self?.showSumWarning()
-        }
+        output.didGetSumWarning = showSumWarning
         
-        output.didGetNoteWarning = { [weak self] in
-            self?.showNoteWarning()
-        }
+        output.didGetNoteWarning = showNoteWarning
         
-        output.didDismiss = { [weak self] in
-            self?.dismissModule()
-        }
+        output.didDismiss = dismissModule
         
         router.push(view)
     }
@@ -83,20 +75,14 @@ private extension TransactionSettingsCoordinator {
             self?.showTransactionTypeList(with: transactionType, input: settingsInput)
         }
         
-        output.didGetTitleWarning = { [weak self] in
-            self?.showTitleWarning()
-        }
+        output.didGetTitleWarning = showTitleWarning
         
-        output.didGetSumWarning = { [weak self] in
-            self?.showSumWarning()
-        }
+        output.didGetSumWarning = showSumWarning
         
-        output.didGetNoteWarning = { [weak self] in
-            self?.showNoteWarning()
-        }
+        output.didGetNoteWarning = showNoteWarning
         
-        output.didCreateTransactionMessage = { [weak self] in
-            self?.showCreateTransactionMessage(completion: { [weak input] answer in
+        output.didCreateTransactionMessage = { [weak self, weak input] in
+            self?.showCreateTransactionMessage(completion: { answer in
                 if answer {    //save transition if we get positive response from message
                     input?.saveTransaction()
                 }
@@ -150,7 +136,6 @@ private extension TransactionSettingsCoordinator {
         
         let alertService = AlertService()
         let alert = alertService.editTransactionAlert { [weak self] in
-            
             self?.router.dismissModule(animated: true, completion: {
                 //if true, we need to edit transaction
                 completion(true)

@@ -26,7 +26,6 @@ final class EditWalletPresenter: EditWalletModuleOutput {
     // MARK: - Private properties
     
     private let dataStoreManager: DataStoreProtocol
-    private let colorThemeManager: ColorThemeManagerProtocol
     
     //immutable and then used for comparison as initial wallet
     private let wallet: Wallet
@@ -37,11 +36,10 @@ final class EditWalletPresenter: EditWalletModuleOutput {
     
     // MARK: - Initialization and deinitialization
     
-    init(wallet: Wallet, dataStoreManager: DataStoreProtocol, themeManager: ColorThemeManagerProtocol) {
+    init(wallet: Wallet, dataStoreManager: DataStoreProtocol) {
         
         self.wallet = wallet
         self.dataStoreManager = dataStoreManager
-        colorThemeManager = themeManager
         
         walletViewModel = WalletSettingsViewModel(wallet)
     }

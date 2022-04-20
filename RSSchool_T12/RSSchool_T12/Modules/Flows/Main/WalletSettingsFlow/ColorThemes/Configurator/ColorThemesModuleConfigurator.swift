@@ -15,8 +15,7 @@ final class ColorThemesModuleConfigurator {
     func configure() -> (ColorThemesViewController, ColorThemesModuleOutput) {
         let view = ColorThemesViewController()
         
-        let themeManager = ColorThemeManager()
-        let presenter = ColorThemesPresenter(themeManager: themeManager)
+        let presenter = ColorThemesPresenter()
 
         presenter.view = view
         view.output = presenter
